@@ -1,5 +1,7 @@
 <template>
 <div v-if="content">
+    <HTitle />
+    <HRuma />
       <h-section-1 :content="content"></h-section-1>
       <h-section-2 :content="content"></h-section-2>
       <h-section-3 :content="content"></h-section-3>
@@ -8,6 +10,8 @@
 </template>
 
 <script>
+import HTitle from '@/components/howitworks/HTitle'
+import HRuma from '@/components/howitworks/HRuma'
 import HSection1 from '@/components/howitworks/HSection1'
 import HSection2 from '@/components/howitworks/HSection2'
 import HSection3 from '@/components/howitworks/HSection3'
@@ -17,6 +21,8 @@ import { APP_CONSTANTS } from '@/app-constants'
 export default {
   name: 'howitworks',
   components: {
+    HTitle,
+    HRuma,
     HSection1,
     HSection2,
     HSection3,
