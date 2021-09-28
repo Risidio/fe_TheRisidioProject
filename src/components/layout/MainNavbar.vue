@@ -233,7 +233,7 @@ nav.navbar {
 
 .header_menu{
     color: #fff;
-    background: rgba(0, 0, 0, 0.431);
+    background: transparent;
     padding: 10px;
     border-radius: 20px;
     margin-right: 10px;
