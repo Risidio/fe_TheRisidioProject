@@ -139,6 +139,7 @@ export default {
 footer {
   /*height: 440px;*/
   background-color: #5154A1;
+  font-family: inherit;
 }
 
 footer .container {

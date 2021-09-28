@@ -1,6 +1,6 @@
 <template>
 <div class = "Htitle">
-  <div class = "container">
+  <div class = "container" :style="bannerImage">
       <h1>About Risidio</h1>
       <p>Take back control of your data</p>
       <button class="button" > <a href="https://risidio.com/">Visit Our Website</a></button>
@@ -17,10 +17,27 @@ export default {
   props: ['content'],
   data () {
     return {
-      banner: 'https://images.prismic.io/digirad/6e5bb3a5-21b7-4bcb-b5a7-85128b6e6e8a_Rumba_bg_small.png?auto=compress,format'
+      banner: 'https://images.prismic.io/digirad/1f147c92-5945-4d4e-a578-aa085e6603ef_Ruma_bg.png?auto=compress,format'
     }
   },
   computed: {
+    bannerImage () {
+      return {
+        height: 'auto',
+        width: '100%',
+        'background-repeat': 'no-repeat',
+        'background-image': `url(${this.banner})`,
+        'background-position': 'center center',
+        '-webkit-background-size': 'cover',
+        '-moz-background-size': 'cover',
+        '-o-background-size': 'cover'
+        // 'background-size': 'cover',
+        // '-webkit-transform': 'rotate(180deg)',
+        // '-moz-transform': 'rotate(180deg)',
+        // '-ms-transform': 'rotate(180deg)',
+        // '-o-transform': 'rotate(180deg)'
+      }
+    }
   }
 }
 </script>
@@ -31,8 +48,8 @@ export default {
   width:100%;
 }
 .container {
-  min-width: 50%;
-  padding: 50px min(15%);
+  min-width: 100%;
+  padding: 50px;
   align-items: center;
   text-align: center;
   color:white;

@@ -194,9 +194,9 @@ export default {
 
 <style lang="scss">
 /* NAVBAR PADDING AND WIDTH */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+
 #navbar{
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: inherit;
 }
 
 nav.navbar {
