@@ -1,6 +1,7 @@
 <template>
 <div class="d-flex justify-content-center">
-<b-navbar variant="light" id="navbar" :style="bannerImage">
+<b-navbar id="navbar">
+   <img class="nav_banner" src="https://res.cloudinary.com/risidio/image/upload/v1632564338/Risidio.com/main_bg.svg" alt="">
   <b-navbar-brand><router-link class="navbar-brand" to="/"><img width="150px;" :src="logo" alt="risidio-logo"/></router-link></b-navbar-brand>
   <b-navbar-toggle target="my-sidebar">
     <!--
@@ -52,15 +53,16 @@
   </b-sidebar>
 
     <b-navbar-nav v-if="profile.loggedIn" class="ml-auto">
-      <b-nav-item class="mr-3 mt-0"><router-link class="text-white" to="/nft-gallery">Public Gallery</router-link></b-nav-item>
-      <b-nav-item class="mr-3 mt-0"><router-link class="text-white" to="/how-it-works">How It Works</router-link></b-nav-item>
-      <b-nav-item class="mr-3 mt-0"><router-link class="text-white" to="/my-nfts">Your NFTs</router-link></b-nav-item>
-      <b-nav-item class="mr-3 mt-0"><router-link class="text-white" to="/create">Mint an NFT</router-link></b-nav-item>
-      <b-nav-item class="mr-3"><a v-b-toggle.my-sidebar class="text-white nav-text" ><b-icon icon="person" class="mb-3 mr-0"/>Account</a></b-nav-item>
+      <!-- <b-nav-item class="header_menu"><router-link class="text-white" to="/nft-gallery">Public Gallery</router-link></b-nav-item> -->
+      <b-nav-item class="header_menu"><router-link class="text-white" to="/about">About Risidio</router-link></b-nav-item>
+      <b-nav-item class="header_menu"><router-link class="text-white" to="/how-it-works">How It Works</router-link></b-nav-item>
+      <b-nav-item class="header_menu"><router-link class="text-white" to="/create">Mint an NFT</router-link></b-nav-item>
+      <b-nav-item class="header_menu"><router-link class="text-white" to="/my-nfts">Your NFTs</router-link></b-nav-item>
+      <b-nav-item class="header_menu"><a v-b-toggle.my-sidebar class="text-white nav-text" ><b-icon icon="person" class="account_icon"/>Account</a></b-nav-item>
     </b-navbar-nav>
     <b-navbar-nav v-else class="text-white ml-auto text-right">
-      <b-nav-item class="mr-3 mt-0"><router-link class="text-white" to="/nft-gallery">Public Gallery</router-link></b-nav-item>
-      <b-nav-item class="mr-3 mt-0"><router-link class="text-white" to="/how-it-works">How It Works</router-link></b-nav-item>
+      <b-nav-item class="header_menu"><router-link class="text-white" to="/nft-gallery">Public Gallery</router-link></b-nav-item>
+      <b-nav-item class="header_menu"><router-link class="text-white" to="/how-it-works">How It Works</router-link></b-nav-item>
       <b-nav-item @click.prevent="startLogin()" href="#">Login</b-nav-item>
     </b-navbar-nav>
 </b-navbar>
@@ -130,19 +132,19 @@ export default {
       const content = this.$store.getters['contentStore/getHomepage']
       return content
     },
-    bannerImage () {
-      return {
-        height: '128px',
-        width: '100%',
-        'background-repeat': 'no-repeat',
-        'background-image': `url(${this.banner})`,
-        'background-position': 'center center',
-        '-webkit-background-size': 'cover',
-        '-moz-background-size': 'cover',
-        '-o-background-size': 'cover',
-        'background-size': 'cover'
-      }
-    },
+    // bannerImage () {
+    //   return {
+    //     height: '128px',
+    //     width: '100%',
+    //     'background-repeat': 'no-repeat',
+    //     'background-image': `url(${this.banner})`,
+    //     'background-position': 'center center',
+    //     '-webkit-background-size': 'cover',
+    //     '-moz-background-size': 'cover',
+    //     '-o-background-size': 'cover',
+    //     'background-size': 'cover'
+    //   }
+    // },
     showAdmin () {
       const profile = this.$store.getters[APP_CONSTANTS.KEY_PROFILE]
       return profile.superAdmin || location.origin.indexOf('local') > -1
@@ -193,7 +195,19 @@ export default {
 
 <style lang="scss">
 /* NAVBAR PADDING AND WIDTH */
+
+.nav_banner{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 128px;
+  object-fit: cover;
+  z-index: -11
+  ;}
+
 nav.navbar {
+  font-size: 1.5rem;
   width: 100%;
   padding-right: 50px;
   padding-left: 50px;
@@ -212,9 +226,27 @@ nav.navbar {
 .nav-text a {
   font-weight: 700;
 }
-.navbar-light .navbar-nav .nav-link {
-    color: #fff !important;
+// .navbar-light .navbar-nav .nav-link {
+//     color: #fff !important;
+//     padding: 20px;
+// }
+
+.header_menu{
+    color: #fff;
+    background: rgba(0, 0, 0, 0.431);
+    padding: 10px;
+    border-radius: 20px;
+    margin-right: 10px;
 }
+
+.header_menu:hover{
+  background: rgb(0, 2, 131);
+  border-radius: 20px;
+}
+.account_icon{
+  margin-right: 10px;
+}
+
 .b-sidebar > .b-sidebar-header {
     padding: 50px 10px;
 }
