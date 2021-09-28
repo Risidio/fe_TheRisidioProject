@@ -21,6 +21,7 @@ import AssetDetails from '../views/AssetDetails.vue'
 import ItemPreview from '../views/ItemPreview.vue'
 import MyNfts from '../views/upload/MyNfts.vue'
 import NftGallery from '../views/NftGallery.vue'
+import MarketPlace from '../views/MarketPlace.vue'
 import MyItems from '../views/upload/MyItems.vue'
 import UploadItem from '../views/upload/UploadItem.vue'
 import UpdateItem from '../views/upload/UpdateItem.vue'
@@ -45,7 +46,7 @@ const routes: Array<RouteConfig> = [
   {
     path: '/',
     name: 'homepage',
-    components: { default: NftGallery, header: MainNavbar, footer: MainFooter }
+    components: { default: MarketPlace, header: MainNavbar, footer: MainFooter }
   },
   {
     path: '/edit-item/:assetHash',
