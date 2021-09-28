@@ -52,16 +52,17 @@
   </b-sidebar>
 
     <b-navbar-nav v-if="profile.loggedIn" class="ml-auto">
-      <b-nav-item class="mr-3 mt-0"><router-link class="text-white" to="/nft-gallery">Public Gallery</router-link></b-nav-item>
-      <b-nav-item class="mr-3 mt-0"><router-link class="text-white" to="/how-it-works">How It Works</router-link></b-nav-item>
-      <b-nav-item class="mr-3 mt-0"><router-link class="text-white" to="/my-nfts">Your NFTs</router-link></b-nav-item>
-      <b-nav-item class="mr-3 mt-0"><router-link class="text-white" to="/create">Mint an NFT</router-link></b-nav-item>
-      <b-nav-item class="mr-3"><a v-b-toggle.my-sidebar class="text-white nav-text" ><b-icon icon="person" class="mb-3 mr-0"/>Account</a></b-nav-item>
+      <b-nav-item class="mr-5 mt-0 align-self-center" ><router-link class="text-white" to="/nft-gallery">Public Gallery</router-link></b-nav-item>
+      <b-nav-item class="mr-5 mt-0 align-self-center"><router-link class="text-white" to="/how-it-works">How It Works</router-link></b-nav-item>
+      <b-nav-item class="mr-5 mt-0 align-self-center"><router-link class="text-white" to="/my-nfts">Your NFTs</router-link></b-nav-item>
+      <b-nav-item class="mr-5 mt-0 align-self-center"><router-link class="text-white" to="/create">Mint an NFT</router-link></b-nav-item>
+      <b-nav-item class="mr-5"><a v-b-toggle.my-sidebar class="text-white nav-text" ><b-icon icon="person" class="mb-3 mr-0"/>Account</a></b-nav-item>
     </b-navbar-nav>
     <b-navbar-nav v-else class="text-white ml-auto text-right">
-      <b-nav-item class="mr-3 mt-0"><router-link class="text-white" to="/nft-gallery">Public Gallery</router-link></b-nav-item>
-      <b-nav-item class="mr-3 mt-0"><router-link class="text-white" to="/how-it-works">How It Works</router-link></b-nav-item>
-      <b-nav-item @click.prevent="startLogin()" href="#">Login</b-nav-item>
+      <!-- <b-nav-item class="mr-5 mt-0 align-self-center"><router-link class="text-white" to="/nft-gallery">Public Gallery</router-link></b-nav-item> -->
+      <b-nav-item class="mr-5 mt-0 align-self-center"><router-link class="text-white" to="/how-it-works">How It Works</router-link></b-nav-item>
+      <b-nav-item class="mr-5 mt-0 align-self-center" ><router-link class="text-white" to="/about">About Risidio </router-link></b-nav-item>
+      <button @click.prevent="startLogin()" href="#" id="login" class = "login">Login</button>
     </b-navbar-nav>
 </b-navbar>
 </div>
@@ -193,6 +194,11 @@ export default {
 
 <style lang="scss">
 /* NAVBAR PADDING AND WIDTH */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+#navbar{
+  font-family: 'Montserrat', sans-serif !important;
+}
+
 nav.navbar {
   width: 100%;
   padding-right: 50px;
@@ -217,5 +223,14 @@ nav.navbar {
 }
 .b-sidebar > .b-sidebar-header {
     padding: 50px 10px;
+}
+#login{
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0.192);
+  min-width: 120px;
+  min-height:50px;
+  text-align: center;
+  color: orange;
+  border:none;
 }
 </style>
