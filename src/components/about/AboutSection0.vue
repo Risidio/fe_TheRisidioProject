@@ -41,22 +41,22 @@ export default {
 }
 .container h1{
   font-family: inherit;
-  font-size: clamp(3rem, 4rem, 5rem);
-  font-weight: 100;
+  font-size: clamp(4rem, 5rem, 6rem);
+  font-weight: 300;
 }
 .container p{
-  font-size: 1em;
+  font-size: 1.5em;
   font-weight: 300;
   padding-top: 20px;
 }
 .button{
   margin-top: 30px;
-  width: 160px;
-  height: 40px;
+  width: 220px;
+  height: 55px;
   border-radius: 100px;
   border: none;
   background-color: white;
-  font-size: 11px;
+  font-size: 12px;
   font-weight:700;
 }
 a, a:after, a:hover{

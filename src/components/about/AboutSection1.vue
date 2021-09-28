@@ -12,7 +12,7 @@
     <b-container style="min-height: 60vh" class="pb-4 text-center">
       <b-row align-h="center" style="min-height: 70vh">
         <b-col md="6" sm="10" align-self="center">
-          <div class="text-center">
+          <div class="text-center text">
                 <b-img src="https://images.prismic.io/radsoc/26f1e22e-5565-4f32-8761-e1b69a3d8e50_risisdilogo.png?auto=compress,format"></b-img>
           <!-- <h1><prismic-items :prismicItems="content.title1"></prismic-items></h1> -->
                     <prismic-items :prismicItems="content.text1"></prismic-items>
@@ -44,5 +44,5 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 </style>

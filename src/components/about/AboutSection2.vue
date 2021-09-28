@@ -40,25 +40,25 @@ export default {
 /* General style */
 .our_values{
   background-color: rgb(11, 11, 116);
-  min-height: 60vh;
+  min-height: 50vh;
   text-align: center;
   justify-content: center;
 }
 button{
   margin-top: 30px;
-  width: 160px;
-  height: 40px;
+  width: 220px;
+  height: 55px;
   border-radius: 100px;
   border: none;
   color:white;
   background-color: #FFA310;
-  font-size: 11px;
+  font-size: 12px;
   font-weight:700;
 }
 .values_container{
   margin: auto;
   max-width: 550px;
-  padding-top: 50px;
+  padding-top: 100px;
 }
 h1{
   padding-bottom: 25px;

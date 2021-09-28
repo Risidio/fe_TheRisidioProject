@@ -4,6 +4,7 @@
     <AboutSection0 />
     <AboutSection1 />
     <AboutSection2 />
+    <AboutSection3 />
   </section>
 </div>
 </template>
@@ -13,13 +14,15 @@
 import AboutSection0 from '@/components/about/AboutSection0'
 import AboutSection1 from '@/components/about/AboutSection1'
 import AboutSection2 from '@/components/about/AboutSection2'
+import AboutSection3 from '@/components/about/AboutSection3'
 export default {
   name: 'about',
   components: {
     // PrismicItems,
     AboutSection0,
     AboutSection1,
-    AboutSection2
+    AboutSection2,
+    AboutSection3
 
   },
   props: ['about'],
