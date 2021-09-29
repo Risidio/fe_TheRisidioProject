@@ -1,7 +1,8 @@
 <template>
 <div class = "web3">
 <div class= "container">
-    <img src="https://images.prismic.io/radsoc/5b53f28e-8589-4e38-815d-d669ea0ac9e0_0642604bc88897185fc0eb0801195add.png?auto=compress,format" rounded="circle" alt="Circle image">
+    <!-- <img src="https://images.prismic.io/radsoc/5b53f28e-8589-4e38-815d-d669ea0ac9e0_0642604bc88897185fc0eb0801195add.png?auto=compress,format" rounded="circle" alt="Circle image"> -->
+    <img :src="web" alt="web" class="web"/>
   <h1> Web 3.0 </h1>
   <p> Risidio is a UK start-up created in the midst of the global pandemic. The
     pandemic pushed for accelerated digitisation and an ultra-connected world.
@@ -28,6 +29,11 @@ export default {
   components: {
   },
   props: ['content'],
+  data () {
+    return {
+      web: require('@/assets/img/web.svg')
+    }
+  },
   computed: {
   }
 }
