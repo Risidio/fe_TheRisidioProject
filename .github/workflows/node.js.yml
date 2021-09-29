@@ -28,3 +28,15 @@ jobs:
         cache: 'npm'
     - run: npm install
     - run: npm run build
+    
+    - name: Use S3cmd
+      uses: s3-actions/s3cmd@v1.1
+      with:
+        provider: linode
+    # s3 region
+        region: eu-central-1
+    # s3 access key
+        access_key: 1CZLCYOQRELZHJE9XDGR
+    # s3 secret key
+        secret_key: r9JXngigGkPBNi1UXNysGuypIQt1Lhu9qww1p9Ae
+    
