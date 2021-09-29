@@ -132,11 +132,6 @@ const routes: Array<RouteConfig> = [
     components: { default: About, header: MainNavbar, footer: MainFooter }
   },
   {
-    path: '/faq',
-    name: 'faq',
-    components: { default: FAQ, header: MainNavbar, footer: MainFooter }
-  },
-  {
     path: '/terms',
     name: 'terms',
     components: { default: Terms, header: MainNavbar, footer: MainFooter }
