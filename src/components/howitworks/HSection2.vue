@@ -1,8 +1,8 @@
 <template>
   <div id="slides">
-    <vueper-slides>
+    <vueper-slides fixed-height="600px">
       <vueper-slide
-        v-for="i of 10"
+        v-for="i of 3"
         :key="i"
         :title="`title ${i.toString()}`"
         :content="`slide ${i.toString()}`"
@@ -22,20 +22,23 @@ export default {
   components: { VueperSlides, VueperSlide },
   data () {
     return {
-      colors: ['red', 'green', 'blue', 'yellow', 'purple', 'grey', 'gold']
+      colors: ['#22007C']
     }
   }
 }
 </script>
 
 <style>
+.vueperslides {
+  height: 70vh;
+}
 .vueperslides__bullet .default {
   background-color: rgba(0, 0, 0, 0.3);
   border: none;
   box-shadow: none;
   transition: 0.3s;
-  width: 16px;
-  height: 16px;
+  width: 46px;
+  height: 46px;
 }
 
 .vueperslides__bullet--active .default {
@@ -45,7 +48,7 @@ export default {
 .vueperslides__bullet span {
   display: block;
   color: #fff;
-  font-size: 10px;
+  font-size: 20px;
   opacity: 0.8;
 }
 </style>
