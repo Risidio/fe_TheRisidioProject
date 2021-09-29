@@ -1,5 +1,5 @@
 <template>
-<div class="d-flex justify-content-center">
+<div class=" navbar_container">
 <b-navbar id="navbar">
    <img class="nav_banner" src="https://res.cloudinary.com/risidio/image/upload/v1632564338/Risidio.com/main_bg.svg" alt="">
   <b-navbar-brand><router-link class="navbar-brand" to="/"><img width="150px;" :src="logo" alt="risidio-logo"/></router-link></b-navbar-brand>
@@ -200,12 +200,14 @@ export default {
   position: absolute;
   top: 0px;
   left: 0px;
-  width: 100vw;
+  width: 100%;
   height: 128px;
   object-fit: cover;
-  z-index: -11
-  ;}
-
+  z-index: -11;
+}
+#navbar{
+  padding-top: 20px;
+}
 nav.navbar {
   font-size: 1.5rem;
   width: 100%;

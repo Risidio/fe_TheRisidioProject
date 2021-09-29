@@ -34,9 +34,8 @@ export default {
   background:rgb(20, 20, 110);
 }
 .container {
-  min-width: 50%;
-  padding-top: 50px;
-  padding: 50px min(15%);
+  min-width: 100%;
+  padding: 50px;
   align-items: center;
   text-align: center;
   color:white;
@@ -45,20 +44,29 @@ export default {
 }
 .container h1{
   font-family: inherit;
+  padding-top: 20px;
   font-size: clamp(4rem, 5rem, 6rem);
-  font-weight: 100;
+  font-weight: 300;
+
 }
 .container p{
-  font-size: .7em;
-  padding-top: 20px;
+  margin:auto;
+  padding-top: 50px;
+  font-size: 1.2em;
+  font-weight: 500;
+  max-width: 750px;
 }
 .button{
   margin-top: 30px;
-  padding: 15px 80px;
+  width: 220px;
+  height: 55px;
   border-radius: 100px;
   border: none;
   background-color: white;
-  font-size: 14px;
-  font-weight:bold;
+  font-size: 12px;
+  font-weight:700;
+}
+a, a:after, a:hover{
+    color:black;
 }
 </style>

@@ -1,22 +1,25 @@
 <template>
-<div id="g4" v-if="content">
-  <div class="item" v-for="(item, index) in content.group4" :key="index">
-    <div class="words">
-    <h1 class="item__title">{{ item.title[0].text }}</h1>
-    <ol>
-      <li class="item__text">{{ item.text[0].text }}</li>
-      <li class="item__text">{{ item.text[1].text }}</li>
-      <li class="item__text">{{ item.text[2].text }}</li>
-      <li class="item__text">{{ item.text[3].text }}</li>
-      <li class="item__text">{{ item.text[4].text }}</li>
-      <li class="item__text">{{ item.text[5].text }}</li>
-    </ol>
-    </div>
-    <div class="img">
-    <img class="item__img" :src="item.img.url" :alt="item.img.alt">
-    </div>
-  </div>
-</div>
+      <b-container style="min-height: 90vh" class=" text-center" align-self="center">
+        <h1> Get your stacks wallet</h1>
+        <b-row align-h="center" style="min-height: 30vh">
+          <b-col align-self="center">
+            <img :src="digitalcurrency" alt="digitalcurrency" class="digitalcurrency">
+          </b-col>
+          <b-col class = "mt-5" align-self="center" >
+            <!-- <prismic-items :prismicItems="content.title3"></prismic-items>
+            <prismic-items :prismicItems="content.text3"></prismic-items> -->
+            <p>Quick explanation on what and why mint an item :D<br><br>
+              adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+              aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris <br><br>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+              veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+              commodo consequat. Duis aut <br><br>
+            </p>
+            <button><router-link to="/">Download Your Wallet</router-link></button>
+          </b-col>
+        </b-row>
+      </b-container>
 </template>
 
 <script>
@@ -28,6 +31,7 @@ export default {
   props: ['content'],
   data () {
     return {
+      digitalcurrency: require('@/assets/img/digitalcurrency.svg')
     }
   },
   computed: {
@@ -35,22 +39,32 @@ export default {
 }
 </script>
 
-<style lang="scss">
-#g4 {
-  height: 60rem;
-  width: 100rem;
-  padding: 5%;
-  margin-left: 10%;
+<style scoped>
+.digitalcurrency{
+  height: 300px;
+  width: 300px;
 }
-.item {
-  display: flex;
-  flex-direction: row;
+button{
+  width: 220px;
+  height: 55px;
+  border-radius: 100px;
+  border: none;
+  color:black;
+  background-color: #d8d8d8;
+  font-size: 12px;
+  font-weight:700;
+  align-content: left;
 }
-.img {
-  padding: 5%;
+button:active, button:hover, button:visited{
+  color:black;
 }
-.item__title{
-  padding: 2%;
+p{
+  font-size: 1.2em;
+  text-align: justify;
 }
-
+h1{
+  padding: 200px 0 100px 0;
+  font-size: clamp(50px, 3vw, 6vw);
+  font-weight: 200;
+}
 </style>

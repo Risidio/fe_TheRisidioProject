@@ -34,28 +34,29 @@ export default {
 </script>
 
 <style scoped>
+.Htitle{
+  min-height: 90vh;
+}
 .title-container {
-  min-width: 50%;
+  font-family: inherit;
   padding: max(150px) min(12%) 0 min(12%);
   align-items: center;
   text-align: center;
-  min-height: 40vh;
 }
 .title-container h1{
   font-family: inherit;
   font-size: clamp(50px, 3vw, 6vw);
-  font-weight: 600;
+  font-weight: 200;
 }
 .main-container{
   text-align: justify;
-  margin-top: -80px;
   display: grid;
   grid-template-columns: repeat( 2, 1fr);
 }
 .main-container p{
   grid-column: 2;
-  padding: 0 15% 0 0;
-  font-size: .8em;
-  font-weight:bolder;
+  padding: 100px 15% 0 0;
+  font-size: 1.2em;
+  font-weight:500;
 }
 </style>
