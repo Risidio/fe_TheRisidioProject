@@ -72,7 +72,7 @@
           &copy; &nbsp; {{ year }} Risidio Ltd. All right reserved.
         </div>
         <div>
-          <span>Privacy Policy</span>
+          <router-link to='/privacy'>Privacy Policy</router-link>
           <router-link to="/terms">Terms of Use</router-link>
         </div>
       </div>
