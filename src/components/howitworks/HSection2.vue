@@ -2,7 +2,7 @@
   <div id="slides">
     <vueper-slides fixed-height="600px">
       <vueper-slide
-        v-for="i of 3"
+        v-for="(slide, i) of 3 in slides"
         :key="i"
         :title="`title ${i.toString()}`"
         :content="`slide ${i.toString()}`"
@@ -29,9 +29,6 @@ export default {
 </script>
 
 <style>
-.vueperslides {
-  height: 70vh;
-}
 .vueperslides__bullet .default {
   background-color: rgba(0, 0, 0, 0.3);
   border: none;
