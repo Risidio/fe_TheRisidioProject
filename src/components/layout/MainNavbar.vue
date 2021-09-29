@@ -51,18 +51,17 @@
     </template>
   </b-sidebar>
 
-    <b-navbar-nav v-if="profile.loggedIn" class="ml-auto align-items-center">
-      <b-nav-item class="mr-5 mt-0 "><router-link class="text-white" to="/nft-gallery">Public Gallery</router-link></b-nav-item>
-      <b-nav-item class="mr-5 mt-0 "><router-link class="text-white" to="/about">About Risidio </router-link></b-nav-item>
-      <b-nav-item class="mr-5 mt-0 "><router-link class="text-white" to="/how-it-works">How It Works</router-link></b-nav-item>
-      <b-nav-item class="mr-5 mt-0 "><router-link class="text-white" to="/my-nfts">Your NFTs</router-link></b-nav-item>
-      <b-nav-item class="mr-5 mt-0 "><router-link class="text-white" to="/create">Mint an NFT</router-link></b-nav-item>
-      <b-nav-item class="mr-5"><a v-b-toggle.my-sidebar class="text-white nav-text" ><b-icon icon="person" class="mb mr-0"/>Account</a></b-nav-item>
+    <b-navbar-nav v-if="profile.loggedIn" class="ml-auto">
+      <b-nav-item class="mr-5 mt-0 align-self-center" ><router-link class="text-white" to="/nft-gallery">Public Gallery</router-link></b-nav-item>
+      <b-nav-item class="mr-5 mt-0 align-self-center"><router-link class="text-white" to="/how-it-works">How It Works</router-link></b-nav-item>
+      <b-nav-item class="mr-5 mt-0 align-self-center"><router-link class="text-white" to="/my-nfts">Your NFTs</router-link></b-nav-item>
+      <b-nav-item class="mr-5 mt-0 align-self-center"><router-link class="text-white" to="/create">Mint an NFT</router-link></b-nav-item>
+      <b-nav-item class="mr-5"><a v-b-toggle.my-sidebar class="text-white nav-text" ><b-icon icon="person" class="mb-3 mr-0"/>Account</a></b-nav-item>
     </b-navbar-nav>
-    <b-navbar-nav v-else class="text-white ml-auto text-right align-items-center">
+    <b-navbar-nav v-else class="text-white ml-auto text-right">
       <!-- <b-nav-item class="mr-5 mt-0 align-self-center"><router-link class="text-white" to="/nft-gallery">Public Gallery</router-link></b-nav-item> -->
-      <b-nav-item class="mr-5 mt-0"><router-link class="text-white" to="/how-it-works">How It Works</router-link></b-nav-item>
-      <b-nav-item class="mr-5 mt-0" ><router-link class="text-white" to="/about">About Risidio </router-link></b-nav-item>
+      <b-nav-item class="mr-5 mt-0 align-self-center"><router-link class="text-white" to="/how-it-works">How It Works</router-link></b-nav-item>
+      <b-nav-item class="mr-5 mt-0 align-self-center" ><router-link class="text-white" to="/about">About Risidio </router-link></b-nav-item>
       <button @click.prevent="startLogin()" href="#" id="login" class = "login">Login</button>
     </b-navbar-nav>
 </b-navbar>
