@@ -1,33 +1,27 @@
 <template>
-<div id="g1" v-if="content" background-color="">
-  <div class="item" v-for="(item, index) in content.group1" :key="index">
-    <div class="img">
-    <img class="item__img" :src="item.img.url" :alt="item.img.alt">
-    </div>
-    <div class="words">
-    <h1 class="item__title">{{ item.title[0].text }}</h1>
-    <ol>
-      <li class="item__text">{{ item.text[0].text }}</li>
-      <li class="item__text">{{ item.text[1].text }}</li>
-      <li class="item__text">{{ item.text[2].text }}</li>
-      <li class="item__text">{{ item.text[3].text }}</li>
-      <li class="item__text">{{ item.text[4].text }}</li>
-      <li class="item__text">{{ item.text[5].text }}</li>
-    </ol>
-    </div>
+<div class = "Htitle">
+  <div class = "container">
+      <h1>How it works</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut
+        aliquip ex ea commodo consequat. Duis aut</p>
+      <button class="button"> Get Started </button>
   </div>
 </div>
 </template>
 
 <script>
 export default {
-  name: 'Group1',
+  name: 'HTitle',
   components: {
 
   },
   props: ['content'],
   data () {
     return {
+      banner: 'https://images.prismic.io/digirad/6e5bb3a5-21b7-4bcb-b5a7-85128b6e6e8a_Rumba_bg_small.png?auto=compress,format'
     }
   },
   computed: {
@@ -35,22 +29,36 @@ export default {
 }
 </script>
 
-<style lang="scss">
-#g1 {
-  height: 60rem;
-  width: 100rem;
-  padding: 5%;
-  margin-left: 5%;
+<style scoped>
+.Htitle{
+  background:rgb(20, 20, 110);
 }
-.item {
-  display: flex;
-  flex-direction: row;
+.container {
+  min-width: 50%;
+  padding-top: 50px;
+  padding: 50px min(15%);
+  align-items: center;
+  text-align: center;
+  color:white;
+  margin-top: -35px;
+  min-height: 40vh;
 }
-.img {
-  padding: 5%;
+.container h1{
+  font-family: inherit;
+  font-size: clamp(4rem, 5rem, 6rem);
+  font-weight: 100;
 }
-.item__title{
-  padding: 2%;
+.container p{
+  font-size: .7em;
+  padding-top: 20px;
 }
-
+.button{
+  margin-top: 30px;
+  padding: 15px 80px;
+  border-radius: 100px;
+  border: none;
+  background-color: white;
+  font-size: 14px;
+  font-weight:bold;
+}
 </style>
