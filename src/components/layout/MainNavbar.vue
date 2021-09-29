@@ -1,5 +1,5 @@
 <template>
-<div class="d-flex justify-content-center">
+<div class=" navbar_container">
 <b-navbar id="navbar">
    <img class="nav_banner" src="https://res.cloudinary.com/risidio/image/upload/v1632564338/Risidio.com/main_bg.svg" alt="">
   <b-navbar-brand><router-link class="navbar-brand" to="/"><img width="150px;" :src="logo" alt="risidio-logo"/></router-link></b-navbar-brand>
@@ -52,18 +52,18 @@
     </template>
   </b-sidebar>
 
-    <b-navbar-nav v-if="profile.loggedIn" class="ml-auto">
-      <!-- <b-nav-item class="header_menu"><router-link class="text-white" to="/nft-gallery">Public Gallery</router-link></b-nav-item> -->
-      <b-nav-item class="header_menu"><router-link class="text-white" to="/about">About Risidio</router-link></b-nav-item>
-      <b-nav-item class="header_menu"><router-link class="text-white" to="/how-it-works">How It Works</router-link></b-nav-item>
-      <b-nav-item class="header_menu"><router-link class="text-white" to="/create">Mint an NFT</router-link></b-nav-item>
-      <b-nav-item class="header_menu"><router-link class="text-white" to="/my-nfts">Your NFTs</router-link></b-nav-item>
-      <b-nav-item class="header_menu"><a v-b-toggle.my-sidebar class="text-white nav-text" ><b-icon icon="person" class="account_icon"/>Account</a></b-nav-item>
+    <b-navbar-nav v-if="profile.loggedIn" class="ml-auto align-items-center">
+      <b-nav-item class="mr-5 mt-0" ><router-link class="text-white" to="/nft-gallery">Public Gallery</router-link></b-nav-item>
+      <b-nav-item class="mr-5 mt-0"><router-link class="text-white" to="/how-it-works">How It Works</router-link></b-nav-item>
+      <b-nav-item class="mr-5 mt-0"><router-link class="text-white" to="/my-nfts">Your NFTs</router-link></b-nav-item>
+      <b-nav-item class="mr-5 mt-0"><router-link class="text-white" to="/create">Mint an NFT</router-link></b-nav-item>
+      <b-nav-item class="mr-5"><a v-b-toggle.my-sidebar class="text-white nav-text" ><b-icon icon="person" class="mb-3 mr-0"/>Account</a></b-nav-item>
     </b-navbar-nav>
-    <b-navbar-nav v-else class="text-white ml-auto text-right">
-      <b-nav-item class="header_menu"><router-link class="text-white" to="/nft-gallery">Public Gallery</router-link></b-nav-item>
-      <b-nav-item class="header_menu"><router-link class="text-white" to="/how-it-works">How It Works</router-link></b-nav-item>
-      <b-nav-item @click.prevent="startLogin()" href="#">Login</b-nav-item>
+    <b-navbar-nav v-else class="text-white ml-auto text-right align-items-center">
+      <!-- <b-nav-item class="mr-5 mt-0 align-self-center"><router-link class="text-white" to="/nft-gallery">Public Gallery</router-link></b-nav-item> -->
+      <b-nav-item class="mr-5 mt-0"><router-link class="text-white" to="/how-it-works">How It Works</router-link></b-nav-item>
+      <b-nav-item class="mr-5 mt-0" ><router-link class="text-white" to="/about">About Risidio </router-link></b-nav-item>
+      <button @click.prevent="startLogin()" href="#" id="login" class = "login">Login</button>
     </b-navbar-nav>
 </b-navbar>
 </div>
@@ -200,12 +200,14 @@ export default {
   position: absolute;
   top: 0px;
   left: 0px;
-  width: 100vw;
+  width: 100%;
   height: 128px;
   object-fit: cover;
-  z-index: -11
-  ;}
-
+  z-index: -11;
+}
+#navbar{
+  padding-top: 20px;
+}
 nav.navbar {
   font-size: 1.5rem;
   width: 100%;
@@ -222,6 +224,7 @@ nav.navbar {
   z-index: 5000;
   opacity: 1.0;
 }
+
 /* NAV ITEMS STYLE */
 .nav-text a {
   font-weight: 700;
@@ -238,16 +241,19 @@ nav.navbar {
     border-radius: 20px;
     margin-right: 10px;
 }
-
-.header_menu:hover{
-  background: rgb(0, 2, 131);
-  border-radius: 20px;
+.navbar-light .navbar-nav .nav-link {
+    color: #fff !important;
 }
-.account_icon{
-  margin-right: 10px;
-}
-
 .b-sidebar > .b-sidebar-header {
     padding: 50px 10px;
+}
+#login{
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0.192);
+  min-width: 120px;
+  min-height:50px;
+  text-align: center;
+  color: orange;
+  border:none;
 }
 </style>

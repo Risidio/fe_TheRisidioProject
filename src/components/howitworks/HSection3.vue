@@ -1,49 +1,39 @@
 <template>
-<div id="g3" v-if="content">
-  <div class="item" v-for="(item, index) in content.group3" :key="index">
-    <div class="img">
-    <img class="item__img" :src="item.img.url" :alt="item.img.alt">
-    </div>
-    <div class="words">
-    <h1 class="item__title">{{ item.title[0].text }}</h1>
-      <ol class="item__text">{{ item.text[0].text }}</ol>
+  <div id="frame">
+    <div class = "hS3_container">
+      <vueper-slides fixed-height="80vh">
+        <vueper-slide v-for="i in 3" :key="i" :title="i.toString()" />
+      </vueper-slides>
     </div>
   </div>
-</div>
 </template>
 
 <script>
+import { VueperSlides, VueperSlide } from 'vueperslides'
+import 'vueperslides/dist/vueperslides.css'
 export default {
   name: 'Group3',
   components: {
-
+    VueperSlides,
+    VueperSlide
   },
   props: ['content'],
-  data () {
-    return {
-    }
-  },
+  data: () => ({
+    slides: [
+      {
+        title: 'Slide #1',
+        content: 'Slide content.'
+      }
+    ]
+  }),
   computed: {
   }
 }
 </script>
 
-<style lang="scss">
-#g3 {
-  height: 60rem;
-  width: 100rem;
-  padding: 5%;
-  margin-left: 5%;
+<style scoped>
+.vueperslide {
+  background-color: #170A6D;
 }
-.item {
-  display: flex;
-  flex-direction: row;
-}
-.img {
-  padding: 5%;
-}
-.item__title{
-  padding: 2%;
-}
-
+.vueperslides--fixed-height { height: 500px; }
 </style>
