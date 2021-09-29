@@ -1,56 +1,51 @@
 <template>
-<div id="g2" v-if="content">
-  <div class="item" v-for="(item, index) in content.group2" :key="index">
-    <div class="words">
-    <h1 class="item__title">{{ item.title[0].text }}</h1>
-    <ol>
-      <li class="item__text">{{ item.text[0].text }}</li>
-      <li class="item__text">{{ item.text[1].text }}</li>
-      <li class="item__text">{{ item.text[2].text }}</li>
-      <li class="item__text">{{ item.text[3].text }}</li>
-      <li class="item__text">{{ item.text[4].text }}</li>
-      <li class="item__text">{{ item.text[5].text }}</li>
-    </ol>
-    </div>
-    <div class="img">
-    <img class="item__img" :src="item.img.url" :alt="item.img.alt">
-    </div>
+  <div id="slides">
+    <vueper-slides>
+      <vueper-slide
+        v-for="i of 10"
+        :key="i"
+        :title="`title ${i.toString()}`"
+        :content="`slide ${i.toString()}`"
+        :style="`background-color: ${colors[i % colors.length]}`"
+      />
+      <template v-slot:bullet="{ active }">{{ active ? '&ofcir;' : '&olcir;' }}</template>
+    </vueper-slides>
   </div>
-</div>
 </template>
 
 <script>
-export default {
-  name: 'Group2',
-  components: {
+import { VueperSlides, VueperSlide } from 'vueperslides'
+import 'vueperslides/dist/vueperslides.css'
 
-  },
-  props: ['content'],
+export default {
+  name: 'Slides',
+  components: { VueperSlides, VueperSlide },
   data () {
     return {
+      colors: ['red', 'green', 'blue', 'yellow', 'purple', 'grey', 'gold']
     }
-  },
-  computed: {
   }
 }
 </script>
 
-<style lang="scss">
-#g2 {
-  height: 60rem;
-  width: 100rem;
-  padding: 5%;
-  margin-left: 10%;
-}
-.item {
-  display: flex;
-  flex-direction: row;
-}
-.img {
-  padding: 5%;
-}
-.item__title{
-  padding: 2%;
+<style>
+.vueperslides__bullet .default {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: none;
+  box-shadow: none;
+  transition: 0.3s;
+  width: 16px;
+  height: 16px;
 }
 
+.vueperslides__bullet--active .default {
+  background-color: #42b983;
+}
+
+.vueperslides__bullet span {
+  display: block;
+  color: #fff;
+  font-size: 10px;
+  opacity: 0.8;
+}
 </style>
