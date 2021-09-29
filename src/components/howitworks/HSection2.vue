@@ -2,7 +2,7 @@
   <div id="slides">
     <vueper-slides fixed-height="600px">
       <vueper-slide
-        v-for="(slide, i) of 3 in slides"
+        v-for="i of 3"
         :key="i"
         :title="`title ${i.toString()}`"
         :content="`slide ${i.toString()}`"
