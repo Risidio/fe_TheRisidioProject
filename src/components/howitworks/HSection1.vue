@@ -55,16 +55,15 @@ export default {
 }
 .container h1{
   font-family: inherit;
-  padding-top: 20px;
   font-size: clamp(4rem, 5rem, 6rem);
   font-weight: 300;
 
 }
 .container p{
   margin:auto;
-  padding-top: 50px;
+  padding-top: 20px;
   font-size: 1.2em;
-  font-weight: 500;
+  font-weight: 300;
   max-width: 750px;
 }
 .button{

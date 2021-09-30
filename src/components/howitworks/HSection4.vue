@@ -1,5 +1,5 @@
 <template>
-      <b-container style="min-height: 90vh" class=" text-center" align-self="center">
+      <b-container style="min-height: 90vh" class=" text-center" align-self="center" id="getStacksWallet">
         <h1> Get your stacks wallet</h1>
         <b-row align-h="center" style="min-height: 30vh">
           <b-col align-self="center">

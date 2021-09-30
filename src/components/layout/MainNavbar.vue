@@ -61,6 +61,7 @@
     </b-navbar-nav>
     <b-navbar-nav v-else class="text-white ml-auto text-right align-items-center">
       <!-- <b-nav-item class="mr-5 mt-0 align-self-center"><router-link class="text-white" to="/nft-gallery">Public Gallery</router-link></b-nav-item> -->
+      <b-nav-item class="mr-5 mt-0" ><router-link class="text-white" to="/nft-gallery">Public Gallery</router-link></b-nav-item>
       <b-nav-item class="mr-5 mt-0"><router-link class="text-white" to="/how-it-works">How It Works</router-link></b-nav-item>
       <b-nav-item class="mr-5 mt-0" ><router-link class="text-white" to="/about">About Risidio </router-link></b-nav-item>
       <button @click.prevent="startLogin()" href="#" id="login" class = "login">Login</button>
