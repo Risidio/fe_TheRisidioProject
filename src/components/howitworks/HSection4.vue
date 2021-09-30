@@ -3,7 +3,7 @@
         <h1> Get your stacks wallet</h1>
         <b-row align-h="center" style="min-height: 30vh">
           <b-col align-self="center">
-            <img :src="digitalcurrency" alt="digitalcurrency" class="digitalcurrency">
+            <img src="https://res.cloudinary.com/risidio/image/upload/v1633002019/RisidioMarketplace/digitalcurrency_tqf1es.svg" alt="digitalcurrency" class="digitalcurrency">
           </b-col>
           <b-col class = "mt-5" align-self="center" >
             <!-- <prismic-items :prismicItems="content.title3"></prismic-items>
@@ -31,7 +31,6 @@ export default {
   props: ['content'],
   data () {
     return {
-      digitalcurrency: require('@/assets/img/digitalcurrency.svg')
     }
   },
   computed: {

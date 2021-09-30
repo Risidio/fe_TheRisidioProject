@@ -1,6 +1,7 @@
 <template>
 <div class = "Htitle">
   <div class = "container">
+    <img class="banner" src="https://res.cloudinary.com/risidio/image/upload/v1632564338/Risidio.com/main_bg.svg" alt="">
       <h1>How it works</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore
@@ -30,9 +31,17 @@ export default {
 </script>
 
 <style scoped>
-.Htitle{
-  background:rgb(20, 20, 110);
+.banner{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 50rem;
+  object-fit: cover;
+  z-index: -10;
+  transform: rotate(180deg);
 }
+
 .container {
   min-width: 100%;
   padding: 50px;
