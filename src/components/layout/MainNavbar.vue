@@ -229,6 +229,18 @@ nav.navbar {
 .nav-text a {
   font-weight: 700;
 }
+// .navbar-light .navbar-nav .nav-link {
+//     color: #fff !important;
+//     padding: 20px;
+// }
+
+.header_menu{
+    color: #fff;
+    background: transparent;
+    padding: 10px;
+    border-radius: 20px;
+    margin-right: 10px;
+}
 .navbar-light .navbar-nav .nav-link {
     color: #fff !important;
 }

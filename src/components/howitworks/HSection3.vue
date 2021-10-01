@@ -2,9 +2,13 @@
   <div id="frame">
     <div class = "hS3_container">
       <vueper-slides fixed-height="80vh">
-        <vueper-slide v-for="i in 3" :key="i" :title="i.toString()" />
-      </vueper-slides>
-    </div>
+      <vueper-slide
+        v-for="i of 3"
+        :key="i"
+        :title="`title ${i.toString()}`"
+        :content="`slide ${i.toString()}`"
+      />
+    </vueper-slides>
   </div>
 </template>
 

@@ -1,8 +1,9 @@
 <template>
-<div class = "Htitle">
-  <div class = "title-container">
+  <div id="howitworks">
+    <div class = "Htitle">
+      <div class = "title-container">
       <h1>What is Ruma ?</h1>
-  </div>
+      </div>
   <div class = "main-container" >
       <p> Quick explanation on what and why mint an item :D <br><br>
       adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -14,6 +15,7 @@
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim</p>
   </div>
 </div>
+  </div>
 </template>
 
 <script>
@@ -22,13 +24,10 @@ export default {
   components: {
 
   },
-  props: ['content'],
   data () {
     return {
       banner: 'https://images.prismic.io/digirad/6e5bb3a5-21b7-4bcb-b5a7-85128b6e6e8a_Rumba_bg_small.png?auto=compress,format'
     }
-  },
-  computed: {
   }
 }
 </script>
