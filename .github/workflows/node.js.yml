@@ -35,6 +35,6 @@ jobs:
         region: eu-central-1
         access_key: 1CZLCYOQRELZHJE9XDGR
         secret_key: r9JXngigGkPBNi1UXNysGuypIQt1Lhu9qww1p9Ae
-    - run: s3cmd ws-create --ws-index=index.html --ws-error=404.html s3://xchange  
-    - run: s3cmd sync dist/ s3://xchange -P
+    - run: s3cmd ws-create --ws-index=index.html --ws-error=404.html s3://risidio  
+    - run: s3cmd sync dist/ s3://risidio -P
     
