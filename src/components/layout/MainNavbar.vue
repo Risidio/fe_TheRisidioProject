@@ -348,7 +348,8 @@ nav.navbar {
   #login{
     min-width: 200px;
     margin-left:auto;
-    margin-right:auto
+    margin-right:auto;
+    margin-top: 20px;
   }
   .navbar_links.active {
     padding: 15px;

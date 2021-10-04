@@ -1,35 +1,46 @@
 <template>
-<div v-if="content">
-  <footer id="footer" class="text-white">
+<div v-if="content" class="mt-5">
+  <footer id="footer" class="mt-5 text-white" :style="bannerImage">
     <div class="container">
       <div class="row m-0 d-flex">
         <div class="col-lg-5 col-12 d-flex flex-column justify-content-center align-items-lg-start align-items-center">
           <router-link to="/" class="navbar-brand text-white"><img :src="logo" alt="risidio-logo" class="footer-logo"/></router-link>
-          <p class="footer__pitch">Risidio Auctions is a marketplace for digital assets registered via the Bitcoin blockchain using Clarity Contracts and the Stacks 2.0 network. We are looking for partners and clients to help get the platform to the next level and make it a production ready viable alternative to similar projects like Open Sea on Ethereum.</p>
+          <p class="footer__pitch">Risidio Universal Minting Application gives you everything you need for minting digital property on the Bitcoin blockchain. We use the Stacks Network and Clarity Smart Contracts to ensure the most secure and long lasting NFTs currently available on the Internet. We are looking for partners and clients to help get the platform to the next level and make it a production ready viable alternative to similar projects like Open Sea on Ethereum.</p>
         </div>
         <div class="col-lg-7 col-12 d-flex columns3-content__container">
             <div class="footer__column-content ml-lg-auto">
-              <div> Marketplace</div>
-              <div v-on:click="topFunction()"><router-link to="/marketplace">Gallery</router-link></div>
-              <div v-on:click="topFunction()"><router-link to="/how-it-works">How It Works</router-link></div>
-              <div class="text-secondary">leveller</div>
-              <div class="text-secondary">leveller</div>
+              <div class="text-secondary">NFT</div>
+              <!-- <b-navbar-nav v-if="profile.loggedIn" class="ml-auto"> -->
+              <div><b-link to="/my-items">My Items</b-link></div>
+              <div><b-link to="/create">Mint an NFT</b-link></div>
+              <div><b-link to="/information/buy-now-tutorial">Minting and Buying</b-link></div>
+              <!-- </b-navbar-nav> -->
+              <!-- <b-navbar-nav v-else class="ml-auto"> -->
+              <!-- <div><b-link to="/information/buy-now-tutorial">Minting and Buying</b-link></div> -->
+               <!-- </b-navbar-nav> -->
+              <div style="height: 17px; width: 50px; bg-secondary"></div>
             </div>
             <div class="footer__column-content">
-              <div>Your NFTs</div>
-              <div v-on:click="topFunction()"><router-link to="/my-nfts">All Your Nft's</router-link></div>
-              <div v-on:click="topFunction()"><router-link to="/create">Add an NFT</router-link></div>
-              <div class="text-secondary">leveller</div>
-              <div class="text-secondary">leveller</div>
+              <div class="text-secondary">How It Works</div>
+                   <div v-scroll-to="{ offset: -60, element: '#getStacksWallet', duration: 1000 }">
+                  <b-link to="/how-it-works">Get Your Stacks Wallet</b-link>
+                </div>
+                <div v-scroll-to="{ offset: -60, element: '#frame', duration: 1000 }">
+                  <b-link to="/how-it-works">Upload Your Item</b-link>
+                </div>
+                <div v-scroll-to="{ offset: -60, element: '#frame', duration: 1000 }">
+                  <b-link to="/how-it-works">Mint an NFT</b-link>
+                </div>
+                <div v-scroll-to="{ offset: -60, element: '#frame', duration: 1000 }">
+                  <b-link to="/how-it-works">Set Royalties</b-link>
+                </div>
             </div>
             <div class="footer__column-content">
-              <div>Risidio</div>
-              <!-- <div v-on:click="topFunction()"><router-link to="/get-in-touch">Get in Touch</router-link></div>
-              <div v-on:click="topFunction()"><router-link to="/admin-app">Developers</router-link></div> -->
-              <div v-on:click="topFunction()"><router-link to="/get-in-touch">Who We Are</router-link></div>
-              <div v-on:click="topFunction()"><router-link to="/get-in-touch">What We Do</router-link></div>
-              <div v-on:click="topFunction()"><router-link to="/get-in-touch">Work With Us</router-link></div>
-              <div v-on:click="topFunction()"><router-link to="/get-in-touch">Get in Touch</router-link></div>
+              <div class="text-secondary">What we do</div>
+              <div><router-link to="/get-in-touch">Get in Touch</router-link></div>
+              <div><router-link to="/developers">Developers</router-link></div>
+              <div style="height: 20px; width: 50px; bg-secondary"></div>
+              <div style="height: 20px; width: 50px; bg-secondary"></div>
             </div>
         </div>
       </div>
@@ -45,8 +56,8 @@
           <a href="https://www.youtube.com/channel/UCrMDxxhMvpeyErw7m92IIXA/featured"><img :src="youtubeLogo" alt="youtube-logo"></a>
         </div>
         <div>
-          <span>Privacy Policy</span>
-          <span>Terms Of Use</span>
+          <router-link to="/privacy">Privacy Policy</router-link>
+          <router-link to="/terms">Terms of Use</router-link>
         </div>
       </div>
       <!-- MOBILE DESIGN LAST ROW -->
@@ -61,8 +72,8 @@
           &copy; &nbsp; {{ year }} Risidio Ltd. All right reserved.
         </div>
         <div>
-          <span>Privacy Policy</span>
-          <span>Terms Of Use</span>
+          <router-link to='/privacy'>Privacy Policy</router-link>
+          <router-link to="/terms">Terms of Use</router-link>
         </div>
       </div>
     </div>
@@ -80,6 +91,7 @@ export default {
   },
   data () {
     return {
+      banner: 'https://images.prismic.io/digirad/1f147c92-5945-4d4e-a578-aa085e6603ef_Ruma_bg.png?auto=compress,format',
       logo: require('@/assets/img/risidio_white.png'),
       year: new Date().getFullYear(),
       discordLogo: require('@/assets/img/discord-logo.svg'),
@@ -99,13 +111,22 @@ export default {
         return sitecontent
       }
       return {}
-    },
-    topFunction () {
-      const scrollTop = window.scrollTo({ top: 0, behavior: 'smooth' })
-      scrollTop()
     }
   },
   computed: {
+    bannerImage () {
+      return {
+        height: 'auto',
+        width: '100%',
+        'background-repeat': 'no-repeat',
+        'background-image': `url(${this.banner})`,
+        'background-position': 'center center',
+        '-webkit-background-size': 'cover',
+        '-moz-background-size': 'cover',
+        '-o-background-size': 'cover',
+        'background-size': 'cover'
+      }
+    },
     content () {
       const content = this.$store.getters['contentStore/getHomepage']
       return content
@@ -113,7 +134,7 @@ export default {
   }
 }
 </script>
-<style>
+<style scoped>
 /* FOOTER STYLE */
 footer {
   /*height: 440px;*/
@@ -196,7 +217,6 @@ footer .navbar-brand {
 @media only screen and (max-width: 991px) {
   footer .container {
     padding-top: 60px;
-    text-align: center;
   }
   .footer__pitch {
     margin: 30px 0 60px;
