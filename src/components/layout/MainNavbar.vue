@@ -64,7 +64,7 @@
           <li><a class="nav-items"><router-link class="text-white" to="/how-it-works">How It Works</router-link></a></li>
           <li><a class="nav-items"><router-link class="text-white" to="/my-nfts">Your NFTs</router-link></a></li>
           <li><a class="nav-items"><router-link class="text-white" to="/create">Mint an NFT</router-link></a></li>
-          <li><div><a v-b-toggle.my-sidebar class="text-white nav-text" ><b-icon icon="person" class="mb-3 mr-0"/>Account</a></div></li>
+          <li><div><a class="nav-items" v-b-toggle.my-sidebar><b-icon icon="person" class="mb-3 mr-0"/>Account</a></div></li>
         </ul>
       </div>
       <div v-else class="navbar_links">
@@ -73,8 +73,10 @@
           <li><a class="nav-items" ><router-link class="text-white" to="/nft-gallery">Public Gallery</router-link></a></li>
           <li><a class="nav-items"><router-link class="text-white" to="/how-it-works">How It Works</router-link></a></li>
           <li><a class="nav-items" ><router-link class="text-white" to="/about">About Risidio </router-link></a></li>
+          <button @click.prevent="startLogin()" href="#" id="login" class = "login">Login</button>
         </ul>
-      </div><button @click.prevent="startLogin()" href="#" id="login" class = "login">Login</button>
+
+      </div>
     </div>
 </b-navbar>
 </div>
@@ -289,6 +291,7 @@ nav.navbar {
 }
 .navbar_links li{
   list-style: none;
+  padding-top: 15px;
 }
 .navbar_links li a{
   text-decoration:none;
@@ -300,7 +303,7 @@ nav.navbar {
 .toggle-button{
   position:absolute;
   top: 3.7rem;
-  right:  18rem;
+  right:  2rem;
   display:none;
   flex-direction:column;
   justify-content: space-between;
@@ -315,7 +318,7 @@ nav.navbar {
 }
 
 //Styling for mobile responsiveness
-@media only screen and (max-width: 850px){
+@media only screen and (max-width: 900px){
   .toggle-button{
     display:flex;
   }
@@ -333,20 +336,32 @@ nav.navbar {
   }
   .navbar_links li {
     text-align: center;
+    margin:10px;
+    padding: 10px;
+    align-self: center;
   }
   .nav-items {
-    padding: 100px;
+    margin:10px;
+  }
+
+  #login{
+    min-width: 200px;
+    margin-left:auto;
+    margin-right:auto
   }
   .navbar_links.active {
+    padding: 15px;
     display:flex;
   }
   .mainNavbar.active{
-    background-color: rgb(0, 31, 131);
-  }
-  #login{
-    position: absolute;
-    top: 24px;
-    right: 50px;
+    // position:absolute;
+    // z-index: 20;
+    transition:all ease-in-out .2s;
+    padding-top: 20px;
+    background: linear-gradient(#261399,#13086c);
+    align-items: center;
+    padding-bottom: 100px;
+    margin-top: -20px;
   }
 }
 </style>
