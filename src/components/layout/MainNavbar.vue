@@ -268,19 +268,19 @@ nav.navbar {
   color: orange;
   border:none;
 }
-.risidioLogo{
-  position:absolute;
-  top: 10px;
-  left: 60px;
-}
+
 .mainNavbar{
+  font-weight:300;
   display:flex;
-  justify-content:right;
+  justify-content:space-between;
   align-items: center;
   color:white;
   width:100%;
 }
 
+.navbar_links{
+  margin-left:auto;
+}
 .navbar_links ul{
   margin:0;
   padding:0;
@@ -299,7 +299,7 @@ nav.navbar {
 }
 .toggle-button{
   position:absolute;
-  top: 3.3rem;
+  top: 3.7rem;
   right:  18rem;
   display:none;
   flex-direction:column;
@@ -345,7 +345,7 @@ nav.navbar {
   }
   #login{
     position: absolute;
-    top: 20px;
+    top: 24px;
     right: 50px;
   }
 }
