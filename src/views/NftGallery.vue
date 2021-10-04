@@ -51,6 +51,7 @@ export default {
   height: 50rem;
   object-fit: cover;
   z-index: -10;
+  transform: rotate(180deg);
 }
 
 .market_introduction_text{

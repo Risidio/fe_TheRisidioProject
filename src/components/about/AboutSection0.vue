@@ -1,6 +1,7 @@
 <template>
 <div class = "Htitle">
-  <div class = "container" :style="bannerImage">
+  <div class = "container">
+     <img class="banner" src="https://res.cloudinary.com/risidio/image/upload/v1632564338/Risidio.com/main_bg.svg" alt="">
       <h1>About Risidio</h1>
       <p>Take back control of your data</p>
       <button class="button" > <a href="https://risidio.com/">Visit Our Website</a></button>
@@ -43,10 +44,17 @@ export default {
 </script>
 
 <style scoped>
-.Htitle{
-  background:rgb(20, 20, 110);
-  width:100%;
+.banner{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50rem;
+  object-fit: cover;
+  z-index: -10;
+  transform: rotate(180deg);
 }
+
 .container {
   min-width: 100%;
   padding: 50px;

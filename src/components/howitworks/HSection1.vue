@@ -1,6 +1,7 @@
 <template>
 <div class = "Htitle">
   <div class = "container">
+    <img class="banner" src="https://res.cloudinary.com/risidio/image/upload/v1632564338/Risidio.com/main_bg.svg" alt="">
       <h1>How it works</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore
@@ -30,8 +31,18 @@ export default {
 </script>
 
 <style scoped>
-.Htitle{
-  background:rgb(20, 20, 110);
+.banner{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50rem;
+  object-fit: cover;
+  z-index: -10;
+  transform: rotate(180deg);
+}
+.HTitle{
+  width:100%;
 }
 .container {
   min-width: 100%;
@@ -44,16 +55,15 @@ export default {
 }
 .container h1{
   font-family: inherit;
-  padding-top: 20px;
   font-size: clamp(4rem, 5rem, 6rem);
   font-weight: 300;
 
 }
 .container p{
   margin:auto;
-  padding-top: 50px;
+  padding-top: 20px;
   font-size: 1.2em;
-  font-weight: 500;
+  font-weight: 300;
   max-width: 750px;
 }
 .button{
