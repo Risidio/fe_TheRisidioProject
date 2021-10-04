@@ -17,6 +17,7 @@
 
   </div>
 </div>
+  </div>
 </template>
 
 <script>
@@ -25,13 +26,10 @@ export default {
   components: {
 
   },
-  props: ['content'],
   data () {
     return {
       banner: 'https://images.prismic.io/digirad/6e5bb3a5-21b7-4bcb-b5a7-85128b6e6e8a_Rumba_bg_small.png?auto=compress,format'
     }
-  },
-  computed: {
   }
 }
 </script>

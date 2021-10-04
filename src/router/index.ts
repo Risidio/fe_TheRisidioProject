@@ -16,7 +16,6 @@ import InformationPage from '../views/InformationPage.vue'
 import About from '../views/About.vue'
 import Terms from '../views/Terms.vue'
 import Privacy from '../views/Privacy.vue'
-import FAQ from '../views/FAQ.vue'
 import AssetDetails from '../views/AssetDetails.vue'
 import ItemPreview from '../views/ItemPreview.vue'
 import MyNfts from '../views/upload/MyNfts.vue'
@@ -130,11 +129,6 @@ const routes: Array<RouteConfig> = [
     path: '/about',
     name: 'about',
     components: { default: About, header: MainNavbar, footer: MainFooter }
-  },
-  {
-    path: '/faq',
-    name: 'faq',
-    components: { default: FAQ, header: MainNavbar, footer: MainFooter }
   },
   {
     path: '/terms',
