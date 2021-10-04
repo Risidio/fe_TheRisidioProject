@@ -64,7 +64,7 @@
           <li><a class="nav-items"><router-link class="text-white" to="/how-it-works">How It Works</router-link></a></li>
           <li><a class="nav-items"><router-link class="text-white" to="/my-nfts">Your NFTs</router-link></a></li>
           <li><a class="nav-items"><router-link class="text-white" to="/create">Mint an NFT</router-link></a></li>
-          <li><div><a class="nav-items" v-b-toggle.my-sidebar><b-icon icon="person" class="mb-3 mr-0"/>Account</a></div></li>
+          <li><div><a class="nav-items" v-b-toggle.my-sidebar><b-icon icon="person"/>Account</a></div></li>
         </ul>
       </div>
       <div v-else class="navbar_links">
@@ -230,8 +230,8 @@ export default {
 nav.navbar {
   font-size: 1.5rem;
   width: 100%;
-  padding-right: 50px;
-  padding-left: 50px;
+  padding-right: 20px;
+  padding-left: 20px;
   position: absolute!important;
   top: 0;
   left: 0;
@@ -299,11 +299,12 @@ nav.navbar {
 .nav-items{
   margin-right: 25px;
   margin-top: 0;
+  color:white;
 }
 .toggle-button{
   position:absolute;
   top: 3.7rem;
-  right:  2rem;
+  right: 3.5rem;
   display:none;
   flex-direction:column;
   justify-content: space-between;
@@ -311,8 +312,8 @@ nav.navbar {
   height: 21px;
 }
 .toggle-button .bar{
-  height: 3px;
-  width:100%;
+  height: 2px;
+  width:90%;
   background-color: #fff;
   border-radius:10px;
 }
@@ -356,8 +357,8 @@ nav.navbar {
   .mainNavbar.active{
     // position:absolute;
     // z-index: 20;
-    transition:all ease-in-out .2s;
-    padding-top: 20px;
+    transition:all ease-in .1s;
+    padding-top: 50px;
     background: linear-gradient(#261399,#13086c);
     align-items: center;
     padding-bottom: 100px;
