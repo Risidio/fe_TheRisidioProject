@@ -2,7 +2,6 @@
 <div class=" navbar_container">
 <b-navbar id="navbar">
    <img class="nav_banner" src="https://res.cloudinary.com/risidio/image/upload/v1632564338/Risidio.com/main_bg.svg" alt="">
-  <b-navbar-brand><router-link class="navbar-brand" to="/"><img width="150px;" :src="logo" alt="risidio-logo"/></router-link></b-navbar-brand>
   <b-navbar-toggle target="my-sidebar">
     <!--
     <template #default="{ expanded }">
@@ -51,21 +50,32 @@
       </div>
     </template>
   </b-sidebar>
-
-    <b-navbar-nav v-if="profile.loggedIn" class="ml-auto align-items-center">
-      <b-nav-item class="mr-5 mt-0" ><router-link class="text-white" to="/nft-gallery">Public Gallery</router-link></b-nav-item>
-      <b-nav-item class="mr-5 mt-0"><router-link class="text-white" to="/how-it-works">How It Works</router-link></b-nav-item>
-      <b-nav-item class="mr-5 mt-0"><router-link class="text-white" to="/my-nfts">Your NFTs</router-link></b-nav-item>
-      <b-nav-item class="mr-5 mt-0"><router-link class="text-white" to="/create">Mint an NFT</router-link></b-nav-item>
-      <b-nav-item class="mr-5"><a v-b-toggle.my-sidebar class="text-white nav-text" ><b-icon icon="person" class="mb-3 mr-0"/>Account</a></b-nav-item>
-    </b-navbar-nav>
-    <b-navbar-nav v-else class="text-white ml-auto text-right align-items-center">
-      <!-- <b-nav-item class="mr-5 mt-0 align-self-center"><router-link class="text-white" to="/nft-gallery">Public Gallery</router-link></b-nav-item> -->
-      <b-nav-item class="mr-5 mt-0" ><router-link class="text-white" to="/nft-gallery">Public Gallery</router-link></b-nav-item>
-      <b-nav-item class="mr-5 mt-0"><router-link class="text-white" to="/how-it-works">How It Works</router-link></b-nav-item>
-      <b-nav-item class="mr-5 mt-0" ><router-link class="text-white" to="/about">About Risidio </router-link></b-nav-item>
-      <button @click.prevent="startLogin()" href="#" id="login" class = "login">Login</button>
-    </b-navbar-nav>
+    <!--Mobile Navbar-->
+    <div class = "mainNavbar">
+      <router-link class="risidioLogo" to="/"><img width="150px;" :src="logo" alt="risidio-logo"/></router-link>
+      <a href= "#" class = "toggle-button" v-on:click="mobileNavebar()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </a>
+      <div v-if="profile.loggedIn" class="navbar_links">
+        <ul>
+          <li><a class="nav-items" ><router-link class="text-white" to="/nft-gallery">Public Gallery</router-link></a></li>
+          <li><a class="nav-items"><router-link class="text-white" to="/how-it-works">How It Works</router-link></a></li>
+          <li><a class="nav-items"><router-link class="text-white" to="/my-nfts">Your NFTs</router-link></a></li>
+          <li><a class="nav-items"><router-link class="text-white" to="/create">Mint an NFT</router-link></a></li>
+          <li><div><a v-b-toggle.my-sidebar class="text-white nav-text" ><b-icon icon="person" class="mb-3 mr-0"/>Account</a></div></li>
+        </ul>
+      </div>
+      <div v-else class="navbar_links">
+        <ul>
+          <!-- <b-nav-item class="mr-5 mt-0 align-self-center"><router-link class="text-white" to="/nft-gallery">Public Gallery</router-link></b-nav-item> -->
+          <li><a class="nav-items" ><router-link class="text-white" to="/nft-gallery">Public Gallery</router-link></a></li>
+          <li><a class="nav-items"><router-link class="text-white" to="/how-it-works">How It Works</router-link></a></li>
+          <li><a class="nav-items" ><router-link class="text-white" to="/about">About Risidio </router-link></a></li>
+        </ul>
+      </div><button @click.prevent="startLogin()" href="#" id="login" class = "login">Login</button>
+    </div>
 </b-navbar>
 </div>
 </template>
@@ -121,6 +131,12 @@ export default {
       const element = document.getElementById('app')
       element.classList.toggle('no-scroll')
       document.body.classList.toggle('no-scroll')
+    },
+    mobileNavebar () {
+      const navbarLinks = document.getElementsByClassName('navbar_links')[0]
+      const mainNavbar = document.getElementsByClassName('mainNavbar')[0]
+      navbarLinks.classList.toggle('active')
+      mainNavbar.classList.toggle('active')
     }
   },
   computed: {
@@ -218,14 +234,9 @@ nav.navbar {
   top: 0;
   left: 0;
 }
-.navbar-toggler svg {
-  font-size: 3.4rem;
-  font-weight: 700;
-  color: #fff;
-  z-index: 5000;
-  opacity: 1.0;
+.nav_links{
+  display:flex;
 }
-
 /* NAV ITEMS STYLE */
 .nav-text a {
   font-weight: 700;
@@ -256,5 +267,86 @@ nav.navbar {
   text-align: center;
   color: orange;
   border:none;
+}
+.risidioLogo{
+  position:absolute;
+  top: 10px;
+  left: 60px;
+}
+.mainNavbar{
+  display:flex;
+  justify-content:right;
+  align-items: center;
+  color:white;
+  width:100%;
+}
+
+.navbar_links ul{
+  margin:0;
+  padding:0;
+  display:flex;
+
+}
+.navbar_links li{
+  list-style: none;
+}
+.navbar_links li a{
+  text-decoration:none;
+}
+.nav-items{
+  margin-right: 25px;
+  margin-top: 0;
+}
+.toggle-button{
+  position:absolute;
+  top: 3.3rem;
+  right:  18rem;
+  display:none;
+  flex-direction:column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+}
+.toggle-button .bar{
+  height: 3px;
+  width:100%;
+  background-color: #fff;
+  border-radius:10px;
+}
+
+//Styling for mobile responsiveness
+@media only screen and (max-width: 850px){
+  .toggle-button{
+    display:flex;
+  }
+  .mainNavbar{
+    flex-direction:column;
+    align-items: flex-start;
+  }
+  .navbar_links{
+    display:none;
+    width:100%;
+  }
+  .navbar_links ul{
+    width:100%;
+    flex-direction: column;
+  }
+  .navbar_links li {
+    text-align: center;
+  }
+  .nav-items {
+    padding: 100px;
+  }
+  .navbar_links.active {
+    display:flex;
+  }
+  .mainNavbar.active{
+    background-color: rgb(0, 31, 131);
+  }
+  #login{
+    position: absolute;
+    top: 20px;
+    right: 50px;
+  }
 }
 </style>
