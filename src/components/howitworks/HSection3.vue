@@ -10,18 +10,9 @@
             <div v-if="slide.id==1" class = "container">
               <h1>How to mint an item?</h1>
               <h2> Step <br><span>0{{slide.id}} </span> </h2>
-            </div>
-            <div v-if="slide.id==2" class = "container">
-              <h1>How to mint an item?</h1>
-              <h2> Step <br><span>0{{slide.id}} </span> </h2>
-            </div>
-            <div v-if="slide.id==3" class = "container">
-              <h1>How to mint an item?</h1>
-              <h2> Step <br><span>0{{slide.id}} </span> </h2>
               <div class = "textContainer">
-                <b-row align-h="center" style="min-height: 30vh">
-                  <b-col class = "mt-5" align-self="center" >
-                    <p>Quick explanation on what and why mint an item :D<br><br>
+                    <p>
+                      Quick explanation on what and why mint an item :D<br><br>
                       adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
                       aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris <br><br>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -29,11 +20,39 @@
                       veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
                       commodo consequat. Duis aut <br><br>
                     </p>
-                  </b-col>
-                  <b-col align-self="center">
                   <img src="https://res.cloudinary.com/risidio/image/upload/v1633002019/RisidioMarketplace/digitalcurrency_tqf1es.svg" alt="digitalcurrency" class="digitalcurrency">
-                  </b-col>
-                </b-row>
+              </div>
+            </div>
+            <div v-if="slide.id==2" class = "container">
+              <h1>How to mint an item?</h1>
+              <h2> Step <br><span>0{{slide.id}} </span> </h2>
+              <div class = "textContainer">
+                    <p>
+                      Quick explanation on what and why mint an item :D<br><br>
+                      adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris <br><br>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                      commodo consequat. Duis aut <br><br>
+                    </p>
+                  <img src="https://res.cloudinary.com/risidio/image/upload/v1633002019/RisidioMarketplace/digitalcurrency_tqf1es.svg" alt="digitalcurrency" class="digitalcurrency">
+              </div>
+            </div>
+            <div v-if="slide.id==3" class = "container">
+              <h1>How to mint an item?</h1>
+              <h2> Step <br><span>0{{slide.id}} </span> </h2>
+              <div class = "textContainer">
+                    <p>
+                      Quick explanation on what and why mint an item :D<br><br>
+                      adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris <br><br>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                      commodo consequat. Duis aut <br><br>
+                    </p>
+                  <img src="https://res.cloudinary.com/risidio/image/upload/v1633002019/RisidioMarketplace/digitalcurrency_tqf1es.svg" alt="digitalcurrency" class="digitalcurrency">
               </div>
             </div>
           </template>
@@ -56,13 +75,16 @@ export default {
   data: () => ({
     slide: [
       {
-        id: '1'
+        id: '1',
+        text: 'Upload Your Item'
       },
       {
-        id: '2'
+        id: '2',
+        text: 'Mint the Bitcoin'
       },
       {
-        id: '3'
+        id: '3',
+        text: 'Set Your Royalties'
       }
     ]
   }),
@@ -101,10 +123,35 @@ img{
   width: 250px;
   margin-left: 125px;
 }
-.textContainer > *{
-  margin:auto;
-  padding-top: 100px;
+p{
+  font-weight: 200;
+  font-size: 1em;
+}
+.container{
   color:white;
-  font-weight: 300;
+  justify-content: center;
+  align-items: center;
+}
+.textContainer{
+  margin:auto;
+  display:flex;
+  flex-wrap: wrap;
+  margin-top: 5vw;
+}
+.textContainer > *{
+  display:flex;
+  margin-left: auto;
+  margin-right:auto;
+  flex: 1 1 300px;
+}
+img{
+  margin:auto;
+}
+@media only screen and (max-width: 770px)  {
+  .vueperslides--fixed-height {height: 100vh;}
+  .textContainer{text-align:center}
+}
+@media only screen and (max-width: 500px)  {
+  .vueperslides--fixed-height {height: 120vh;}
 }
 </style>
