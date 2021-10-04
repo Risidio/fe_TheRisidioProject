@@ -1,5 +1,5 @@
 <template>
-      <b-container style="min-height: 90vh" class=" text-center" align-self="center" id="getStacksWallet">
+      <b-container style="min-height: 90vh; margin-bottom: 100px" class=" text-center" align-self="center" id="getStacksWallet">
         <h1> Get your stacks wallet</h1>
         <b-row align-h="center" style="min-height: 30vh">
           <b-col align-self="center">
@@ -16,7 +16,7 @@
               veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
               commodo consequat. Duis aut <br><br>
             </p>
-            <button><router-link to="/">Download Your Wallet</router-link></button>
+            <button><a href="https://www.hiro.so/wallet" target="_blank" rel="noopener">Download Your Wallet</a></button>
           </b-col>
         </b-row>
       </b-container>
