@@ -22,7 +22,6 @@ export default {
   props: ['content'],
   data () {
     return {
-      banner: 'https://images.prismic.io/digirad/6e5bb3a5-21b7-4bcb-b5a7-85128b6e6e8a_Rumba_bg_small.png?auto=compress,format'
     }
   },
   computed: {
@@ -34,8 +33,8 @@ export default {
 .banner{
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: -25px;
+  width: 120%;
   height: 50rem;
   object-fit: cover;
   z-index: -10;
