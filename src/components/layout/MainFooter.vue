@@ -114,10 +114,6 @@ export default {
 }
 </script>
 <style>
-.container{
-  margin-left: 1%;
-  margin-right: 1%;
-}
 /* FOOTER STYLE */
 footer {
   /*height: 440px;*/
