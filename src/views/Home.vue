@@ -7,7 +7,7 @@
     <prismic-items :prismicItems="content.title"/>
     <prismic-items :prismicItems="content.text1"/>
     <b-row align-h="center" style="min-height: 61vh">
-      <b-col md="10" align-self="center">
+      <b-col md="2" align-self="center">
     <prismic-items :prismicItems="content.title2"/>
     <prismic-items :prismicItems="content.text2"/>
     <prismic-items :prismicItems="content.credits"/>

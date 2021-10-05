@@ -10,7 +10,7 @@
         <div class="col-lg-7 col-12 d-flex columns3-content__container">
             <div class="footer__column-content ml-lg-auto">
               <div> Marketplace</div>
-              <div v-on:click="topFunction()"><router-link to="/marketplace">Gallery</router-link></div>
+              <div v-on:click="topFunction()"><router-link to="/">Gallery</router-link></div>
               <div v-on:click="topFunction()"><router-link to="/how-it-works">How It Works</router-link></div>
               <div class="text-secondary">leveller</div>
               <div class="text-secondary">leveller</div>
@@ -114,6 +114,10 @@ export default {
 }
 </script>
 <style>
+.container{
+  margin-left: 1%;
+  margin-right: 1%;
+}
 /* FOOTER STYLE */
 footer {
   /*height: 440px;*/

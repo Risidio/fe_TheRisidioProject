@@ -60,7 +60,7 @@
       </a>
       <div v-if="profile.loggedIn" class="navbar_links">
         <ul>
-          <li><a class="nav-items" ><router-link class="text-white" to="/nft-gallery">Public Gallery</router-link></a></li>
+          <li><a class="nav-items" ><router-link class="text-white" to="/">Marketplace</router-link></a></li>
           <li><a class="nav-items"><router-link class="text-white" to="/how-it-works">How It Works</router-link></a></li>
           <li><a class="nav-items"><router-link class="text-white" to="/my-nfts">Your NFTs</router-link></a></li>
           <li><a class="nav-items"><router-link class="text-white" to="/create">Mint an NFT</router-link></a></li>
@@ -70,7 +70,7 @@
       <div v-else class="navbar_links">
         <ul>
           <!-- <b-nav-item class="mr-5 mt-0 align-self-center"><router-link class="text-white" to="/nft-gallery">Public Gallery</router-link></b-nav-item> -->
-          <li><a class="nav-items" ><router-link class="text-white" to="/nft-gallery">Public Gallery</router-link></a></li>
+          <li><a class="nav-items" ><router-link class="text-white" to="/">Marketplace</router-link></a></li>
           <li><a class="nav-items"><router-link class="text-white" to="/how-it-works">How It Works</router-link></a></li>
           <li><a class="nav-items" ><router-link class="text-white" to="/about">About Risidio </router-link></a></li>
           <button @click.prevent="startLogin()" href="#" id="login" class = "login">Login</button>
@@ -124,15 +124,6 @@ export default {
           this.$store.commit(APP_CONSTANTS.SET_WEB_WALLET_NEEDED)
         })
       }
-    },
-    mobileMenuExpandClass () {
-      const element = document.getElementById('navbar')
-      element.classList.toggle('navbar__mobile-design')
-    },
-    noScroll () {
-      const element = document.getElementById('app')
-      element.classList.toggle('no-scroll')
-      document.body.classList.toggle('no-scroll')
     },
     mobileNavebar () {
       const navbarLinks = document.getElementsByClassName('navbar_links')[0]
@@ -287,7 +278,6 @@ nav.navbar {
   margin:0;
   padding:0;
   display:flex;
-
 }
 .navbar_links li{
   list-style: none;

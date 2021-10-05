@@ -141,9 +141,10 @@ export default {
 }
 </script>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
-*{
-  font-family: 'Montserrat', sans-serif;
-
+/*Max container width is set by bootstrap.
+You will need to either override it here or
+remove the bootstrap used*/
+.container{
+  max-width: 85%;
 }
 </style>
