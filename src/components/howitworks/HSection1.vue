@@ -8,7 +8,7 @@
         magna aliqua. Ut enim ad minim veniam,
         quis nostrud exercitation ullamco laboris nisi ut
         aliquip ex ea commodo consequat. Duis aut</p>
-      <button class="button"> Get Started </button>
+      <!-- <button class="button"> Get Started </button> -->
   </div>
 </div>
 </template>
