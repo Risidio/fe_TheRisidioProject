@@ -75,7 +75,6 @@
           <li><a class="nav-items" ><router-link class="text-white" to="/about">About Risidio </router-link></a></li>
           <button @click.prevent="startLogin()" href="#" id="login" class = "login">Login</button>
         </ul>
-
       </div>
     </div>
 </b-navbar>

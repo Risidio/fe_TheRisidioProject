@@ -1,9 +1,9 @@
 <template>
 <div v-if="content">
       <h-section-1 :content="content"></h-section-1>
-      <h-section-2 :content="content"></h-section-2>
-      <h-section-3 :content="content"></h-section-3>
       <h-section-4 :content="content"></h-section-4>
+      <h-section-3 :content="content"></h-section-3>
+      <h-section-2 :content="content"></h-section-2>
 </div>
 </template>
 
