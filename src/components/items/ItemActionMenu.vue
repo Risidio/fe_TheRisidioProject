@@ -1,15 +1,16 @@
 <template>
-<div class="text-small pb-0 mb-0">
-  <span class="ml-2 border-bottom" ><b-link :to="itemPreviewUrl">open</b-link></span>
-  <span v-if="this.item.contractAsset">
+<div>
+  <b-link class="nftButton" :to="itemPreviewUrl">NFT Details</b-link>
+  <b-link class="nftButton" :to="itemPreviewUrl">Sell NFT</b-link>
+  <!-- <span v-if="this.item.contractAsset">
     <span class="ml-2 border-bottom"><a :href="item.contractAsset.tokenInfo.metaDataUrl" v-b-tooltip.hover="{ variant: 'light' }" :title="'Meta Data URL: ' + item.contractAsset.tokenInfo.metaDataUrl" target="_blank">meta data</a></span>
     <span class="ml-2 border-bottom"><a class="text-warning" :href="application.tokenContract.baseTokenUri + item.contractAsset.nftIndex" v-b-tooltip.hover="{ variant: 'light' }" :title="'Base Token URL: ' + application.tokenContract.baseTokenUri + item.contractAsset.nftIndex" target="_blank">nft link</a></span>
     <span class="ml-2 border-bottom" v-if="item.mintInfo"><a :href="transactionUrl" v-b-tooltip.hover="{ variant: 'light' }" :title="'Base Token URL: ' + application.tokenContract.baseTokenUri + item.contractAsset.nftIndex" target="_blank">mint tx</a></span>
-  </span>
-  <span v-else>
+  </span> -->
+  <!-- <span v-else>
     <span class="ml-2 border-bottom" v-if="showEditLink"><b-link :to="'/edit-item/' + item.assetHash"><span class="mb-0">edit</span></b-link></span>
     <span class="ml-2 border-bottom" v-if="showDeleteLink"><a href="#" @click.prevent="deleteItem" class="text-danger"><span class="mb-0">delete</span></a></span>
-  </span>
+  </span> -->
 </div>
 </template>
 
@@ -64,4 +65,10 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.nftButton{
+  margin: 5px;
+  background: none;
+  color: black;
+  padding: 10px;
+}
 </style>

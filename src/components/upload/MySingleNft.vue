@@ -1,17 +1,9 @@
 <template>
-<div class="mt-1 mx-4 text-center text-info">
+<div>
   <div v-if="item && item.attributes">
     <MediaItemGeneral :classes="'item-image'" :options="options" :mediaItem="getMediaItem().artworkFile"/>
-  </div>
-  <div class="mt-1 d-flex justify-content-end">
-    <div class="text-small text-right">
       <ItemActionMenu :item="item"/>
-    </div>
-  </div>
-  <div class="mt-4 text-left">
     <b-link router-tag="a" :to="assetUrl">{{item.name}}</b-link>
-  </div>
-  <div class="text-small text-left">
     <div><b-link router-tag="a" :to="assetUrl">{{salesButtonLabel}}</b-link></div>
   </div>
 </div>
@@ -80,5 +72,6 @@ export default {
   }
 }
 </script>
+
 <style lang="scss" scoped>
 </style>
