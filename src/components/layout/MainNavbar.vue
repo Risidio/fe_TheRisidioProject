@@ -134,9 +134,6 @@ export default {
     },
     startRegister () {
       window.open('https://www.hiro.so/wallet', '_blank')
-      return (
-        '<div class="registerText" style="color:black"> Get your stacks wallet </div>'
-      )
     }
   },
   computed: {
