@@ -145,6 +145,6 @@ export default {
 You will need to either override it here or
 remove the bootstrap used*/
 .container{
-  max-width: 85%;
+  max-width: 85% !important;
 }
 </style>

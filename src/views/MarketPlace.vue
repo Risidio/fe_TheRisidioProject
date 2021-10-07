@@ -90,8 +90,8 @@ export default {
 .banner{
   position: absolute;
   top: 0;
-  left: -25px;;
-  width: 120%;
+  left: 0;
+  width: 100%;
   height: 50rem;
   object-fit: cover;
   z-index: -10;
@@ -100,16 +100,17 @@ export default {
 
 .market_introduction_text{
   margin: auto;
-  width: 50vw;
+  width: 60vw;
 }
 
 .market_intro_h1{
   text-align: center;
   margin: auto;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
   color: white;
   font-weight: 400;
-  font-size: 5rem;
+  font-size: clamp(2rem, 4rem, 6rem);
+  word-wrap: break-word;
 }
 
 .market_intro{

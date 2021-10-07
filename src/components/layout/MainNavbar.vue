@@ -70,9 +70,9 @@
       <div v-else class="navbar_links">
         <ul>
           <!-- <b-nav-item class="mr-5 mt-0 align-self-center"><router-link class="text-white" to="/nft-gallery">Public Gallery</router-link></b-nav-item> -->
-          <li><a class="nav-items" ><router-link class="text-white" to="/">Marketplace</router-link></a></li>
-          <li><a class="nav-items"><router-link class="text-white" to="/how-it-works">How It Works</router-link></a></li>
-          <li><a class="nav-items" ><router-link class="text-white" to="/about">About Risidio </router-link></a></li>
+          <li style="margin-top: 15px"><a class="nav-items" ><router-link class="text-white" to="/">Marketplace</router-link></a></li>
+          <li style="margin-top: 15px"><a class="nav-items"><router-link class="text-white" to="/how-it-works">How It Works</router-link></a></li>
+          <li style="margin-top: 15px"><a class="nav-items" ><router-link class="text-white" to="/about">About Risidio </router-link></a></li>
           <button @click.prevent="startLogin()" href="#" id="login" class = "login">Login</button>
         </ul>
       </div>
@@ -204,7 +204,6 @@ export default {
 
 <style lang="scss">
 /* NAVBAR PADDING AND WIDTH */
-
 .nav_banner{
   position: absolute;
   top: 0px;
@@ -268,6 +267,7 @@ nav.navbar {
   align-items: center;
   color:white;
   width:100%;
+  margin-left: 3%;
 }
 
 .navbar_links{
@@ -280,7 +280,7 @@ nav.navbar {
 }
 .navbar_links li{
   list-style: none;
-  padding-top: 15px;
+
 }
 .navbar_links li a{
   text-decoration:none;

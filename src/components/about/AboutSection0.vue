@@ -47,8 +47,8 @@ export default {
 .banner{
   position: absolute;
   top: 0;
-  left: -25px;;
-  width: 120%;
+  left: 0;
+  width: 100%;
   height: 50rem;
   object-fit: cover;
   z-index: -10;
