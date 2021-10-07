@@ -73,7 +73,9 @@
           <li style="margin-top: 15px"><a class="nav-items" ><router-link class="text-white" to="/">Marketplace</router-link></a></li>
           <li style="margin-top: 15px"><a class="nav-items"><router-link class="text-white" to="/how-it-works">How It Works</router-link></a></li>
           <li style="margin-top: 15px"><a class="nav-items" ><router-link class="text-white" to="/about">About Risidio </router-link></a></li>
-          <button @click.prevent="startLogin()" href="#" id="login" class = "login">Login</button>
+          <button @click.prevent="startLogin()" href="#" id="login" class ="login">Login</button>
+          <button class ="login" id="register" v-on:click="startRegister()"> Register <small> <br>Download Hiro Wallet Extension to register</small></button>
+
         </ul>
       </div>
     </div>
@@ -129,6 +131,12 @@ export default {
       const mainNavbar = document.getElementsByClassName('mainNavbar')[0]
       navbarLinks.classList.toggle('active')
       mainNavbar.classList.toggle('active')
+    },
+    startRegister () {
+      window.open('https://www.hiro.so/wallet', '_blank')
+      return (
+        '<div class="registerText" style="color:black"> Get your stacks wallet </div>'
+      )
     }
   },
   computed: {
@@ -250,7 +258,7 @@ nav.navbar {
 .b-sidebar > .b-sidebar-header {
     padding: 50px 10px;
 }
-#login{
+.login{
   border-radius: 50px;
   background-color: rgba(255, 255, 255, 0.192);
   min-width: 120px;
@@ -258,6 +266,7 @@ nav.navbar {
   text-align: center;
   color: orange;
   border:none;
+  margin-right: 10px;
 }
 
 .mainNavbar{
@@ -306,6 +315,18 @@ nav.navbar {
   background-color: #fff;
   border-radius:10px;
 }
+#register small {
+  position: absolute;
+  top: 70px;
+  right: 35px;
+  display:none;
+}
+#register:hover{
+  small{
+    display:flex;
+    color:white;
+  }
+}
 
 //Styling for mobile responsiveness
 @media only screen and (max-width: 900px){
@@ -333,12 +354,23 @@ nav.navbar {
   .nav-items {
     margin:10px;
   }
-
-  #login{
+  .login{
     min-width: 200px;
     margin-left:auto;
     margin-right:auto;
     margin-top: 20px;
+  }
+  #register small{
+    top: 460px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    text-align: center;
+    padding-left: 5%;
+    padding-right: 5%;
   }
   .navbar_links.active {
     padding: 15px;
