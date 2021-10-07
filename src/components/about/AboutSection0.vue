@@ -16,11 +16,6 @@ export default {
 
   },
   props: ['content'],
-  data () {
-    return {
-      banner: 'https://images.prismic.io/digirad/1f147c92-5945-4d4e-a578-aa085e6603ef_Ruma_bg.png?auto=compress,format'
-    }
-  },
   computed: {
     bannerImage () {
       return {
