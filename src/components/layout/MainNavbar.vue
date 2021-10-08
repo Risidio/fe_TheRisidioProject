@@ -17,7 +17,7 @@
 
   <b-sidebar id="my-sidebar" sidebar-class="border-left border-secondary" bg-variant="white" text-variant="dark" aria-label="Sidebar" right>
     <template #default="{ hide }">
-      <div class="pb-5 mt-5 border-bottom text-center">
+      <div class="sideBar">
         <h1>Welcome</h1>
         <h2>{{username}}</h2>
       </div>
@@ -254,6 +254,22 @@ nav.navbar {
 }
 .b-sidebar > .b-sidebar-header {
     padding: 50px 10px;
+}
+.sideBar{
+  padding-bottom: 50px;
+  margin-top: 50px;
+  border-bottom: solid rgb(214, 214, 214) 1px;
+  text-align: center;
+  padding: 0 15px;
+
+}
+.sideBar h2{
+  word-break: break-word;
+  color: #13086c;
+  padding-bottom: 20px;
+}
+.stx-address{
+  word-break: break-word;
 }
 .login{
   border-radius: 50px;

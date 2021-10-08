@@ -48,14 +48,6 @@ export default {
   text-align: center;
   max-width: 750px;
 }
-.center_image{
-  margin:auto;
-  align-content: center;
-  align-items: center;
-  align-self: center;
-  justify-content: center;
-  justify-self: center;
-}
 h1{
   padding-top: 50px;
   font-size: clamp(4rem, 5rem, 6rem);
