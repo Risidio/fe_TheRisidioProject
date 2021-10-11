@@ -101,6 +101,10 @@ export const APP_CONSTANTS = {
   SET_CURRENT_SEARCH: 'rpaySearchStore/setCurrentSearch',
   KEY_CURRENT_SEARCH: 'rpaySearchStore/getCurrentSearch',
   KEY_ASSET: 'rpaySearchStore/getAsset',
-  KEY_SEARCH_RESULTS: 'rpaySearchStore/getSearchResults'
+  KEY_SEARCH_RESULTS: 'rpaySearchStore/getSearchResults',
+  KEY_MY_PROJECT: 'projectStore/getProject',
+  KEY_MY_PROJECTS: 'projectStore/getProjects',
+  KEY_CONTRACT: 'projectStore/getContract',
+  KEY_FAVOURITES: 'projectStore/getFavourites'
 
 }

@@ -48,6 +48,11 @@
           </nav>
         </p>
       </div>
+      <div class="p-3 mb-5 border-bottom text-left">
+        <div class="text2 mb-2">
+          <router-link to="/admin-app"><b-icon class="mr-2" icon="gear" /> Developers</router-link>
+        </div>
+      </div>
     </template>
   </b-sidebar>
 

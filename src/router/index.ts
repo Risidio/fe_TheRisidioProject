@@ -24,6 +24,8 @@ import NftGallery from '../views/NftGallery.vue'
 import MyItems from '../views/upload/MyItems.vue'
 import UploadItem from '../views/upload/UploadItem.vue'
 import UpdateItem from '../views/upload/UpdateItem.vue'
+import ApplicationAdministration from '../views/projects/ApplicationAdministration.vue'
+import UpdateApplication from '../views/projects/UpdateApplication.vue'
 
 Vue.use(VueRouter)
 
@@ -162,6 +164,16 @@ const routes: Array<RouteConfig> = [
       requiresAuth: true,
       requiresAdmin: true
     }
+  },
+  {
+    path: '/admin-app',
+    name: 'admin-app',
+    components: { default: ApplicationAdministration, header: MainNavbar, footer: MainFooter }
+  },
+  {
+    path: '/connect-app',
+    name: 'connect-app-create',
+    components: { default: UpdateApplication, header: MainNavbar, footer: MainFooter }
   },
   {
     path: '/get-in-touch',
