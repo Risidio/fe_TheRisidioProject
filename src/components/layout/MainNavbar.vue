@@ -64,8 +64,8 @@
           <li><a class="nav-items"><router-link class="text-white" to="/how-it-works">How It Works</router-link></a></li>
           <li style="nav-items"><a class="nav-items" ><router-link class="text-white" to="/about">About Risidio </router-link></a></li>
           <li><a class="nav-items"><router-link class="text-white" to="/my-nfts">Your NFTs</router-link></a></li>
-          <li><a class="nav-items"><router-link class="text-white" to="/create">Mint an NFT</router-link></a></li>
-          <li><div><a class="nav-items" v-b-toggle.my-sidebar><b-icon icon="person" class="person"/>Account</a></div></li>
+          <!-- <li><a class="nav-items"><router-link class="text-white" to="/create">Mint an NFT</router-link></a></li> -->
+          <li><div><a class="nav-items" v-b-toggle.my-sidebar v-on:click="mobileNavebar()"><b-icon icon="person" class="person"/>Account</a></div></li>
         </ul>
       </div>
       <div v-else class="navbar_links">
@@ -75,7 +75,7 @@
           <li style="margin-top: 15px"><a class="nav-items"><router-link class="text-white" to="/how-it-works">How It Works</router-link></a></li>
           <li style="margin-top: 15px"><a class="nav-items" ><router-link class="text-white" to="/about">About Risidio </router-link></a></li>
           <button @click.prevent="startLogin()" href="#" id="login" class ="login">Login</button>
-          <button class ="login" id="register" v-on:click="startRegister()"> Register <small> <br>Download Hiro Wallet Extension to register</small></button>
+          <button class ="login" id="register" v-on:click="startRegister()"> Register <small>Download the Hiro Wallet Extension to register</small></button>
 
         </ul>
       </div>
@@ -280,7 +280,7 @@ nav.navbar {
   text-align: center;
   // color: orange;
   // color: #50B1B5;
-  color: #25d2d8;
+  color: var(--cyan);
   border:none;
   margin-right: 10px;
 }
@@ -336,9 +336,13 @@ nav.navbar {
 }
 #register small {
   position: absolute;
-  top: 70px;
+  top: 80px;
   right: 35px;
+  background-color:rgba(255, 255, 255, 0.25);
+  text-align: center;
   display:none;
+  border-radius: 10px;
+  padding: 10px;
 }
 #register:hover{
   small{
@@ -348,13 +352,14 @@ nav.navbar {
 }
 
 //Styling for mobile responsiveness
-@media only screen and (max-width: 900px){
+@media only screen and (max-width: 1000px){
   .toggle-button{
     display:flex;
   }
   .mainNavbar{
     flex-direction:column;
     align-items: flex-start;
+    z-index: 1000;
   }
   .navbar_links{
     display:none;
@@ -390,6 +395,7 @@ nav.navbar {
     text-align: center;
     padding-left: 5%;
     padding-right: 5%;
+    margin-top: 15px;
   }
   .navbar_links.active {
     padding: 15px;

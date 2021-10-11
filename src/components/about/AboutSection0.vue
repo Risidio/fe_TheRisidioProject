@@ -17,23 +17,6 @@ export default {
   },
   props: ['content'],
   computed: {
-    bannerImage () {
-      return {
-        height: 'auto',
-        width: '100%',
-        'background-repeat': 'no-repeat',
-        'background-image': `url(${this.banner})`,
-        'background-position': 'center center',
-        '-webkit-background-size': 'cover',
-        '-moz-background-size': 'cover',
-        '-o-background-size': 'cover'
-        // 'background-size': 'cover',
-        // '-webkit-transform': 'rotate(180deg)',
-        // '-moz-transform': 'rotate(180deg)',
-        // '-ms-transform': 'rotate(180deg)',
-        // '-o-transform': 'rotate(180deg)'
-      }
-    }
   }
 }
 </script>
@@ -80,6 +63,6 @@ export default {
   font-weight:800;
 }
 a, a:after, a:hover{
-    color:#50B1B5;
+    color:var(--cyan);
 }
 </style>

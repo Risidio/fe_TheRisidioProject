@@ -2,8 +2,9 @@
 <div class="container">
   <img class="banner" src="https://res.cloudinary.com/risidio/image/upload/v1633609373/RisidioMarketplace/Group_-304_ofssmk.svg" alt="">
   <div class="market_introduction_text">
-  <h1 class="market_intro_h1">Marketplace</h1>
-  <p class="market_intro">Risidio is a NFT minting platform and marketplace that enables users to register their assets in different formats on the Bitcoin blockchain using Stacks. Regardless of their experience with NFTs, Ruma allows all creatives to secure ownership rights and set royalties for further monetisation of work easily and securely.</p>
+    <p class="market_intro_Ex">Explore the New Era of Digital Art</p>
+    <h1 class="market_intro_h1"> Risidio Marketplace</h1>
+    <p class="market_intro">Risidio is a NFT minting platform and marketplace that enables users to register their assets in different formats on the Bitcoin blockchain using Stacks. Regardless of their experience with NFTs, Ruma allows all creatives to secure ownership rights and set royalties for further monetisation of work easily and securely.</p>
   </div>
  <search-bar class="mainSearchBar" :showPrepend="true" v-on="$listeners"/>
  <!-- <div class="gallery_highlights">
@@ -92,7 +93,7 @@ export default {
   top: 0;
   left: 0;
   width: 100%;
-  height: 50rem;
+  min-height: 50rem;
   object-fit: cover;
   z-index: -10;
   transform: rotate(180deg);
@@ -101,32 +102,73 @@ export default {
 .market_introduction_text{
   margin: auto;
   width: 60vw;
+  text-align: center;
+  color: white;
+  margin: auto;
 }
 
 .market_intro_h1{
-  text-align: center;
-  margin: auto;
   margin-bottom: 50px;
   color: white;
   font-weight: 400;
   font-size: clamp(2rem, 4rem, 6rem);
   word-wrap: break-word;
 }
-
 .market_intro{
   font-size: 1em;
-  text-align: center;
-  margin: auto;
-  color: white;
   font-weight: 400;
   max-width: 1000px;
+  margin: auto;
+}
+.market_intro_Ex{
+  font-size: 1.2em;
 }
 
 .mainSearchBar{
-  margin-top: 11rem;
+  margin-top: 12.5rem;
 }
 
 .gallery_public{
   margin-top: 100px;
+}
+@media only screen and (max-width: 1380px){
+  .banner{
+    min-height: 52rem;
+  }
+}
+@media only screen and (max-width: 1078px){
+  .banner{
+    min-height: 55rem;
+  }
+}
+@media only screen and (max-width: 840px){
+  .banner{
+    min-height: 57rem;
+  }
+}
+@media only screen and (max-width: 730px){
+  .banner{
+    min-height: 58rem;
+  }
+}
+@media only screen and (max-width: 685px){
+  .banner{
+    min-height: 65rem;
+  }
+}
+@media only screen and (max-width: 570px){
+  .banner{
+    min-height: 69rem;
+  }
+}
+@media only screen and (max-width: 514px){
+  .banner{
+    min-height: 73rem;
+  }
+}
+@media only screen and (max-width: 456px){
+  .banner{
+    min-height: 75rem;
+  }
 }
 </style>
