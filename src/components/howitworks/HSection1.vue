@@ -1,27 +1,21 @@
 <template>
-<div id="g1" v-if="content" background-color="">
-  <div class="item" v-for="(item, index) in content.group1" :key="index">
-    <div class="img">
-    <img class="item__img" :src="item.img.url" :alt="item.img.alt">
-    </div>
-    <div class="words">
-    <h1 class="item__title">{{ item.title[0].text }}</h1>
-    <ol>
-      <li class="item__text">{{ item.text[0].text }}</li>
-      <li class="item__text">{{ item.text[1].text }}</li>
-      <li class="item__text">{{ item.text[2].text }}</li>
-      <li class="item__text">{{ item.text[3].text }}</li>
-      <li class="item__text">{{ item.text[4].text }}</li>
-      <li class="item__text">{{ item.text[5].text }}</li>
-    </ol>
-    </div>
+<div class = "Htitle">
+  <div class = "container">
+    <img class="banner" src="https://res.cloudinary.com/risidio/image/upload/v1632564338/Risidio.com/main_bg.svg" alt="">
+      <h1>How it works</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut
+        aliquip ex ea commodo consequat. Duis aut</p>
+      <!-- <button class="button"> Get Started </button> -->
   </div>
 </div>
 </template>
 
 <script>
 export default {
-  name: 'Group1',
+  name: 'HTitle',
   components: {
 
   },
@@ -35,22 +29,53 @@ export default {
 }
 </script>
 
-<style lang="scss">
-#g1 {
-  height: 60rem;
-  width: 100rem;
-  padding: 5%;
-  margin-left: 5%;
+<style scoped>
+.banner{
+  position: absolute;
+  top: 0;
+  left: -25px;
+  width: 120%;
+  height: 50rem;
+  object-fit: cover;
+  z-index: -10;
+  transform: rotate(180deg);
 }
-.item {
-  display: flex;
-  flex-direction: row;
+.HTitle{
+  width:100%;
 }
-.img {
-  padding: 5%;
+.container {
+  min-width: 100%;
+  padding: 50px;
+  align-items: center;
+  text-align: center;
+  color:white;
+  margin-top: -35px;
+  min-height: 40vh;
 }
-.item__title{
-  padding: 2%;
-}
+.container h1{
+  font-family: inherit;
+  font-size: clamp(4rem, 5rem, 6rem);
+  font-weight: 300;
 
+}
+.container p{
+  margin:auto;
+  padding-top: 20px;
+  font-size: 1.2em;
+  font-weight: 300;
+  max-width: 750px;
+}
+.button{
+  margin-top: 30px;
+  width: 220px;
+  height: 55px;
+  border-radius: 100px;
+  border: none;
+  background-color: white;
+  font-size: 12px;
+  font-weight:700;
+}
+a, a:after, a:hover{
+    color:black;
+}
 </style>

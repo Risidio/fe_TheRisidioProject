@@ -1,7 +1,7 @@
 <template>
-<div class="d-flex justify-content-center">
-<b-navbar variant="light" id="navbar" :style="bannerImage">
-  <b-navbar-brand><router-link class="navbar-brand" to="/"><img width="150px;" :src="logo" alt="risidio-logo"/></router-link></b-navbar-brand>
+<div class=" navbar_container">
+<b-navbar id="navbar">
+   <img class="nav_banner" src="https://res.cloudinary.com/risidio/image/upload/v1632564338/Risidio.com/main_bg.svg" alt="">
   <b-navbar-toggle target="my-sidebar">
     <!--
     <template #default="{ expanded }">
@@ -55,19 +55,33 @@
       </div>
     </template>
   </b-sidebar>
-
-    <b-navbar-nav v-if="profile.loggedIn" class="ml-auto">
-      <b-nav-item class="mr-3 mt-0"><router-link class="text-white" to="/nft-gallery">Public Gallery</router-link></b-nav-item>
-      <b-nav-item class="mr-3 mt-0"><router-link class="text-white" to="/how-it-works">How It Works</router-link></b-nav-item>
-      <b-nav-item class="mr-3 mt-0"><router-link class="text-white" to="/my-nfts">Your NFTs</router-link></b-nav-item>
-      <b-nav-item class="mr-3 mt-0"><router-link class="text-white" to="/create">Mint an NFT</router-link></b-nav-item>
-      <b-nav-item class="mr-3"><a v-b-toggle.my-sidebar class="text-white nav-text" ><b-icon icon="person" class="mb-3 mr-0"/>Account</a></b-nav-item>
-    </b-navbar-nav>
-    <b-navbar-nav v-else class="text-white ml-auto text-right">
-      <b-nav-item class="mr-3 mt-0"><router-link class="text-white" to="/nft-gallery">Public Gallery</router-link></b-nav-item>
-      <b-nav-item class="mr-3 mt-0"><router-link class="text-white" to="/how-it-works">How It Works</router-link></b-nav-item>
-      <b-nav-item @click.prevent="startLogin()" href="#">Login</b-nav-item>
-    </b-navbar-nav>
+    <!--Mobile Navbar-->
+    <div class = "mainNavbar">
+      <router-link class="risidioLogo" to="/"><img width="150px;" :src="logo" alt="risidio-logo"/></router-link>
+      <a href= "#" class = "toggle-button" v-on:click="mobileNavebar()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </a>
+      <div v-if="profile.loggedIn" class="navbar_links">
+        <ul>
+          <li><a class="nav-items" ><router-link class="text-white" to="/">Marketplace</router-link></a></li>
+          <li><a class="nav-items"><router-link class="text-white" to="/how-it-works">How It Works</router-link></a></li>
+          <li><a class="nav-items"><router-link class="text-white" to="/my-nfts">Your NFTs</router-link></a></li>
+          <li><a class="nav-items"><router-link class="text-white" to="/create">Mint an NFT</router-link></a></li>
+          <li><div><a class="nav-items" v-b-toggle.my-sidebar><b-icon icon="person"/>Account</a></div></li>
+        </ul>
+      </div>
+      <div v-else class="navbar_links">
+        <ul>
+          <!-- <b-nav-item class="mr-5 mt-0 align-self-center"><router-link class="text-white" to="/nft-gallery">Public Gallery</router-link></b-nav-item> -->
+          <li><a class="nav-items" ><router-link class="text-white" to="/">Marketplace</router-link></a></li>
+          <li><a class="nav-items"><router-link class="text-white" to="/how-it-works">How It Works</router-link></a></li>
+          <li><a class="nav-items" ><router-link class="text-white" to="/about">About Risidio </router-link></a></li>
+          <button @click.prevent="startLogin()" href="#" id="login" class = "login">Login</button>
+        </ul>
+      </div>
+    </div>
 </b-navbar>
 </div>
 </template>
@@ -115,14 +129,11 @@ export default {
         })
       }
     },
-    mobileMenuExpandClass () {
-      const element = document.getElementById('navbar')
-      element.classList.toggle('navbar__mobile-design')
-    },
-    noScroll () {
-      const element = document.getElementById('app')
-      element.classList.toggle('no-scroll')
-      document.body.classList.toggle('no-scroll')
+    mobileNavebar () {
+      const navbarLinks = document.getElementsByClassName('navbar_links')[0]
+      const mainNavbar = document.getElementsByClassName('mainNavbar')[0]
+      navbarLinks.classList.toggle('active')
+      mainNavbar.classList.toggle('active')
     }
   },
   computed: {
@@ -135,19 +146,19 @@ export default {
       const content = this.$store.getters['contentStore/getHomepage']
       return content
     },
-    bannerImage () {
-      return {
-        height: '128px',
-        width: '100%',
-        'background-repeat': 'no-repeat',
-        'background-image': `url(${this.banner})`,
-        'background-position': 'center center',
-        '-webkit-background-size': 'cover',
-        '-moz-background-size': 'cover',
-        '-o-background-size': 'cover',
-        'background-size': 'cover'
-      }
-    },
+    // bannerImage () {
+    //   return {
+    //     height: '128px',
+    //     width: '100%',
+    //     'background-repeat': 'no-repeat',
+    //     'background-image': `url(${this.banner})`,
+    //     'background-position': 'center center',
+    //     '-webkit-background-size': 'cover',
+    //     '-moz-background-size': 'cover',
+    //     '-o-background-size': 'cover',
+    //     'background-size': 'cover'
+    //   }
+    // },
     showAdmin () {
       const profile = this.$store.getters[APP_CONSTANTS.KEY_PROFILE]
       return profile.superAdmin || location.origin.indexOf('local') > -1
@@ -198,29 +209,155 @@ export default {
 
 <style lang="scss">
 /* NAVBAR PADDING AND WIDTH */
-nav.navbar {
+
+.nav_banner{
+  position: absolute;
+  top: 0px;
+  left: 0px;
   width: 100%;
-  padding-right: 50px;
-  padding-left: 50px;
+  height: 128px;
+  object-fit: cover;
+  z-index: -11;
+}
+#navbar{
+  padding-top: 20px;
+}
+nav.navbar {
+  font-size: 1.5rem;
+  width: 100%;
+  padding-right: 20px;
+  padding-left: 20px;
   position: absolute!important;
   top: 0;
   left: 0;
 }
-.navbar-toggler svg {
-  font-size: 3.4rem;
-  font-weight: 700;
-  color: #fff;
-  z-index: 5000;
-  opacity: 1.0;
+.nav_links{
+  display:flex;
 }
 /* NAV ITEMS STYLE */
 .nav-text a {
   font-weight: 700;
+}
+// .navbar-light .navbar-nav .nav-link {
+//     color: #fff !important;
+//     padding: 20px;
+// }
+
+.header_menu{
+    color: #fff;
+    background: transparent;
+    padding: 10px;
+    border-radius: 20px;
+    margin-right: 10px;
 }
 .navbar-light .navbar-nav .nav-link {
     color: #fff !important;
 }
 .b-sidebar > .b-sidebar-header {
     padding: 50px 10px;
+}
+#login{
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0.192);
+  min-width: 120px;
+  min-height:50px;
+  text-align: center;
+  color: orange;
+  border:none;
+}
+
+.mainNavbar{
+  font-weight:300;
+  display:flex;
+  justify-content:space-between;
+  align-items: center;
+  color:white;
+  width:100%;
+}
+
+.navbar_links{
+  margin-left:auto;
+}
+.navbar_links ul{
+  margin:0;
+  padding:0;
+  display:flex;
+}
+.navbar_links li{
+  list-style: none;
+  padding-top: 15px;
+}
+.navbar_links li a{
+  text-decoration:none;
+}
+.nav-items{
+  margin-right: 25px;
+  margin-top: 0;
+  color:white;
+}
+.toggle-button{
+  position:absolute;
+  top: 3.7rem;
+  right: 3.5rem;
+  display:none;
+  flex-direction:column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+}
+.toggle-button .bar{
+  height: 2px;
+  width:90%;
+  background-color: #fff;
+  border-radius:10px;
+}
+
+//Styling for mobile responsiveness
+@media only screen and (max-width: 900px){
+  .toggle-button{
+    display:flex;
+  }
+  .mainNavbar{
+    flex-direction:column;
+    align-items: flex-start;
+  }
+  .navbar_links{
+    display:none;
+    width:100%;
+  }
+  .navbar_links ul{
+    width:100%;
+    flex-direction: column;
+  }
+  .navbar_links li {
+    text-align: center;
+    margin:10px;
+    padding: 10px;
+    align-self: center;
+  }
+  .nav-items {
+    margin:10px;
+  }
+
+  #login{
+    min-width: 200px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 20px;
+  }
+  .navbar_links.active {
+    padding: 15px;
+    display:flex;
+  }
+  .mainNavbar.active{
+    // position:absolute;
+    // z-index: 20;
+    transition:all ease-in .1s;
+    padding-top: 50px;
+    background: linear-gradient(#261399,#13086c);
+    align-items: center;
+    padding-bottom: 100px;
+    margin-top: -20px;
+  }
 }
 </style>

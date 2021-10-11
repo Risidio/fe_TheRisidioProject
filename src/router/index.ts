@@ -16,11 +16,11 @@ import InformationPage from '../views/InformationPage.vue'
 import About from '../views/About.vue'
 import Terms from '../views/Terms.vue'
 import Privacy from '../views/Privacy.vue'
-import FAQ from '../views/FAQ.vue'
 import AssetDetails from '../views/AssetDetails.vue'
 import ItemPreview from '../views/ItemPreview.vue'
 import MyNfts from '../views/upload/MyNfts.vue'
 import NftGallery from '../views/NftGallery.vue'
+import MarketPlace from '../views/MarketPlace.vue'
 import MyItems from '../views/upload/MyItems.vue'
 import UploadItem from '../views/upload/UploadItem.vue'
 import UpdateItem from '../views/upload/UpdateItem.vue'
@@ -47,7 +47,7 @@ const routes: Array<RouteConfig> = [
   {
     path: '/',
     name: 'homepage',
-    components: { default: NftGallery, header: MainNavbar, footer: MainFooter }
+    components: { default: MarketPlace, header: MainNavbar, footer: MainFooter }
   },
   {
     path: '/edit-item/:assetHash',
@@ -131,11 +131,6 @@ const routes: Array<RouteConfig> = [
     path: '/about',
     name: 'about',
     components: { default: About, header: MainNavbar, footer: MainFooter }
-  },
-  {
-    path: '/faq',
-    name: 'faq',
-    components: { default: FAQ, header: MainNavbar, footer: MainFooter }
   },
   {
     path: '/terms',

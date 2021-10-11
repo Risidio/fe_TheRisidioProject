@@ -140,5 +140,11 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style>
+/*Max container width is set by bootstrap.
+You will need to either override it here or
+remove the bootstrap used*/
+.container{
+  max-width: 85%;
+}
 </style>
