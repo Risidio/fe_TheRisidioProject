@@ -1,6 +1,6 @@
 <template>
 <div class="container">
-  <img class="banner" src="https://res.cloudinary.com/risidio/image/upload/v1632564338/Risidio.com/main_bg.svg" alt="">
+  <img class="banner" src="https://res.cloudinary.com/risidio/image/upload/v1633609373/RisidioMarketplace/Group_-304_ofssmk.svg" alt="">
   <div class="market_introduction_text">
   <h1 class="market_intro_h1">Marketplace</h1>
   <p class="market_intro">Risidio is a NFT minting platform and marketplace that enables users to register their assets in different formats on the Bitcoin blockchain using Stacks. Regardless of their experience with NFTs, Ruma allows all creatives to secure ownership rights and set royalties for further monetisation of work easily and securely.</p>
@@ -114,10 +114,12 @@ export default {
 }
 
 .market_intro{
+  font-size: 1em;
   text-align: center;
   margin: auto;
   color: white;
   font-weight: 400;
+  max-width: 1000px;
 }
 
 .mainSearchBar{

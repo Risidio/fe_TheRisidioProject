@@ -51,7 +51,8 @@ button{
   border-radius: 100px;
   border: none;
   color:white;
-  background-color: #FFA310;
+  // background-color: #FFA310;
+  background-color: #50B1B5;
   font-size: 12px;
   font-weight:700;
 }
@@ -66,5 +67,7 @@ h1{
 }
 p{
   padding: 0 10px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 </style>

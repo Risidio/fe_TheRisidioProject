@@ -57,6 +57,8 @@ p{
   padding-top: 50px;
   font-size: 1.2em;
   font-weight: 500;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 </style>

@@ -1,7 +1,7 @@
 <template>
 <div class=" navbar_container">
 <b-navbar id="navbar">
-   <img class="nav_banner" src="https://res.cloudinary.com/risidio/image/upload/v1632564338/Risidio.com/main_bg.svg" alt="">
+   <img class="nav_banner" src="https://res.cloudinary.com/risidio/image/upload/v1633609222/RisidioMarketplace/gradienta-m_-1_v4hs5p.svg" alt="">
   <b-navbar-toggle target="my-sidebar">
     <!--
     <template #default="{ expanded }">
@@ -62,9 +62,10 @@
         <ul>
           <li><a class="nav-items" ><router-link class="text-white" to="/">Marketplace</router-link></a></li>
           <li><a class="nav-items"><router-link class="text-white" to="/how-it-works">How It Works</router-link></a></li>
+          <li style="nav-items"><a class="nav-items" ><router-link class="text-white" to="/about">About Risidio </router-link></a></li>
           <li><a class="nav-items"><router-link class="text-white" to="/my-nfts">Your NFTs</router-link></a></li>
           <li><a class="nav-items"><router-link class="text-white" to="/create">Mint an NFT</router-link></a></li>
-          <li><div><a class="nav-items" v-b-toggle.my-sidebar><b-icon icon="person"/>Account</a></div></li>
+          <li><div><a class="nav-items" v-b-toggle.my-sidebar><b-icon icon="person" class="person"/>Account</a></div></li>
         </ul>
       </div>
       <div v-else class="navbar_links">
@@ -277,11 +278,16 @@ nav.navbar {
   min-width: 120px;
   min-height:50px;
   text-align: center;
-  color: orange;
+  // color: orange;
+  // color: #50B1B5;
+  color: #25d2d8;
   border:none;
   margin-right: 10px;
 }
-
+.person{
+  // height: 20px;
+  // width: 20px;
+}
 .mainNavbar{
   font-weight:300;
   display:flex;
