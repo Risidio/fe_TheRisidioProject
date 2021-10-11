@@ -20,7 +20,7 @@
                       veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
                       commodo consequat. Duis aut <br><br>
                     </p>
-                  <img src="https://res.cloudinary.com/risidio/image/upload/v1633002019/RisidioMarketplace/digitalcurrency_tqf1es.svg" alt="digitalcurrency" class="digitalcurrency">
+                  <img src="https://res.cloudinary.com/risidio/image/upload/v1633609851/RisidioMarketplace/014-income_fjsawz.svg" alt="digitalcurrency" class="digitalcurrency">
               </div>
             </div>
             <div v-if="slide.id==2" class = "container">
@@ -36,7 +36,7 @@
                       veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
                       commodo consequat. Duis aut <br><br>
                     </p>
-                  <img src="https://res.cloudinary.com/risidio/image/upload/v1633002019/RisidioMarketplace/digitalcurrency_tqf1es.svg" alt="digitalcurrency" class="digitalcurrency">
+                  <img src="https://res.cloudinary.com/risidio/image/upload/v1633609756/RisidioMarketplace/041-blockchain_ykubcc.svg" alt="digitalcurrency" class="digitalcurrency">
               </div>
             </div>
             <div v-if="slide.id==3" class = "container">
@@ -52,7 +52,7 @@
                       veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
                       commodo consequat. Duis aut <br><br>
                     </p>
-                  <img src="https://res.cloudinary.com/risidio/image/upload/v1633002019/RisidioMarketplace/digitalcurrency_tqf1es.svg" alt="digitalcurrency" class="digitalcurrency">
+                  <img src="https://res.cloudinary.com/risidio/image/upload/v1633609724/RisidioMarketplace/039-data_atlt6g.svg" alt="digitalcurrency" class="digitalcurrency">
               </div>
             </div>
           </template>

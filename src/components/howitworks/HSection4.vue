@@ -1,69 +1,75 @@
 <template>
-      <b-container style="min-height: 90vh; margin-bottom: 100px" class=" text-center" align-self="center" id="getStacksWallet">
-        <h1> Get your stacks wallet</h1>
-        <b-row align-h="center" style="min-height: 30vh">
-          <b-col align-self="center">
-            <img src="https://res.cloudinary.com/risidio/image/upload/v1633002019/RisidioMarketplace/digitalcurrency_tqf1es.svg" alt="digitalcurrency" class="digitalcurrency">
-          </b-col>
-          <b-col class = "mt-5" align-self="center" >
-            <!-- <prismic-items :prismicItems="content.title3"></prismic-items>
-            <prismic-items :prismicItems="content.text3"></prismic-items> -->
-            <p>Quick explanation on what and why mint an item :D<br><br>
-              adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-              aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris <br><br>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-              veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-              commodo consequat. Duis aut <br><br>
-            </p>
-            <button><a href="https://www.hiro.so/wallet" target="_blank" rel="noopener">Download Your Wallet</a></button>
-          </b-col>
-        </b-row>
-      </b-container>
+<div class = "Htitle">
+  <div class = "title-container">
+      <h1>How to mint an item ?</h1>
+  </div>
+  <div class = "main-container" >
+    <div class = "container">
+      <img src="https://res.cloudinary.com/risidio/image/upload/v1633609692/RisidioMarketplace/008-chain_onkzfk.svg"></div>
+      <p> Quick explanation on what and why mint an item :D <br><br>
+      adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aut Lorem ipsum dolor sit amet,
+      consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aut <br><br>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aut<br><br>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim</p>
+
+  </div>
+</div>
 </template>
 
 <script>
 export default {
-  name: 'Group4',
+  name: 'WRuma',
   components: {
 
-  },
-  props: ['content'],
-  data () {
-    return {
-    }
-  },
-  computed: {
   }
 }
 </script>
 
 <style scoped>
-.digitalcurrency{
-  height: 300px;
-  width: 300px;
+.Htitle{
+  min-height: 90vh;
 }
-button{
-  width: 220px;
-  height: 55px;
-  border-radius: 100px;
-  border: none;
-  color:black;
-  background-color: #d8d8d8;
-  font-size: 12px;
-  font-weight:700;
-  align-content: left;
+.title-container {
+  font-family: inherit;
+  padding: max(150px) min(12%) 0 min(12%);
+  align-items: center;
+  text-align: center;
 }
-button:active, button:hover, button:visited{
-  color:black;
-}
-p{
-  font-size: 1.2em;
-  text-align: justify;
-}
-h1{
-  padding: 200px 0 100px 0;
+.title-container h1{
+  font-family: inherit;
   font-size: clamp(50px, 3vw, 6vw);
   font-weight: 200;
+  padding-bottom: 50px;
+}
+.main-container{
+  /* text-align: justify; */
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.main-container > *{
+  flex: 1 1 500px;
+}
+.main-container p{
+  padding: 100px 10% 100px 50px;
+  font-size: 1.2em;
+  font-weight:500;
+}
+.container > *{
+  display:flex;
+  margin-left: auto;
+  margin-right:auto;
+
+}
+img{
+  min-height: 350px;
+  min-width: 350px;
+}
+@media only screen and (max-width: 1000px)  {
+  p{text-align: center;}
 }
 </style>

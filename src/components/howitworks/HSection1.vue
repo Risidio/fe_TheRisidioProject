@@ -1,7 +1,7 @@
 <template>
 <div class = "Htitle">
   <div class = "container">
-    <img class="banner" src="https://res.cloudinary.com/risidio/image/upload/v1632564338/Risidio.com/main_bg.svg" alt="">
+    <img class="banner" src="https://res.cloudinary.com/risidio/image/upload/v1633609373/RisidioMarketplace/Group_-304_ofssmk.svg" alt="">
       <h1>How it works</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore
@@ -33,8 +33,8 @@ export default {
 .banner{
   position: absolute;
   top: 0;
-  left: -25px;
-  width: 120%;
+  left: 0;
+  width: 100%;
   height: 50rem;
   object-fit: cover;
   z-index: -10;

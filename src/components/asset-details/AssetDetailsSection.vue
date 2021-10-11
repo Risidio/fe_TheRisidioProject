@@ -11,7 +11,7 @@
         <b-row align-v="stretch" :style="'height: ' + videoHeight - 100 + 'px'">
           <b-col cols="12" class="">
             <div class="d-flex justify-content-between mb-5">
-              <div><router-link class="" to="/nft-gallery"><b-icon icon="chevron-left" shift-h="-4" variant="white"></b-icon> Back</router-link></div>
+              <div><router-link class="" to="/"><b-icon icon="chevron-left" shift-h="-4" variant="white"></b-icon> Back</router-link></div>
               <div class="d-flex justify-content-between">
                 <div class="text-center on-auction-text ml-3 py-1 px-4 bg-warning ">
                   <div v-if="isOwner"><router-link class="" to="/my-nfts">{{salesBadgeLabel}}</router-link></div>

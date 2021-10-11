@@ -1,10 +1,10 @@
 <template>
 <div class = "Htitle">
   <div class = "container">
-     <img class="banner" src="https://res.cloudinary.com/risidio/image/upload/v1632564338/Risidio.com/main_bg.svg" alt="">
+     <img class="banner" src="https://res.cloudinary.com/risidio/image/upload/v1633609373/RisidioMarketplace/Group_-304_ofssmk.svg" alt="">
       <h1>About Risidio</h1>
       <p>Take back control of your data</p>
-      <button class="button" > <a href="https://risidio.com/">Visit Our Website</a></button>
+      <button class="button" > <a href="https://risidio.com/">Find Out More</a></button>
   </div>
 </div>
 </template>
@@ -16,29 +16,7 @@ export default {
 
   },
   props: ['content'],
-  data () {
-    return {
-      banner: 'https://images.prismic.io/digirad/1f147c92-5945-4d4e-a578-aa085e6603ef_Ruma_bg.png?auto=compress,format'
-    }
-  },
   computed: {
-    bannerImage () {
-      return {
-        height: 'auto',
-        width: '100%',
-        'background-repeat': 'no-repeat',
-        'background-image': `url(${this.banner})`,
-        'background-position': 'center center',
-        '-webkit-background-size': 'cover',
-        '-moz-background-size': 'cover',
-        '-o-background-size': 'cover'
-        // 'background-size': 'cover',
-        // '-webkit-transform': 'rotate(180deg)',
-        // '-moz-transform': 'rotate(180deg)',
-        // '-ms-transform': 'rotate(180deg)',
-        // '-o-transform': 'rotate(180deg)'
-      }
-    }
   }
 }
 </script>
@@ -47,8 +25,8 @@ export default {
 .banner{
   position: absolute;
   top: 0;
-  left: -25px;;
-  width: 120%;
+  left: 0;
+  width: 100%;
   height: 50rem;
   object-fit: cover;
   z-index: -10;
@@ -70,21 +48,21 @@ export default {
   font-weight: 300;
 }
 .container p{
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-weight: 300;
   padding-top: 20px;
 }
 .button{
   margin-top: 30px;
-  width: 220px;
+  width: 250px;
   height: 55px;
   border-radius: 100px;
   border: none;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.25);
   font-size: 12px;
-  font-weight:700;
+  font-weight:800;
 }
 a, a:after, a:hover{
-    color:black;
+    color:var(--cyan);
 }
 </style>

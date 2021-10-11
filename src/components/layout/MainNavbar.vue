@@ -1,7 +1,7 @@
 <template>
 <div class=" navbar_container">
 <b-navbar id="navbar">
-   <img class="nav_banner" src="https://res.cloudinary.com/risidio/image/upload/v1632564338/Risidio.com/main_bg.svg" alt="">
+   <img class="nav_banner" src="https://res.cloudinary.com/risidio/image/upload/v1633609222/RisidioMarketplace/gradienta-m_-1_v4hs5p.svg" alt="">
   <b-navbar-toggle target="my-sidebar">
     <!--
     <template #default="{ expanded }">
@@ -17,7 +17,7 @@
 
   <b-sidebar id="my-sidebar" sidebar-class="border-left border-secondary" bg-variant="white" text-variant="dark" aria-label="Sidebar" right>
     <template #default="{ hide }">
-      <div class="pb-5 mt-5 border-bottom text-center">
+      <div class="sideBar">
         <h1>Welcome</h1>
         <h2>{{username}}</h2>
       </div>
@@ -62,18 +62,21 @@
         <ul>
           <li><a class="nav-items" ><router-link class="text-white" to="/">Marketplace</router-link></a></li>
           <li><a class="nav-items"><router-link class="text-white" to="/how-it-works">How It Works</router-link></a></li>
+          <li style="nav-items"><a class="nav-items" ><router-link class="text-white" to="/about">About Risidio </router-link></a></li>
           <li><a class="nav-items"><router-link class="text-white" to="/my-nfts">Your NFTs</router-link></a></li>
-          <li><a class="nav-items"><router-link class="text-white" to="/create">Mint an NFT</router-link></a></li>
-          <li><div><a class="nav-items" v-b-toggle.my-sidebar><b-icon icon="person"/>Account</a></div></li>
+          <!-- <li><a class="nav-items"><router-link class="text-white" to="/create">Mint an NFT</router-link></a></li> -->
+          <li><div><a class="nav-items" v-b-toggle.my-sidebar v-on:click="mobileNavebar()"><b-icon icon="person" class="person"/>Account</a></div></li>
         </ul>
       </div>
       <div v-else class="navbar_links">
         <ul>
           <!-- <b-nav-item class="mr-5 mt-0 align-self-center"><router-link class="text-white" to="/nft-gallery">Public Gallery</router-link></b-nav-item> -->
-          <li><a class="nav-items" ><router-link class="text-white" to="/">Marketplace</router-link></a></li>
-          <li><a class="nav-items"><router-link class="text-white" to="/how-it-works">How It Works</router-link></a></li>
-          <li><a class="nav-items" ><router-link class="text-white" to="/about">About Risidio </router-link></a></li>
-          <button @click.prevent="startLogin()" href="#" id="login" class = "login">Login</button>
+          <li style="margin-top: 15px"><a class="nav-items" ><router-link class="text-white" to="/">Marketplace</router-link></a></li>
+          <li style="margin-top: 15px"><a class="nav-items"><router-link class="text-white" to="/how-it-works">How It Works</router-link></a></li>
+          <li style="margin-top: 15px"><a class="nav-items" ><router-link class="text-white" to="/about">About Risidio </router-link></a></li>
+          <button @click.prevent="startLogin()" href="#" id="login" class ="login">Login</button>
+          <button class ="login" id="register" v-on:click="startRegister()"> Register <small>Download the Hiro Wallet Extension to register</small></button>
+
         </ul>
       </div>
     </div>
@@ -129,6 +132,9 @@ export default {
       const mainNavbar = document.getElementsByClassName('mainNavbar')[0]
       navbarLinks.classList.toggle('active')
       mainNavbar.classList.toggle('active')
+    },
+    startRegister () {
+      window.open('https://www.hiro.so/wallet', '_blank')
     }
   },
   computed: {
@@ -204,7 +210,6 @@ export default {
 
 <style lang="scss">
 /* NAVBAR PADDING AND WIDTH */
-
 .nav_banner{
   position: absolute;
   top: 0px;
@@ -251,16 +256,38 @@ nav.navbar {
 .b-sidebar > .b-sidebar-header {
     padding: 50px 10px;
 }
-#login{
+.sideBar{
+  padding-bottom: 50px;
+  margin-top: 50px;
+  border-bottom: solid rgb(214, 214, 214) 1px;
+  text-align: center;
+  padding: 0 15px;
+
+}
+.sideBar h2{
+  word-break: break-word;
+  color: #13086c;
+  padding-bottom: 20px;
+}
+.stx-address{
+  word-break: break-word;
+}
+.login{
   border-radius: 50px;
   background-color: rgba(255, 255, 255, 0.192);
   min-width: 120px;
   min-height:50px;
   text-align: center;
-  color: orange;
+  // color: orange;
+  // color: #50B1B5;
+  color: var(--cyan);
   border:none;
+  margin-right: 10px;
 }
-
+.person{
+  // height: 20px;
+  // width: 20px;
+}
 .mainNavbar{
   font-weight:300;
   display:flex;
@@ -268,6 +295,7 @@ nav.navbar {
   align-items: center;
   color:white;
   width:100%;
+  margin-left: 3%;
 }
 
 .navbar_links{
@@ -280,7 +308,7 @@ nav.navbar {
 }
 .navbar_links li{
   list-style: none;
-  padding-top: 15px;
+
 }
 .navbar_links li a{
   text-decoration:none;
@@ -306,15 +334,32 @@ nav.navbar {
   background-color: #fff;
   border-radius:10px;
 }
+#register small {
+  position: absolute;
+  top: 80px;
+  right: 35px;
+  background-color:rgba(255, 255, 255, 0.25);
+  text-align: center;
+  display:none;
+  border-radius: 10px;
+  padding: 10px;
+}
+#register:hover{
+  small{
+    display:flex;
+    color:white;
+  }
+}
 
 //Styling for mobile responsiveness
-@media only screen and (max-width: 900px){
+@media only screen and (max-width: 1000px){
   .toggle-button{
     display:flex;
   }
   .mainNavbar{
     flex-direction:column;
     align-items: flex-start;
+    z-index: 1000;
   }
   .navbar_links{
     display:none;
@@ -333,12 +378,24 @@ nav.navbar {
   .nav-items {
     margin:10px;
   }
-
-  #login{
+  .login{
     min-width: 200px;
     margin-left:auto;
     margin-right:auto;
     margin-top: 20px;
+  }
+  #register small{
+    top: 460px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    text-align: center;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-top: 15px;
   }
   .navbar_links.active {
     padding: 15px;
