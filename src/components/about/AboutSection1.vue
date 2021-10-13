@@ -24,6 +24,7 @@
 
 <script>
 import PrismicItems from '@/components/prismic/PrismicItems'
+
 export default {
   name: 'AboutSection1',
   components: {

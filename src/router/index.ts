@@ -24,6 +24,7 @@ import MarketPlace from '../views/MarketPlace.vue'
 import MyItems from '../views/upload/MyItems.vue'
 import UploadItem from '../views/upload/UploadItem.vue'
 import UpdateItem from '../views/upload/UpdateItem.vue'
+import threeTest from '../components/three/threeTest.vue'
 
 Vue.use(VueRouter)
 
@@ -177,6 +178,11 @@ const routes: Array<RouteConfig> = [
     path: '/information/:pageId',
     name: 'information',
     components: { default: InformationPage, header: MainNavbar, footer: MainFooter }
+  },
+  {
+    path: '/three',
+    name: 'threeTest',
+    components: { default: threeTest, header: MainNavbar, footer: MainFooter }
   },
   {
     path: '/404',
