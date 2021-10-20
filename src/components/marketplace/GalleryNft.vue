@@ -1,17 +1,20 @@
 <template>
-<div v-if="item && item.attributes" class="mt-1">
+<div v-if="item && item.attributes" >
+  <div class="singleNftGalleryContainer">
   <b-link :to="assetUrl">
     <MediaItemGeneral :classes="'item-image text-center'" class="p-0 m-0" v-on="$listeners" :options="videoOptions" :mediaItem="item.attributes.coverImage"/>
   </b-link>
-  <div class="mt-3">
-    <div class="mt-2 mb-2">
-      <div v-if="item.contractAsset">
-        #{{item.contractAsset.nftIndex}} {{item.name}}
+  <div class="ml-5" style="max-width: 200px">
+    <div class="mt-4 mb-2">
+      <div v-if="item.contractAsset" v-bind="price" style="font-size: 1.5rem; font-weight:500; color:black">
+      {{item.name}}
       </div>
-      <div class="text-small">
-        by <span class="text-warning">{{item.artist}}</span>
+      <!-- <div class="mt-1" style="font-weight:200; font-size: 1.5rem; color:black; display:flex;">Price:{{item.attributes.editionCost}} stx</div> -->
+      <div class="mt-1" style="font-weight:300; font-size: 1.2rem; color:black">
+        By <span style="font-weight:600; font-size: 1.2rem; color:black">{{item.artist}}</span>
       </div>
     </div>
+  </div>
   </div>
 </div>
 </template>
@@ -50,6 +53,9 @@ export default {
     contractAsset () {
       return this.item.contractAsset
     },
+    price () {
+      return this.item.editionCost
+    },
     videoOptions () {
       let file = this.item.attributes.artworkFile
       if (!file) {
@@ -86,4 +92,21 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.galleryNFTContainer{
+  display: flex;
+  margin: auto;
+}
+.singleNftGalleryContainer{
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  background: #7b7b7b1d;
+  padding-top: 3rem;
+  z-index: 1;
+  border-radius: 30px;
+  height: 35rem;
+  width: 28rem;
+  margin-bottom: 50px;
+  // box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
 </style>

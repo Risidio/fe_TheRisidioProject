@@ -18,7 +18,15 @@
       </div> -->
  <div class="gallery_public">
    <div>
-      <h1>NFT Public Gallery</h1>
+<div>
+  <b-nav class="galleryNav" >
+    <div class="galleryNavContainer" >
+    <b-nav-item class="galleryNavItem">Discover</b-nav-item>
+    <b-nav-item class="galleryNavItem">Popular</b-nav-item>
+    <b-nav-item class="galleryNavItem">Collections</b-nav-item>
+    </div>
+  </b-nav>
+</div>
     </div>
     <div class="gallery__collections--view-all d-lg-block d-none">
     </div>
@@ -99,6 +107,36 @@ export default {
   transform: rotate(180deg);
 }
 
+.galleryNav{
+  margin: auto;
+  margin-bottom: 70px;
+  width: 90%;
+  // display: flex;
+  // flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  border-bottom: solid rgba(128, 128, 128, 0.112) 1px;
+}
+  .galleryNavContainer{
+    margin: auto;
+    margin-bottom: -1px;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+  }
+
+.galleryNavItem{
+  width: min-content;
+  padding: 10px;
+  margin: auto;
+  border: solid rgba(255, 255, 255, 0)  2px;
+}
+
+.galleryNavItem:hover{
+    border-bottom: 2px solid #50B1B5;
+    // font-weight: ;
+}
+
 .market_introduction_text{
   margin: auto;
   width: 60vw;
@@ -129,7 +167,7 @@ export default {
 }
 
 .gallery_public{
-  margin-top: 100px;
+  margin-top: 50px;
 }
 @media only screen and (max-width: 1380px){
   .banner{

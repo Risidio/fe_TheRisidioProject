@@ -1,46 +1,51 @@
 <template>
-<div>
-  <div v-if="contentType === 'threed'" id="video-demo-container" v-on='three()'>
-    <!-- {{three()}} -->
-    <canvas :class="classes" v-on="$listeners" @error="setAltImg()" :alt="mediaItem.name" />
-  </div>
-  <div v-else-if="contentType === 'video'" id="video-demo-container">
-    <VideoJsPlayer :class="classes" v-on="$listeners"  @error="setAltImg()" :options="options"/>
-  </div>
-  <div v-else-if="contentType === 'audio'" id="audio-demo-container">
-    <img :class="classes" v-on="$listeners" :src="mediaItem.fileUrl" @error="setAltImg()" :alt="mediaItem.name" >
-    <audio v-on="$listeners" controls :src="mediaItem.fileUrl">
-      Your browser does not support the <code>audio</code> element.
-    </audio>
-  </div>
-  <div v-else-if="contentType === 'document'">
-    <img :class="classes" v-on="$listeners" :src="mediaItem.fileUrl" @error="setAltImg()" :alt="mediaItem.name">
-  </div>
-  <div v-else-if="contentType === 'image'">
-    <img :class="classes" v-on="$listeners" :src="mediaItem.fileUrl" @error="setAltImg()" :alt="mediaItem.name">
+  <div>
+    <div class="singleNftGalleryContainer">
+      <div class="singleNftGalleryHolder">
+        <div v-if="contentType === 'threed'" id="video-demo-container" class="singleNFTGalleryItem" v-on='three()'>
+          <!-- {{three()}} -->
+            <canvas :class="classes" class="singleNFTGalleryItem" v-on="$listeners" @error="setAltImg()" :alt="mediaItem.name" />
+        </div>
+        <div v-else-if="contentType === 'video'" id="video-demo-container" class="singleNFTGalleryItem">
+            <VideoJsPlayer :class="classes" class="singleNFTGalleryItem" v-on="$listeners"  @error="setAltImg()" :options="options"/>
+        </div>
+        <div v-else-if="contentType === 'audio'" id="audio-demo-container" class="singleNFTGalleryItem">
+            <img :class="classes" class="singleNFTGalleryItem" v-on="$listeners" :src="mediaItem.fileUrl" @error="setAltImg()" :alt="mediaItem.name" >
+            <audio v-on="$listeners" controls :src="mediaItem.fileUrl">
+          Your browser does not support the <code>audio</code> element.
+            </audio>
+        </div>
+        <div v-else-if="contentType === 'document'" class="singleNFTGalleryItem">
+            <img :class="classes" class="singleNFTGalleryItem" v-on="$listeners" :src="mediaItem.fileUrl" @error="setAltImg()" :alt="mediaItem.name">
+        </div>
+        <div v-else-if="contentType === 'image'" class="singleNFTGalleryItem">
+            <img :class="classes" class="singleNFTGalleryItem" v-on="$listeners" :src="mediaItem.fileUrl" @error="setAltImg()" :alt="mediaItem.name">
+        </div>
+        <div v-if="options.showMeta" class="py-0" style="font-size: 1.2rem;">
+            <!--
+            <div class="p-2 d-flex justify-content-start">
+          <div class="mr-3 text-small">NFT File:</div>
+          <div>{{mediaItem.name}}</div>
+            </div>
+            <div class="p-2 d-flex justify-content-between">
+          <div>{{contentType}}  ({{getNFTSizeMeg()}})</div>
+          <div><a v-b-tooltip.hover="{ variant: 'light' }" :title="'The NFT file requires a cover image to display in the Risidio marketplace'" href="#" class="text-small text-primary"><b-icon icon="question-circle"/></a></div>
+            </div>
+            <div class="p-2 d-flex justify-content-start" v-if="mediaItem">
+          <div class="text-small">Cover File:</div>
+          <div>{{mediaItem.name}}</div>
+            </div>
+            -->
+            <!-- <div class="p-0 d-flex justify-content-between text-bold" v-if="mediaItem"> -->
+          <!-- <div>{{mediaItem.type || 'image'}}  ({{getCoverImageSizeMeg()}})</div> -->
+          <!-- <div v-if="deleteAllowed()"><a v-b-tooltip.hover="{ variant: 'light' }" :title="'Replace this image?'" href="#" @click.prevent="$emit('deleteMediaItem', mediaItem.id)" class="text-small">change</a>
+          </div> -->
+        </div>
+      </div>
+
+    </div>
   </div>
 
-  <div v-if="options.showMeta" class="py-0" style="font-size: 1.2rem;">
-    <!--
-    <div class="p-2 d-flex justify-content-start">
-      <div class="mr-3 text-small">NFT File:</div>
-      <div>{{mediaItem.name}}</div>
-    </div>
-    <div class="p-2 d-flex justify-content-between">
-      <div>{{contentType}}  ({{getNFTSizeMeg()}})</div>
-      <div><a v-b-tooltip.hover="{ variant: 'light' }" :title="'The NFT file requires a cover image to display in the Risidio marketplace'" href="#" class="text-small text-primary"><b-icon icon="question-circle"/></a></div>
-    </div>
-    <div class="p-2 d-flex justify-content-start" v-if="mediaItem">
-      <div class="text-small">Cover File:</div>
-      <div>{{mediaItem.name}}</div>
-    </div>
-    -->
-    <div class="p-0 d-flex justify-content-between text-bold" v-if="mediaItem">
-      <div>{{mediaItem.type || 'image'}}  ({{getCoverImageSizeMeg()}})</div>
-      <div v-if="deleteAllowed()"><a v-b-tooltip.hover="{ variant: 'light' }" :title="'Replace this image?'" href="#" @click.prevent="$emit('deleteMediaItem', mediaItem.id)" class="text-small">change</a></div>
-    </div>
-  </div>
-</div>
 </template>
 
 <script>
@@ -219,5 +224,33 @@ export default {
 }
 </script>
 <style scoped>
+
+/* .singleNftGalleryContainer{
+  background: rgb(232, 232, 232);
+  padding-top: 3rem;
+  z-index: 1;
+  border-radius: 30px;
+  height: 32rem;
+  width: 25rem;
+} */
+  .singleNftGalleryHolder{
+    display: flex;
+    margin: auto;
+    justify-items: center;
+    align-items: center;
+    background:white;
+    /* padding: 2px; */
+    height: 23rem;
+    width: 23rem;
+    z-index: 2;
+    border-radius: 5px;
+    /* border: 1px solid rgba(208, 208, 208, 0.646); */
+    /* box-shadow: rgba(22, 22, 133, 0.119) 0px 7px 10px 0px; */
+  }
+
+  .singleNFTGalleryItem{
+     border-radius: 5px;
+    /* padding: 5px; */
+  }
 
 </style>
