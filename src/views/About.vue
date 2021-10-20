@@ -23,7 +23,6 @@ export default {
     AboutSection1,
     AboutSection2,
     AboutSection3
-
   },
   props: ['about'],
   data () {
