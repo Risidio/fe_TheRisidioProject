@@ -11,7 +11,7 @@
     </div>
   </div>
   <div>
-  <input class="search_input_box" type="text" placeholder="🔎  Looking for something in particular?  ">
+  <input class="search_input_box" type="text" placeholder=" Looking for something in particular?  "> <span class="searchIcon">&#8981;</span>
   </div>
 </div>
 </template>
@@ -46,37 +46,46 @@ export default {
   z-index: 10;
 }
 
+.searchIcon{
+  position: absolute;
+  font-size: 6rem;
+  margin-left: -5rem;
+  margin-top: -2rem;
+  color: #50B1B5;
+  transform: rotate(270deg)
+}
+
 .dropdown_selector{
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
+  border-top-left-radius: 40px;
+  border-bottom-left-radius: 40px;
   border: none;
   height: 50px;
-  width: 150px;
+  width: 155px;
   padding: 10px;
   outline: none;
   background: white;
   transition: 0.3s;
   text-align: center;
-  box-shadow: rgba(0, 0, 0, 0.35) -3px 2px 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) -2px 2px 10px;
   z-index: 10;
 }
 
-.dropdown_selector:hover{
-  background: rgb(255, 212, 22);
-transition: 0.3s;
-  z-index: 10;
-}
+// .dropdown_selector:hover{
+//   background: rgb(255, 212, 22);
+// transition: 0.3s;
+//   z-index: 10;
+// }
 
 .search_input_box{
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
   border: none;
   height: 50px;
   width: 50vw;
   outline: none;
   padding: 10px;
   background: white;
-  box-shadow: rgba(0, 0, 0, 0.35) 3px 2px 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 10px, rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
   z-index: 1;
   }
 
@@ -113,6 +122,7 @@ transition: 0.3s;
   background: white;
 }
 .dropdown_option{
+    display: none;
   padding: 10px;
   border: 1px solid rgb(255, 212, 22);;
   background: white;
