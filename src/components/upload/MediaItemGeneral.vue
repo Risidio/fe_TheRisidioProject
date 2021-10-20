@@ -240,8 +240,8 @@ export default {
     align-items: center;
     background:white;
     /* padding: 2px; */
-    height: 20rem;
-    width: 20rem;
+    height: 23rem;
+    width: 23rem;
     z-index: 2;
     border-radius: 5px;
     /* border: 1px solid rgba(208, 208, 208, 0.646); */

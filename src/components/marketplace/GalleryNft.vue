@@ -97,15 +97,15 @@ export default {
   margin: auto;
 }
 .singleNftGalleryContainer{
-    display: flex;
+  display: flex;
   margin: auto;
   flex-direction: column;
   background: #7b7b7b1d;
   padding-top: 3rem;
   z-index: 1;
   border-radius: 30px;
-  height: 32rem;
-  width: 25rem;
+  height: 35rem;
+  width: 28rem;
   margin-bottom: 50px;
   // box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }

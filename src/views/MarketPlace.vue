@@ -109,6 +109,7 @@ export default {
 
 .galleryNav{
   margin: auto;
+  margin-bottom: 70px;
   width: 90%;
   // display: flex;
   // flex-direction: column;
