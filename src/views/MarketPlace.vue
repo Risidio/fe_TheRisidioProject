@@ -2,9 +2,10 @@
 <div class="container">
   <img class="banner" src="https://res.cloudinary.com/risidio/image/upload/v1633609373/RisidioMarketplace/Group_-304_ofssmk.svg" alt="">
   <div class="market_introduction_text">
-    <p class="market_intro_Ex">Explore the New Era of Digital Art</p>
-    <h1 class="market_intro_h1"> Risidio Marketplace</h1>
-    <p class="market_intro">Risidio is a NFT minting platform and marketplace that enables users to register their assets in different formats on the Bitcoin blockchain using Stacks. Regardless of their experience with NFTs, Ruma allows all creatives to secure ownership rights and set royalties for further monetisation of work easily and securely.</p>
+    <!-- <p class="market_intro_Ex">Explore the New Era of Digital Art</p> -->
+    <!-- <h1 class="market_intro_h1"> Risidio Marketplace</h1> -->
+    <h1 class="market_intro_h1"> The New Era of Digital Art</h1>
+    <p class="market_intro" style="width:60%">Risidio is a NFT minting platform and marketplace that enables users to register their assets in different formats on the Bitcoin blockchain using Stacks. Regardless of their experience with NFTs, Ruma allows all creatives to secure ownership rights and set royalties for further monetisation of work easily and securely.</p>
   </div>
  <search-bar class="mainSearchBar" :showPrepend="true" v-on="$listeners"/>
  <!-- <div class="gallery_highlights">
@@ -24,6 +25,7 @@
     <b-nav-item class="galleryNavItem">Discover</b-nav-item>
     <b-nav-item class="galleryNavItem">Popular</b-nav-item>
     <b-nav-item class="galleryNavItem">Collections</b-nav-item>
+    <b-nav-item class="galleryNavItem">Your NFT's</b-nav-item>
     </div>
   </b-nav>
 </div>
@@ -126,7 +128,7 @@ export default {
   }
 
 .galleryNavItem{
-  width: min-content;
+  width: fit-content;
   padding: 10px;
   margin: auto;
   border: solid rgba(255, 255, 255, 0)  2px;
@@ -134,7 +136,6 @@ export default {
 
 .galleryNavItem:hover{
     border-bottom: 2px solid #50B1B5;
-    // font-weight: ;
 }
 
 .market_introduction_text{
@@ -146,10 +147,10 @@ export default {
 }
 
 .market_intro_h1{
-  margin-bottom: 50px;
+  margin-bottom: 25px;
   color: white;
   font-weight: 400;
-  font-size: clamp(2rem, 4rem, 6rem);
+  font-size: clamp(2rem, 5rem, 7rem);
   word-wrap: break-word;
 }
 .market_intro{
