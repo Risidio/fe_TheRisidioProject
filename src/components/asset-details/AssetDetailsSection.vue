@@ -444,7 +444,7 @@ span3{
   font-size: 14px;
 }
 hr{
-  background-color: #170A6D;
-  height: 4px;
+  background-color: #5154A1;
+  height: 2px;
 }
 </style>

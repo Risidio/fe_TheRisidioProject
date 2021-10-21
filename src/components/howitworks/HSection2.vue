@@ -12,7 +12,8 @@
       quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim</p>
       <button class="button"> Buy STX </button>
     </div>
-  </div><hr>
+  </div>
+  <!-- <hr class= "hr"> -->
 </div>
 </template>
 
@@ -86,7 +87,7 @@ export default {
   width: 250px;
   height: 250px;
 }
-hr{
+.hr{
   margin-top: 50px;
   color: grey;
   width: 60%;
