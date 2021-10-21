@@ -131,12 +131,9 @@ export default {
       }
     },
     threeLights () {
-      const pointLight = new Three.PointLight(0xffffff)
       const ambientLight = new Three.AmbientLight(0xffffff)
-      pointLight.position.set(20, 20, 20)
 
       return {
-        pointLight,
         ambientLight
       }
     },
@@ -164,7 +161,7 @@ export default {
       // camera.position.setX(100)
       let box = new Three.Box3()
 
-      scene.add(lights.pointLight, lights.ambientLight)
+      scene.add(lights.ambientLight)
       let obj = ''
       loader.load(url.url,
         function (gltf) {
