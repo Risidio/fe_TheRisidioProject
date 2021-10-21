@@ -1,7 +1,7 @@
 <template>
 <div class="search_bar_container">
   <div class="dropdown_container">
-    <div class="dropdown_selector" @click="isHidden = !isHidden"> Search by ▸
+    <div class="dropdown_selector" @click="isHidden = !isHidden"> <span style="display:flex; margin: 9px auto; width: fit-content;">Search by <span style="color:#50B1B5; margin: -5px 5px; font-size:2rem;">▸</span></span>
       <div class="dropdown_option_container">
     <div class="dropdown_option" v-show="isHidden" value="All">All</div>
     <div class="dropdown_option" v-show="isHidden" value="Category">Category</div>
@@ -49,17 +49,18 @@ export default {
 .searchIcon{
   position: absolute;
   font-size: 6rem;
-  margin-left: -5rem;
-  margin-top: -2rem;
+  margin-left: -5.5rem;
+  margin-top: -1.6rem;
   color: #50B1B5;
-  transform: rotate(270deg)
+  transform: rotate(270deg);
+  cursor: pointer;
 }
 
 .dropdown_selector{
   border-top-left-radius: 40px;
   border-bottom-left-radius: 40px;
   border: none;
-  height: 50px;
+  height: 60px;
   width: 155px;
   padding: 10px;
   outline: none;
@@ -80,7 +81,7 @@ export default {
   border-top-right-radius: 40px;
   border-bottom-right-radius: 40px;
   border: none;
-  height: 50px;
+  height: 60px;
   width: 50vw;
   outline: none;
   padding: 10px;

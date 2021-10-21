@@ -24,8 +24,6 @@
             </div>
             <div class="footer__column-content">
               <div>Risidio</div>
-              <!-- <div v-on:click="topFunction()"><router-link to="/get-in-touch">Get in Touch</router-link></div>
-              <div v-on:click="topFunction()"><router-link to="/admin-app">Developers</router-link></div> -->
               <div v-on:click="topFunction()"><router-link to="/get-in-touch">Who We Are</router-link></div>
               <div v-on:click="topFunction()"><router-link to="/get-in-touch">What We Do</router-link></div>
               <div v-on:click="topFunction()"><router-link to="/get-in-touch">Work With Us</router-link></div>

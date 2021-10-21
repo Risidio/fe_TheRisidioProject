@@ -7,7 +7,12 @@
   <div class="ml-5" style="max-width: 200px">
     <div class="mt-4 mb-2">
       <div v-if="item.contractAsset" v-bind="price" style="font-size: 1.5rem; font-weight:500; color:black">
-      {{item.name}}
+        <div>
+          {{item.name}}
+        </div>
+        <div class="mt-1" style="font-weight:300; font-size: 1.2rem; color:black">
+        Price: {{this.item.contractAsset.saleData.buyNowOrStartingPrice}} stx
+        </div>
       </div>
       <!-- <div class="mt-1" style="font-weight:200; font-size: 1.5rem; color:black; display:flex;">Price:{{item.attributes.editionCost}} stx</div> -->
       <div class="mt-1" style="font-weight:300; font-size: 1.2rem; color:black">
