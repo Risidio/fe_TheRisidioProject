@@ -3,12 +3,8 @@
   <div class = "container">
     <img class="banner" src="https://res.cloudinary.com/risidio/image/upload/v1633609373/RisidioMarketplace/Group_-304_ofssmk.svg" alt="">
       <h1>How it works</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut
-        aliquip ex ea commodo consequat. Duis aut</p>
-      <!-- <button class="button"> Get Started </button> -->
+      <p>Risidtio Xchange is the NFT marketplace to buy, sell and auction digital collectibles on the Bitcoin blockchain using Stacks </p>
+      <button class="button"> Get Started </button>
   </div>
 </div>
 </template>
@@ -66,7 +62,7 @@ export default {
   max-width: 750px;
 }
 .button{
-  margin-top: 30px;
+  margin-top: 50px;
   width: 220px;
   height: 55px;
   border-radius: 100px;
@@ -74,6 +70,7 @@ export default {
   background-color: white;
   font-size: 12px;
   font-weight:700;
+  color: rgb(0, 177, 201);
 }
 a, a:after, a:hover{
     color:black;

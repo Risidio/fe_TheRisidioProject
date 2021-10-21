@@ -1,20 +1,21 @@
 <template>
 <div class = "Htitle">
   <div class = "title-container">
-      <h1>How to mint an item ?</h1>
+      <h1>What Is Risidio Marketplace ?</h1>
+      <p>Technology is progressing so art is evolving. </p>
   </div>
-  <div class = "main-container" >
+  <div class = "main-container">
     <div class = "container">
-      <img src="https://res.cloudinary.com/risidio/image/upload/v1633609692/RisidioMarketplace/008-chain_onkzfk.svg"></div>
-      <p> Quick explanation on what and why mint an item :D <br><br>
+      <p> (What is Risidio Collectible About)<br>
       adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
       quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aut Lorem ipsum dolor sit amet,
       consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aut <br><br>
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aut <br>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aut<br><br>
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aut<br>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim</p>
-
+      <button class="button"> About Risidio </button>
+    </div>
   </div>
 </div>
 </template>
@@ -34,7 +35,6 @@ export default {
 }
 .title-container {
   font-family: inherit;
-  padding: max(150px) min(12%) 0 min(12%);
   align-items: center;
   text-align: center;
 }
@@ -42,34 +42,38 @@ export default {
   font-family: inherit;
   font-size: clamp(50px, 3vw, 6vw);
   font-weight: 200;
-  padding-bottom: 50px;
+  padding-top: 12%;
+}
+.title-container p{
+  font-family: inherit;
+  font-size: clamp(25px, 1em, 3vw);
+  font-weight: 500;
+  padding-top: 25px;
+  padding-bottom: 20px;
 }
 .main-container{
-  /* text-align: justify; */
   display:flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-}
-.main-container > *{
-  flex: 1 1 500px;
+  text-align: center;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 .main-container p{
-  padding: 100px 10% 100px 50px;
-  font-size: 1.2em;
-  font-weight:500;
+  font-size: 1.1em;
+  font-weight:300;
 }
-.container > *{
-  display:flex;
-  margin-left: auto;
-  margin-right:auto;
+.button{
+  margin-top: 50px;
+  width: 200px;
+  height: 60px;
+  border-radius: 100px;
+  border: none;
+  background-color: rgba(0, 162, 184, 0.1);
+  font-size: 14px;
+  font-weight:700;
+  color: rgb(0, 177, 201);
+}
 
-}
-img{
-  min-height: 350px;
-  min-width: 350px;
-}
-@media only screen and (max-width: 1000px)  {
-  p{text-align: center;}
-}
 </style>
