@@ -5,10 +5,20 @@
 </div>
   <div class = "mainNavbar">
         <router-link class="risidioLogo" to="/"><img width="150px;" :src="logo" alt="risidio-logo"/></router-link>
-        <div v-if="profile.loggedIn" class="navbar_links">
-          <a class="nav-items"> <router-link class="text-white" to="/how-it-works">How It Works</router-link></a>
-          <a class="nav-items"> <router-link class="text-white" to="/about">About Risidio </router-link></a>
-          <a class="nav-items"> <router-link class="text-white" to="/about"> <span class="navBtn"> My NFT's </span></router-link></a>
+        <div v-if="profile & profile.loggedIn" class="navbar_links">
+        <div class="nav-start">
+        <router-link class="nav-items " to="/">Gallery</router-link>
+        <router-link class="nav-items " to="/">Collections</router-link>
+        </div>
+          <router-link class="nav-items text-white" to="/how-it-works">How It Works</router-link>
+          <router-link class="nav-items text-white" to="/about">About Risidio </router-link>
+          <router-link class="nav-items navBtn" to="/about"> My NFT's </router-link>
+        </div>
+         <div v-else class="navbar_links">
+          <router-link class="nav-items text-white" to="/how-it-works">How It Works</router-link>
+          <router-link class="nav-items text-white" to="/about">About Risidio </router-link>
+          <div @click.prevent="startLogin(); events();" id="login" class ="login nav-items text-white">Login</div>
+          <div @mouseover="isHidden = !isHidden" class=" nav-items navBtn text-white" id="register" v-on:click="startRegister()"> Register <div v-show="isHidden" class="registerTooltip">Download the Hiro Wallet Extension to register</div></div>
         </div>
   </div>
 </div>
@@ -26,8 +36,8 @@ export default {
       query: null,
       banner: 'https://images.prismic.io/digirad/6e5bb3a5-21b7-4bcb-b5a7-85128b6e6e8a_Rumba_bg_small.png?auto=compress,format',
       // logo: 'https://images.prismic.io/digirad/136adb87-c542-4439-8bcc-7199007290cc_Groupe+16068%402x.png?auto=compress,format',
-      logo: require('@/assets/img/risidio_white_logo.svg')
-      // logo1: require('@/assets/img/risidio_white_logo.svg')
+      logo: require('@/assets/img/risidio_white_logo.svg'),
+      isHidden: false
     }
   },
   methods: {
@@ -42,6 +52,9 @@ export default {
         console.log(err)
         this.$store.commit(APP_CONSTANTS.SET_WEB_WALLET_NEEDED)
       })
+    },
+    events () {
+      console.log('clicked')
     },
     startLogin () {
       // this.$emit('updateEventCode', { eventCode: 'connect-login' })
@@ -156,6 +169,15 @@ export default {
   z-index: -11;
 }
 
+.nav-start{
+  color: white;
+  padding: 20px;
+  font-size: 1.2rem;
+}
+.nav-start:hover{
+  color: white;
+}
+
 .navbar_links{
   justify-content: flex-end;
   align-content: flex-end;
@@ -165,7 +187,47 @@ export default {
 }
 
 .nav-items{
-  padding: 20px;
+    padding: 20px;
+    width: 12rem;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 0px;
+    color: white;
+    cursor: pointer;
+}
+.nav-items:hover{
+  color: white;
+}
+
+.navBtn{
+  background: rgba(255, 255, 255, 0.247);
+  padding: 13px;
+  border-radius: 50px;
+  margin-top: 8px;
+  margin-left: 5px;
+  width: 11rem;
+  height: 4rem;
+  text-align: center;
+  justify-items: center;
+  align-items: center;
+  color: #5FBDC1;
+  cursor: pointer;
+  outline: none;
+}
+.navBtn:hover{
+  color: white;
+}
+
+.registerTooltip{
+  margin-top: 25px;
+  margin-left: -10.2rem;
+  width: 20rem;
+  padding: 10px;
+  background: rgb(234, 247, 255);
+  color: black;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    cursor: default;
 }
 
 </style>

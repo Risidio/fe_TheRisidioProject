@@ -3,7 +3,7 @@ import VueRouter, { RouteConfig } from 'vue-router'
 import store from '@/store'
 
 // templates
-import MainNavbar from '@/components/layout/MainNavbar.vue'
+import MainNavbar from '@/components/layout/MainNavbar-.vue.vue'
 import MainFooter from '@/components/layout/MainFooter.vue'
 
 // public pages
