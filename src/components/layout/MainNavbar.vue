@@ -18,7 +18,7 @@
           <router-link class="nav-items text-white" to="/how-it-works">How It Works</router-link>
           <router-link class="nav-items text-white" to="/about">About Risidio </router-link>
           <div @click.prevent="startLogin(); events();" id="login" class ="login nav-items text-white">Login</div>
-          <div @mouseover="isHidden = !isHidden" class=" nav-items navBtn text-white" id="register" v-on:click="startRegister()"> Register <div v-show="isHidden" class="registerTooltip">Download the Hiro Wallet Extension to register</div></div>
+          <div @mouseover="isHidden = !isHidden" @blur="isHidden = !isHidden" class=" nav-items navBtn text-white" id="register" v-on:click="startRegister()"> Register <div v-show="isHidden" class="registerTooltip"> Click Register to download the Hiro Wallet extension and get started!</div></div>
         </div>
   </div>
 </div>

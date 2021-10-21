@@ -49,8 +49,8 @@ export default {
 .searchIcon{
   position: absolute;
   font-size: 6rem;
-  margin-left: -5rem;
-  margin-top: -2rem;
+  margin-left: -5.5rem;
+  margin-top: -1.6rem;
   color: #50B1B5;
   transform: rotate(270deg);
   cursor: pointer;
