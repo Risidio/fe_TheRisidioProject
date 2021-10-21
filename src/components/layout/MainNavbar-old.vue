@@ -76,7 +76,6 @@
           <li style="margin-top: 15px"><a class="nav-items" ><router-link class="text-white" to="/about">About Risidio </router-link></a></li>
           <button @click.prevent="startLogin()" href="#" id="login" class ="login">Login</button>
           <button class ="login" id="register" v-on:click="startRegister()"> Register <small>Download the Hiro Wallet Extension to register</small></button>
-
         </ul>
       </div>
     </div>

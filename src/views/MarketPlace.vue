@@ -1,55 +1,56 @@
 <template>
-<div class="container">
-  <img class="banner" src="https://res.cloudinary.com/risidio/image/upload/v1633609373/RisidioMarketplace/Group_-304_ofssmk.svg" alt="">
-  <div class="market_introduction_text">
-    <!-- <p class="market_intro_Ex">Explore the New Era of Digital Art</p> -->
-    <!-- <h1 class="market_intro_h1"> Risidio Marketplace</h1> -->
-    <h1 class="market_intro_h1"> The New Era of Digital Art</h1>
-    <p class="market_intro" style="width:60%">Risidio is a NFT minting platform and marketplace that enables users to register their assets in different formats on the Bitcoin blockchain using Stacks. Regardless of their experience with NFTs, Ruma allows all creatives to secure ownership rights and set royalties for further monetisation of work easily and securely.</p>
-  </div>
- <search-bar class="mainSearchBar" :showPrepend="true" v-on="$listeners"/>
- <!-- <div class="gallery_highlights">
-       <div class="row">
-      <div v-for="(item, index) in resultSet" :key="index" class="col-md-3 col-6" >
-        <div class="mb-4 gallery__items" v-if="index < 4">
-          <GalleryNft class="mb-2" :item="item"/>
-              </div>
-            </div>
-        </div>
-      </div> -->
- <div class="gallery_public">
-   <div>
 <div>
-  <b-nav class="galleryNav" >
-    <div class="galleryNavContainer" >
-    <b-nav-item class="galleryNavItem">Discover</b-nav-item>
-    <b-nav-item class="galleryNavItem">Popular</b-nav-item>
-    <b-nav-item class="galleryNavItem">Collections</b-nav-item>
-    <b-nav-item class="galleryNavItem">Your NFT's</b-nav-item>
+    <img class="banner" src="https://res.cloudinary.com/risidio/image/upload/v1633609373/RisidioMarketplace/Group_-304_ofssmk.svg" alt="">
+<div class="container">
+    <div class="market_introduction_text">
+      <!-- <p class="market_intro_Ex">Explore the New Era of Digital Art</p> -->
+      <!-- <h1 class="market_intro_h1"> Risidio Marketplace</h1> -->
+      <h1 class="market_intro_h1"> The New Era of Digital Art</h1>
+      <p class="market_intro" style="width:60%">Risidio is a NFT minting platform and marketplace that enables users to register their assets in different formats on the Bitcoin blockchain using Stacks. Regardless of their experience with NFTs, Ruma allows all creatives to secure ownership rights and set royalties for further monetisation of work easily and securely.</p>
     </div>
-  </b-nav>
-</div>
-    </div>
-    <div class="gallery__collections--view-all d-lg-block d-none">
-    </div>
-  </div>
-  <div class=" my-5" v-if="resultSet && resultSet.length > 0">
-    <div class="row">
-      <div v-for="(item, index) in resultSet" :key="index" class="col-md-3 col-6" >
-        <div class="mb-4 gallery__items" >
-          <GalleryNft class="mb-2" :item="item"/>
+  <search-bar class="mainSearchBar" :showPrepend="true" v-on="$listeners"/>
+  <!-- <div class="gallery_highlights">
+        <div class="row">
+        <div v-for="(item, index) in resultSet" :key="index" class="col-md-3 col-6" >
+          <div class="mb-4 gallery__items" v-if="index < 4">
+            <GalleryNft class="mb-2" :item="item"/>
+                </div>
               </div>
-            </div>
-        </div>
+          </div>
+        </div> -->
+  <div class="gallery_public">
+    <div>
+  <div>
+    <b-nav class="galleryNav" >
+      <div class="galleryNavContainer" >
+      <b-nav-item class="galleryNavItem">Discover</b-nav-item>
+      <b-nav-item class="galleryNavItem">Popular</b-nav-item>
+      <b-nav-item class="galleryNavItem">Collections</b-nav-item>
+      <b-nav-item class="galleryNavItem">Your NFT's</b-nav-item>
       </div>
-    <div class="container" style="min-height: 85vh;" v-else>
-  <b-container class="text-white mt-5">
-    <h1>No Gallery NFTs</h1>
-    <p>Our Gallery is coming online soon - please come back soon...</p>
-  </b-container>
+    </b-nav>
+  </div>
+      </div>
+      <div class="gallery__collections--view-all d-lg-block d-none">
+      </div>
+    </div>
+    <div class=" my-5" v-if="resultSet && resultSet.length > 0">
+      <div class="row">
+        <div v-for="(item, index) in resultSet" :key="index" class="col-md-3 col-6" >
+          <div class="mb-4 gallery__items" >
+            <GalleryNft class="mb-2" :item="item"/>
+                </div>
+              </div>
+          </div>
+        </div>
+      <div class="container" style="min-height: 85vh;" v-else>
+    <b-container class="text-white mt-5">
+      <h1>No Gallery NFTs</h1>
+      <p>Our Gallery is coming online soon - please come back soon...</p>
+    </b-container>
+  </div>
 </div>
- </div>
-
+</div>
 </template>
 
 <script>
@@ -98,6 +99,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.container{
+  // margin-top: 10%;
+  // width: 50%;
+  min-width: 800px;
+  max-width: 1200px;
+}
 .banner{
   position: absolute;
   top: 0;
@@ -112,7 +119,7 @@ export default {
 .galleryNav{
   margin: auto;
   margin-bottom: 70px;
-  width: 90%;
+  max-width: 90%;
   // display: flex;
   // flex-direction: column;
   justify-items: center;
@@ -164,7 +171,7 @@ export default {
 }
 
 .mainSearchBar{
-  margin-top: 12.5rem;
+  margin-top: 10rem;
 }
 
 .gallery_public{
