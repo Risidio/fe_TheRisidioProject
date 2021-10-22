@@ -7,8 +7,8 @@
         <router-link class="risidioLogo" to="/"><img width="150px;" :src="logo" alt="risidio-logo"/></router-link>
         <div v-if=" profile.loggedIn" class="navbar_links">
           <div class="nav-start">
-            <router-link class="nav-items " to="/">Gallery</router-link>
-            <router-link class="nav-items " to="/">Collections</router-link>
+            <router-link class="nav-items" to="/">Gallery</router-link>
+            <router-link class="nav-items" to="/">Collections</router-link>
           </div>
           <div class="nav-end">
             <router-link class="nav-items nav-end text-white" to="/how-it-works">How It Works</router-link>
@@ -16,7 +16,7 @@
             <router-link class="nav-items nav-end navBtn" to="/my_account"> My NFT's </router-link>
           </div>
         </div>
-         <div v-else class="navbar_links">
+         <div v-else class="navbar_links_not_logged">
           <router-link class="nav-items text-white" to="/how-it-works">How It Works</router-link>
           <router-link class="nav-items text-white" to="/about">About Risidio </router-link>
           <div @click.prevent="startLogin(); events();" id="login" class ="login nav-items text-white">Login</div>
@@ -193,6 +193,13 @@ export default {
   color: white;
 }
 
+.navbar_links_not_logged{
+  justify-content: flex-end;
+  align-content: flex-end ;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
 .navbar_links{
   justify-content: space-between;
   align-content: space-between ;
