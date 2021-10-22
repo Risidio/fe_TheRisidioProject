@@ -146,19 +146,6 @@ export default {
       const content = this.$store.getters['contentStore/getHomepage']
       return content
     },
-    // bannerImage () {
-    //   return {
-    //     height: '128px',
-    //     width: '100%',
-    //     'background-repeat': 'no-repeat',
-    //     'background-image': `url(${this.banner})`,
-    //     'background-position': 'center center',
-    //     '-webkit-background-size': 'cover',
-    //     '-moz-background-size': 'cover',
-    //     '-o-background-size': 'cover',
-    //     'background-size': 'cover'
-    //   }
-    // },
     showAdmin () {
       const profile = this.$store.getters[APP_CONSTANTS.KEY_PROFILE]
       return profile.superAdmin || location.origin.indexOf('local') > -1

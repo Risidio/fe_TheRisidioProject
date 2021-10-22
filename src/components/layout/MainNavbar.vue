@@ -13,7 +13,7 @@
           <div class="nav-end">
             <router-link class="nav-items nav-end text-white" to="/how-it-works">How It Works</router-link>
             <router-link class="nav-items nav-end text-white" to="/about">About Risidio </router-link>
-            <router-link class="nav-items nav-end navBtn" to="/about"> My NFT's </router-link>
+            <router-link class="nav-items nav-end navBtn" to="/my_account"> My NFT's </router-link>
           </div>
         </div>
          <div v-else class="navbar_links">

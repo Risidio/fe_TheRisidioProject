@@ -25,6 +25,7 @@ import MyItems from '../views/upload/MyItems.vue'
 import UploadItem from '../views/upload/UploadItem.vue'
 import UpdateItem from '../views/upload/UpdateItem.vue'
 import threeTest from '../components/three/threeTest.vue'
+import myAccount from '../views/admin/myAccount.vue'
 
 Vue.use(VueRouter)
 
@@ -47,6 +48,11 @@ const routes: Array<RouteConfig> = [
     path: '/',
     name: 'homepage',
     components: { default: MarketPlace, header: MainNavbar, footer: MainFooter }
+  },
+  {
+    path: '/my_account',
+    name: 'myAccount',
+    components: { default: myAccount, header: MainNavbar, footer: MainFooter }
   },
   {
     path: '/edit-item/:assetHash',
