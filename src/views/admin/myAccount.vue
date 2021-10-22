@@ -9,6 +9,8 @@
           <h1>Your Wallet Information:</h1>
           <h2>Wallet: {{username}}</h2>
           <p>Balance: {{profile.accountInfo.balance}} stx</p>
+          <br/>
+          <router-link class="mintBtn" to="/create">Mint an NFT</router-link>
           <div class="profileBtn">Disconnect</div>
         </div>
     </div>
@@ -261,14 +263,25 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     font-size: 1.2rem;
     font-weight: 600;
   }
+  & > .mintBtn{
+    margin: auto;
+    margin-top: 5rem;
+    background: #80576315;
+    border-radius: 20px;
+    width: 14rem;
+    padding: 10px;
+    color: #50B1B5;
+    cursor: pointer;
+  }
   & > .profileBtn{
     margin: auto;
-    margin-top: 8rem;
+    margin-top: 2rem;
     background: #80576315;
     border-radius: 20px;
     width: 13rem;
     padding: 10px;
     color: orange;
+      cursor: default;
   }
 
 }
