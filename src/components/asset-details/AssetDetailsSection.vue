@@ -456,7 +456,6 @@ hr{
   .itemContainer{flex-direction: column;}
   .assetContainer{width: 100%; min-height: auto;}
   .assetText{min-width: 100%; font-size: 14px;}
-
 }
 
 </style>
