@@ -5,14 +5,16 @@
 </div>
   <div class = "mainNavbar">
         <router-link class="risidioLogo" to="/"><img width="150px;" :src="logo" alt="risidio-logo"/></router-link>
-        <div v-if="profile & profile.loggedIn" class="navbar_links">
-        <div class="nav-start">
-        <router-link class="nav-items " to="/">Gallery</router-link>
-        <router-link class="nav-items " to="/">Collections</router-link>
-        </div>
-          <router-link class="nav-items text-white" to="/how-it-works">How It Works</router-link>
-          <router-link class="nav-items text-white" to="/about">About Risidio </router-link>
-          <router-link class="nav-items navBtn" to="/about"> My NFT's </router-link>
+        <div v-if=" profile.loggedIn" class="navbar_links">
+          <div class="nav-start">
+            <router-link class="nav-items " to="/">Gallery</router-link>
+            <router-link class="nav-items " to="/">Collections</router-link>
+          </div>
+          <div class="nav-end">
+            <router-link class="nav-items nav-end text-white" to="/how-it-works">How It Works</router-link>
+            <router-link class="nav-items nav-end text-white" to="/about">About Risidio </router-link>
+            <router-link class="nav-items nav-end navBtn" to="/about"> My NFT's </router-link>
+          </div>
         </div>
          <div v-else class="navbar_links">
           <router-link class="nav-items text-white" to="/how-it-works">How It Works</router-link>
@@ -170,17 +172,30 @@ export default {
 }
 
 .nav-start{
+  justify-items: flex-start;
+  align-items: flex-start;
   color: white;
   padding: 20px;
   font-size: 1.2rem;
+}
+// .nav-start:hover{
+//   color: white;
+// }
+.nav-end{
+  justify-self: flex-end;
+  align-self: flex-end;
+  color: white;
+  padding: 20px;
+  font-size: 1.2rem;
+  width:fit-content;
 }
 .nav-start:hover{
   color: white;
 }
 
 .navbar_links{
-  justify-content: flex-end;
-  align-content: flex-end;
+  justify-content: space-between;
+  align-content: space-between ;
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -201,11 +216,11 @@ export default {
 
 .navBtn{
   background: rgba(255, 255, 255, 0.247);
-  padding: 13px;
+  padding: 15px;
   border-radius: 50px;
   margin-top: 8px;
   margin-left: 5px;
-  width: 11rem;
+  width: 12rem;
   height: 4rem;
   text-align: center;
   justify-items: center;
