@@ -1,45 +1,46 @@
 <template>
 <section :key="componentKey" id="asset-details-section" v-if="gaiaAsset && gaiaAsset.contractAsset" class="mt-5">
-  <b-container class="center-section" style="min-height: 50vh;">
-    <b-row align-h="center" :style="'min-height: ' + videoHeight + 'px'">
-      <b-col md="5" sm="10">
-        <div id="video-column" :style="dimensions">
+  <div class="assetMainContainer">
+    <div><router-link class="backBtn" to="/"><b-icon icon="chevron-left" shift-h="-3"></b-icon> Back </router-link></div>
+    <div class="itemContainer">
+      <!-- <div ><a href="#" @click.prevent="back()" ><b-icon icon="chevron-left"/> Back</a></div> -->
+      <div class = "assetContainer">
+        <div id="video-column" class="assetView">
           <MediaItem :videoOptions="videoOptions" :attributes="gaiaAsset.attributes" :targetItem="targetItem()"/>
         </div>
-      </b-col>
-      <b-col lg="5" sm="10">
-        <b-row align-v="stretch" :style="'height: ' + videoHeight - 100 + 'px'">
-          <b-col cols="12" class="">
-            <div class="d-flex justify-content-between mb-5">
-              <div><router-link class="" to="/"><b-icon icon="chevron-left" shift-h="-4" variant="white"></b-icon> Back</router-link></div>
-              <div class="d-flex justify-content-between">
-                <div class="text-center on-auction-text ml-3 py-1 px-4 bg-warning ">
-                  <div v-if="isOwner"><router-link class="" to="/my-nfts">{{salesBadgeLabel}}</router-link></div>
-                  <div v-else>{{salesBadgeLabel}}</div>
-                  <div v-if="showEndTime()">{{biddingEndTime()}}</div>
-                </div>
-              </div>
-            </div>
-          </b-col>
-          <b-col md="12" align-self="end">
+      </div>
+      <div>
+        <div class = "assetTop">
+          <h1 class= "assetName"> {{gaiaAsset.name}}</h1>
+        </div>
+        <div>
+        <h2 class= "assetArtist">By: <span>{{gaiaAsset.artist}}</span></h2>
+        <div class = "priceContainer">
+        <div class = "price">
+          <h1> <span1>PRICE</span1>  <span3>{{gaiaAsset.contractAsset.saleData.buyNowOrStartingPrice}}</span3> <span2>STX &nbsp;</span2></h1>
+          <hr>
+          </div>
+          <button class="button" variant="success" @click="openPurchaceDialog()" v-on:click="assetDeets()">{{salesButtonLabel}}</button>
+        </div>
+        <div class = "assetDetails">
+          <!-- <div class="w-100" v-html="preserveWhiteSpace(gaiaAsset.description)">{{gaiaAsset.description}}</div> -->
+          <div class="w-100"> <p class="assetText">{{gaiaAsset.description}}....and Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim</p></div>
+        </div>
             <div class="w-100">
-              <h1 class="">{{gaiaAsset.name}}</h1>
-              <h2>{{gaiaAsset.artist}}</h2>
-              <div class="w-100 " v-html="preserveWhiteSpace(gaiaAsset.description)"></div>
+              </div>
               <MintInfo :item="gaiaAsset" />
               <PendingTransactionInfo v-if="txPending.length > 0" :contractAsset="gaiaAsset.contractAsset" :assetHash="gaiaAsset.assetHash"/>
-              <div v-else>
-                <b-row>
-                  <b-col>
-                    <b-button variant="success" @click="openPurchaceDialog()">{{salesButtonLabel}}</b-button>
-                  </b-col>
-                </b-row>
-              </div>
-            </div>
-          </b-col>
-        </b-row>
-      </b-col>
-    </b-row>
+        </div>
+      </div>
+      <div class = "assetRight">
+          <div class = "sale" v-if="isOwner"><router-link class="" to="/my-nfts">{{salesBadgeLabel}}</router-link></div>
+          <div class = "sale" v-else>{{salesBadgeLabel}}</div>
+          <div class = "sale" v-if="showEndTime()">{{biddingEndTime()}}</div>
+        </div>
+    </div>
   <b-modal size="lg" id="asset-offer-modal" class="text-left">
     <PurchaseFlow v-if="showRpay === 1" :gaiaAsset="gaiaAsset" :forceOfferFlow="forceOfferFlow"/>
     <AssetUpdatesModal v-if="showRpay === 2" @registerForUpdates="registerForUpdates"/>
@@ -61,15 +62,12 @@
         <h1>Confirmation</h1>
         <h4 class="text-center mb-5"><a :href="transactionUrl" target="_blank">Transaction sent to Stacks Blockchain</a></h4>
         <p v-if="txData">Transaction Status: {{txData.txStatus}}</p>
-        <div class="mt-5"><a href="#" @click.prevent="back()"><b-icon icon="chevron-left"/> back</a></div>
       </b-col>
     </b-row>
     <template #modal-footer class="text-center">
-      <div class="w-100">
-      </div>
     </template>
   </b-modal>
-  </b-container>
+  </div>
 </section>
 </template>
 
@@ -248,6 +246,9 @@ export default {
         this.$bvModal.hide('asset-offer-modal')
         this.$root.$emit('bv::show::modal', 'success-modal')
       })
+    },
+    assetDeets () {
+      console.log(this.gaiaAsset)
     }
   },
   computed: {
@@ -294,14 +295,23 @@ export default {
       if (this.webWalletNeeded) return 'GET WALLET'
       const profile = this.$store.getters[APP_CONSTANTS.KEY_PROFILE]
       if (!profile.loggedIn) return 'LOGIN'
-      let label = 'BUY NOW ' + this.gaiaAsset.contractAsset.saleData.buyNowOrStartingPrice + ' STX'
+      // let label = 'BUY NOW ' + this.gaiaAsset.contractAsset.saleData.buyNowOrStartingPrice + ' STX'
+      let label = 'BUY IT NOW'
       if (this.gaiaAsset.contractAsset.saleData.saleType !== 1) {
-        label = 'NOT ON SALE'
+        label = 'NOT FOR SALE'
       }
       return label
     },
     salesBadgeLabel () {
-      return this.salesButtonLabel
+      if (this.webWalletNeeded) return 'GET WALLET'
+      const profile = this.$store.getters[APP_CONSTANTS.KEY_PROFILE]
+      if (!profile.loggedIn) return 'LOGIN'
+      // let label = 'BUY NOW ' + this.gaiaAsset.contractAsset.saleData.buyNowOrStartingPrice + ' STX'
+      let label = 'ON SALE'
+      if (this.gaiaAsset.contractAsset.saleData.saleType !== 1) {
+        label = 'NOT ON SALE'
+      }
+      return label
     },
     configuration () {
       const configuration = this.$store.getters[APP_CONSTANTS.KEY_RPAY_CONFIGURATION]
@@ -352,4 +362,100 @@ export default {
 #asset-offer-modal .modal-content {
   text-align: left !important;
 }
+.assetMainContainer{
+  margin: 0 auto;
+  max-width: 85%
+}
+.backBtn{
+  color: rgb(0, 0, 138);
+  font-weight: 700;
+}
+.assetContainer{
+  min-width: 400px;
+  min-height: 600px;
+  /* background-color: rgb(185, 185, 185); */
+}
+.itemContainer{
+  margin-top: 4%;
+  display: flex;
+  gap: 50px;
+}
+
+.button{
+  width: 300px;
+  height: 50px;
+  border-radius: 100px;
+  border: none;
+  background-color: #50B1B5;
+  font-size: 12px;
+  font-weight:700;
+  color: white;
+}
+.sale{
+  background: #5154A1;
+  color: white;
+  font-weight: 500;
+  font-size: 14px;
+  text-align: center;
+  padding: 20px;
+  width: 150px;
+  margin-left: auto;
+}
+.assetTop{
+  display:flex;
+}
+.assetRight{
+  margin-right: auto;
+}
+.assetName{
+  font-size: 40px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+}
+.assetArtist{
+  font-weight: 400;
+  font-size: 16px;
+}
+span{
+  color: #50B1B5;
+  font-weight: bolder;
+}
+span1{
+  font-weight: 200;
+  font-size: 20px;
+}
+span2{
+  float: right;
+  font-weight: 200;
+}
+span3{
+  float: right;
+  color: #5154A1;
+}
+.price{
+  width: 70%;
+}
+.priceContainer{
+  margin-top: 100px;
+  display:flex;
+  gap: 10px;
+}
+.assetDetails{
+  color: black;
+  margin-top: 100px;
+}
+.assetText{
+  max-width: 730px;
+  font-size: 14px;
+}
+hr{
+  background-color: #5154A1;
+  height: 2px;
+}
+@media only  screen and (max-width: 1225px){
+  .itemContainer{flex-direction: column;}
+  .assetContainer{width: 100%; min-height: auto;}
+  .assetText{min-width: 100%; font-size: 14px;}
+}
+
 </style>
