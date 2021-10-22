@@ -37,7 +37,7 @@
       </div>
       <div class = "assetRight">
           <div class = "sale" v-if="isOwner"><router-link class="" to="/my-nfts">{{salesBadgeLabel}}</router-link></div>
-          <div class = "sale" v-else>ON SALE</div>
+          <div class = "sale" v-else>{{salesBadgeLabel}}</div>
           <div class = "sale" v-if="showEndTime()">{{biddingEndTime()}}</div>
         </div>
     </div>
@@ -298,12 +298,20 @@ export default {
       // let label = 'BUY NOW ' + this.gaiaAsset.contractAsset.saleData.buyNowOrStartingPrice + ' STX'
       let label = 'BUY IT NOW'
       if (this.gaiaAsset.contractAsset.saleData.saleType !== 1) {
-        label = 'NOT ON SALE'
+        label = 'NOT FOR SALE'
       }
       return label
     },
     salesBadgeLabel () {
-      return this.salesButtonLabel
+      if (this.webWalletNeeded) return 'GET WALLET'
+      const profile = this.$store.getters[APP_CONSTANTS.KEY_PROFILE]
+      if (!profile.loggedIn) return 'LOGIN'
+      // let label = 'BUY NOW ' + this.gaiaAsset.contractAsset.saleData.buyNowOrStartingPrice + ' STX'
+      let label = 'ON SALE'
+      if (this.gaiaAsset.contractAsset.saleData.saleType !== 1) {
+        label = 'NOT ON SALE'
+      }
+      return label
     },
     configuration () {
       const configuration = this.$store.getters[APP_CONSTANTS.KEY_RPAY_CONFIGURATION]
@@ -363,19 +371,16 @@ export default {
   font-weight: 700;
 }
 .assetContainer{
-  width: 500px;
-  height: auto;
+  min-width: 400px;
+  min-height: 600px;
   /* background-color: rgb(185, 185, 185); */
 }
 .itemContainer{
   margin-top: 4%;
   display: flex;
   gap: 50px;
+}
 
-}
-.itemContainer{
-  flex: wrap;
-}
 .button{
   width: 300px;
   height: 50px;
@@ -440,11 +445,18 @@ span3{
   margin-top: 100px;
 }
 .assetText{
-  width: 730px;
+  max-width: 730px;
   font-size: 14px;
 }
 hr{
   background-color: #5154A1;
   height: 2px;
 }
+@media only  screen and (max-width: 1225px){
+  .itemContainer{flex-direction: column;}
+  .assetContainer{width: 100%; min-height: auto;}
+  .assetText{min-width: 100%; font-size: 14px;}
+
+}
+
 </style>
