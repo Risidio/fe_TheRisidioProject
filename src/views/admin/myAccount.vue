@@ -2,8 +2,8 @@
   <div class="viewContainer">
     <div class="profileContainer">
         <div class="profile">
-          <img class="profileImg" src="https://res.cloudinary.com/risidio/image/upload/v1634901154/RisidioMarketplace/istockphoto-464736044-612x612_h8c5kq.jpg" alt="">
-          <span class="pencil">&#9998;</span>
+          <img class="profileImg" src="https://res.cloudinary.com/risidio/image/upload/v1634907084/RisidioMarketplace/depositphotos_247076982-stock-photo-face-laughing-young-casual-man_xzzoay.jpg" alt="">
+          <span title='edit your profile' class="pencil">&#9998;</span>
         </div>
         <div class="walletDetails">
           <h1>Your Wallet Information:</h1>
@@ -219,6 +219,7 @@ export default {
 .profileContainer{
   display: flex;
   justify-content: space-between;
+  margin-top: 2rem;
 }
 
 .profile{
@@ -228,6 +229,7 @@ export default {
 .profileImg{
   width: 20rem;
   height: 20rem;
+  margin-left: 10rem;
   border-radius: 50%;
   object-fit: cover;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
@@ -244,6 +246,7 @@ export default {
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   transform: rotateZ(90deg);
   font-size: 2rem;
+  cursor: pointer;
 }
 
 .walletDetails{
