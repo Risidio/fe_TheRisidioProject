@@ -51,7 +51,7 @@ export default {
       const attributes = this.getMediaItem()
       return {
         emitOnHover: true,
-        playOnHover: false,
+        playOnHover: true,
         bigPlayer: false,
         assetHash: this.item.assetHash,
         autoplay: false,

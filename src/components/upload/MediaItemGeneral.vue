@@ -240,17 +240,16 @@ export default {
     align-items: center;
     background:white;
     /* padding: 2px; */
-    height: 23rem;
-    width: 23rem;
+    min-height: 23rem;
+    min-width: 23rem;
     z-index: 2;
     border-radius: 5px;
     /* border: 1px solid rgba(208, 208, 208, 0.646); */
     /* box-shadow: rgba(22, 22, 133, 0.119) 0px 7px 10px 0px; */
   }
-
   .singleNFTGalleryItem{
-     border-radius: 5px;
-    /* padding: 5px; */
+    border-radius: 5px;
+    width: 100%;
   }
 
 </style>
