@@ -1,8 +1,10 @@
 <template>
 <div>
   <!-- <button v-on:click="printFile(), three()"> click me</button> -->
-  <div v-if="contentType === 'threed'" :style="videoOptions.dimensions" id="video-demo-container">
-    {{three()}}
+  <div v-if="contentType === 'threed'" :style="videoOptions.dimensions" id="video-demo-container" v-on='three()'>
+    Your Cover Image
+    <img v-on="$listeners" :src="attributes.coverImage.fileUrl" @error="setAltImg()" :alt="attributes.artworkFile.name" :style="dimensions()">
+    Your 3D file
     <canvas v-on="$listeners" @error="setAltImg()" :alt="attributes.artworkFile.name" :style="dimensions()" />
   </div>
   <div v-else-if="contentType === 'video'" :style="videoOptions.dimensions" id="video-demo-container">

@@ -2,7 +2,7 @@
 <div v-if="item && item.attributes" >
   <div class="singleNftGalleryContainer">
   <b-link :to="assetUrl">
-    <MediaItemGeneral :classes="'item-image text-center'" class="p-0 m-0" v-on="$listeners" :options="videoOptions" :mediaItem="item.attributes.coverImage"/>
+    <MediaItemGeneral :classes="'item-image text-center'" :style="'width: 23rem; height: 23rem; margin:auto; display:block;'" v-on="$listeners" :options="videoOptions" :mediaItem="item.attributes.coverImage"/>
   </b-link>
   <div class="ml-5" style="max-width: 200px">
     <div class="mt-4 mb-2">

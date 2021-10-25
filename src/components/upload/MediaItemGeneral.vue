@@ -2,9 +2,8 @@
   <div>
     <div class="singleNftGalleryContainer">
       <div class="singleNftGalleryHolder">
-        <div v-if="contentType === 'threed'" id="video-demo-container" class="singleNFTGalleryItem" v-on='three()'>
-          <!-- {{three()}} -->
-            <canvas :class="classes" class="singleNFTGalleryItem" v-on="$listeners" @error="setAltImg()" :alt="mediaItem.name" />
+        <div v-if="contentType === 'threed'" id="video-demo-container" class="singleNFTGalleryItem">
+          <img v-on="$listeners" :src="options.poster" @error="setAltImg()" :alt="mediaItem.artworkFile.name"/>
         </div>
         <div v-else-if="contentType === 'video'" id="video-demo-container" class="singleNFTGalleryItem">
             <VideoJsPlayer :class="classes" class="singleNFTGalleryItem" v-on="$listeners"  @error="setAltImg()" :options="options"/>
@@ -240,17 +239,16 @@ export default {
     align-items: center;
     background:white;
     /* padding: 2px; */
-    height: 23rem;
-    width: 23rem;
+    min-height: 23rem;
+    min-width: 23rem;
     z-index: 2;
     border-radius: 5px;
     /* border: 1px solid rgba(208, 208, 208, 0.646); */
     /* box-shadow: rgba(22, 22, 133, 0.119) 0px 7px 10px 0px; */
   }
-
   .singleNFTGalleryItem{
-     border-radius: 5px;
-    /* padding: 5px; */
+    border-radius: 5px;
+    width: 100%;
   }
 
 </style>
