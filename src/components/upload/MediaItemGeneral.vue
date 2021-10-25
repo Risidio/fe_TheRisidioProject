@@ -2,9 +2,8 @@
   <div>
     <div class="singleNftGalleryContainer">
       <div class="singleNftGalleryHolder">
-        <div v-if="contentType === 'threed'" id="video-demo-container" class="singleNFTGalleryItem" v-on='three()'>
-          <!-- {{three()}} -->
-            <canvas :class="classes" class="singleNFTGalleryItem" v-on="$listeners" @error="setAltImg()" :alt="mediaItem.name" />
+        <div v-if="contentType === 'threed'" id="video-demo-container" class="singleNFTGalleryItem">
+          <img v-on="$listeners" :src="options.poster" @error="setAltImg()" :alt="mediaItem.artworkFile.name"/>
         </div>
         <div v-else-if="contentType === 'video'" id="video-demo-container" class="singleNFTGalleryItem">
             <VideoJsPlayer :class="classes" class="singleNFTGalleryItem" v-on="$listeners"  @error="setAltImg()" :options="options"/>

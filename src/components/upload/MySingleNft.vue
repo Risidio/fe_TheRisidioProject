@@ -1,7 +1,7 @@
 <template>
 <div class="mt-1 mx-4 text-center text-info">
   <div v-if="item && item.attributes">
-    <MediaItemGeneral :classes="'item-image'" :options="options" :mediaItem="getMediaItem().artworkFile"/>
+    <MediaItemGeneral :classes="'item-image'" :options="options" :mediaItem="getMediaItem().coverImage"/>
   </div>
   <div class="mt-1 d-flex justify-content-end">
     <div class="text-small text-right">

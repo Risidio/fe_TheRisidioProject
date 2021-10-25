@@ -6,7 +6,7 @@
   <b-container :key="componentKey" class="my-5 pt-5" v-if="item">
     <b-row style="min-height: 40vh" >
       <b-col md="4" sm="12" align-self="start" class="text-center">
-        <MediaItemGeneral :classes="'item-image-preview'" :options="options" :mediaItem="getMediaItem().artworkFile"/>
+        <MediaItemGeneral :classes="'item-image-preview'" :options="options" :mediaItem="getMediaItem().coverImage"/>
         <div class="text-left text-small mt-3">
           <b-link to="/my-nfts"><b-icon icon="chevron-left"/> Back</b-link>
         </div>
