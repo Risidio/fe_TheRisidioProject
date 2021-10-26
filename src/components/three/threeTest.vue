@@ -30,13 +30,20 @@ export default {
         url
       }
     },
+    printFile () {
+      console.log(this.mediaItem)
+    },
+    // threeObjectHandler () {
+    //   const url = this.mediaItem.fileUrl
+    //   console.log(url)
+    //   return {
+    //     url
+    //   }
+    // },
     threeLights () {
-      const pointLight = new Three.PointLight(0xffffff)
       const ambientLight = new Three.AmbientLight(0xffffff)
-      pointLight.position.set(20, 20, 20)
 
       return {
-        pointLight,
         ambientLight
       }
     },
@@ -46,8 +53,8 @@ export default {
     three () {
       const scene = new Three.Scene()
       const sizes = {
-        width: window.innerWidth * 0.5,
-        height: window.innerHeight * 0.5
+        width: window.innerWidth * 0.15,
+        height: window.innerHeight * 0.2
       }
       const camera = new Three.PerspectiveCamera(75, sizes.width / sizes.height, 0.10, 1000)
       const loader = new GLTFLoader()
@@ -58,13 +65,12 @@ export default {
       const lights = this.threeLights()
       const url = this.threeObjectHandler()
 
-      scene.background = new Three.Color(0x8fbcd4)
+      scene.background = new Three.Color(0xf2f2f2)
       renderer.setSize(sizes.width, sizes.height)
 
       // camera.position.setX(100)
       let box = new Three.Box3()
-
-      scene.add(lights.pointLight, lights.ambientLight)
+      scene.add(lights.ambientLight)
       let obj = ''
       loader.load(url.url,
         function (gltf) {
@@ -91,8 +97,8 @@ export default {
 
       window.addEventListener('resize', () => {
         // Update sizes
-        sizes.width = window.innerWidth * 0.5
-        sizes.height = window.innerHeight * 0.5
+        sizes.width = window.innerWidth * 0.15
+        sizes.height = window.innerHeight * 0.2
 
         // Update camera
         camera.aspect = sizes.width / sizes.height
@@ -104,7 +110,7 @@ export default {
       })
 
       function animate () {
-        obj.rotation.y += 0.02
+        // obj.rotation.y += 0.02
       }
       function render () {
         renderer.render(scene, camera)
@@ -113,7 +119,7 @@ export default {
         requestAnimationFrame(start)
         animate()
         render()
-        console.log('start has run once')
+        // console.log('start has run once')
         // camera.position.setY(box.min.y)
         // camera.position.setX(box.min.x)
         // camera.position.setZ(box.min.z)
@@ -123,6 +129,7 @@ export default {
         start()
         console.log('fullstart has run once ')
       }
+      // controls.addEventListener('change', render)
       setTimeout(() => {
         camera.position.setY(box.min.y)
         camera.position.setX(box.min.x)

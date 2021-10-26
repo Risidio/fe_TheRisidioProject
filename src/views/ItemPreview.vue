@@ -4,11 +4,13 @@
     {{message}}
   </div>
   <b-container :key="componentKey" class="my-5 pt-5" v-if="item">
+    <b-link to="/my-nfts"><b-icon icon="chevron-left"/> Back</b-link>
     <b-row style="min-height: 40vh" >
       <b-col md="4" sm="12" align-self="start" class="text-center">
-        <MediaItemGeneral :classes="'item-image-preview'" :options="options" :mediaItem="getMediaItem().coverImage"/>
+        <!-- <MediaItemGeneral :classes="'item-image-preview'" :options="options" :mediaItem="getMediaItem().coverImage"/> -->
+        <NftCoverImage :item="item" :displayHeader="false"/>
         <div class="text-left text-small mt-3">
-          <b-link to="/my-nfts"><b-icon icon="chevron-left"/> Back</b-link>
+
         </div>
       </b-col>
       <b-col md="8" sm="12" align-self="start" class="mb-4">
@@ -42,7 +44,8 @@ import MintInfo from '@/components/toolkit/mint-setup/MintInfo'
 import MintingTools from '@/components/toolkit/MintingTools'
 import { APP_CONSTANTS } from '@/app-constants'
 import ItemActionMenu from '@/components/items/ItemActionMenu'
-import MediaItemGeneral from '@/components/upload/MediaItemGeneral'
+// import MediaItemGeneral from '@/components/upload/MediaItemGeneral'
+import NftCoverImage from '@/components/upload/NftCoverImage'
 
 export default {
   name: 'ItemPreview',
@@ -51,7 +54,8 @@ export default {
     ItemActionMenu,
     PendingTransactionInfo,
     MintInfo,
-    MediaItemGeneral
+    // MediaItemGeneral,
+    NftCoverImage
   },
   data: function () {
     return {
@@ -121,6 +125,10 @@ export default {
         transactions = this.$store.getters[APP_CONSTANTS.KEY_TX_PENDING_BY_ASSET_HASH](this.item.assetHash)
       }
       return transactions
+    },
+    contractAsset () {
+      const contractAsset = this.$store.getters[APP_CONSTANTS.KEY_ASSET_FROM_CONTRACT_BY_HASH](this.videoOptions.assetHash)
+      return contractAsset
     },
     options () {
       const videoOptions = {
