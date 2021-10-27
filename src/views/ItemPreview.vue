@@ -4,7 +4,7 @@
     {{message}}
   </div>
   <b-container :key="componentKey" class="my-5 pt-5" v-if="item">
-    <b-link to="/my-nfts"><b-icon icon="chevron-left"/> Back</b-link>
+    <div><router-link class="backBtn" to="/my_account"><b-icon icon="chevron-left" shift-h="-3"></b-icon> Back </router-link></div>
     <b-row style="min-height: 40vh" >
       <b-col md="4" sm="12" align-self="start" class="text-center">
         <!-- <MediaItemGeneral :classes="'item-image-preview'" :options="options" :mediaItem="getMediaItem().coverImage"/> -->
@@ -16,11 +16,11 @@
       <b-col md="8" sm="12" align-self="start" class="mb-4">
         <div>
           <div class="mb-2 d-flex justify-content-between">
-            <h2 class="d-block border-bottom mb-5">{{item.name}}</h2>
+            <h1 class= "assetName"> {{item.name}}</h1>
             <ItemActionMenu :item="item" />
           </div>
         </div>
-        <h2>{{item.artist}}</h2>
+        <h2 class= "assetArtist">By: <span>{{item.artist}}</span></h2>
         <div class="w-100 " v-html="item.description"></div>
         <!--
         <div class="text-small" v-if="pending">
@@ -181,5 +181,18 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.backBtn{
+  color: rgb(0, 0, 138);
+  font-weight: 700;
+}
+.assetArtist{
+  font-weight: 400;
+  font-size: 16px;
+}
+.assetName{
+  font-size: 40px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+}
 </style>
