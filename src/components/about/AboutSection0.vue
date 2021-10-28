@@ -2,8 +2,8 @@
 <div class = "Htitle">
   <div class = "container">
      <img class="banner" src="https://res.cloudinary.com/risidio/image/upload/v1633609373/RisidioMarketplace/Group_-304_ofssmk.svg" alt="">
-      <h1>About Risidio</h1>
-      <p>Take back control of your data</p>
+      <h1>{{content.aboutsection0[0].abouttitle[0].text}}</h1>
+      <p>{{content.aboutsection0[0].abouttext[0].text}}</p>
       <button class="button" > <a href="https://risidio.com/">Find Out More</a></button>
   </div>
 </div>

@@ -1,10 +1,10 @@
 <template>
 <div>
   <section id="about" class="about">
-    <AboutSection0 />
-    <AboutSection1 />
-    <AboutSection2 />
-    <AboutSection3 />
+    <AboutSection0 :content="content"/>
+    <AboutSection1 :content="content"/>
+    <AboutSection2 :content="content"/>
+    <AboutSection3 :content="content"/>
   </section>
 </div>
 </template>

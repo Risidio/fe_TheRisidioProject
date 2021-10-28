@@ -11,39 +11,31 @@
 </section> -->
     <b-container style="min-height: 60vh" class="pb-4 text-center">
       <b-row align-h="center" style="min-height: 70vh">
-        <b-col md="6" sm="10" align-self="center">
-          <div class="text-center text">
+        <div class="Acontainer">
+          <div class="aboutSection1Container">
                 <b-img src="https://images.prismic.io/radsoc/26f1e22e-5565-4f32-8761-e1b69a3d8e50_risisdilogo.png?auto=compress,format"></b-img>
-          <!-- <h1><prismic-items :prismicItems="content.title1"></prismic-items></h1> -->
-                    <prismic-items :prismicItems="content.text1"></prismic-items>
+            <p>{{content.aboutsection1[0].abouttext[0].text}}<br><br>
+               {{content.aboutsection1[0].abouttext1[0].text}}</p>
           </div>
-        </b-col>
+        </div>
       </b-row>
     </b-container>
 </template>
 
 <script>
-import PrismicItems from '@/components/prismic/PrismicItems'
 
 export default {
   name: 'AboutSection1',
   components: {
-    PrismicItems
+
   },
-  props: ['about'],
-  data () {
-    return {
-      rainbowOne: 'https://images.prismic.io/dbid/a70b331a-ee92-4d98-81e4-659f2edadba1_Number1_build3.gif?auto=compress,format'
-    }
-  },
-  computed: {
-    content () {
-      const content = this.$store.getters['contentStore/getAbout']
-      return content
-    }
-  }
+  props: ['content']
 }
 </script>
 
 <style scoped>
+.Acontainer{
+  margin:auto;
+}
+
 </style>

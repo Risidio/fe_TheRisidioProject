@@ -1,5 +1,6 @@
 <template>
-<div v-if="content">
+<!-- <div v-if="content"> -->
+  <div>
   <footer id="footer" class="text-white">
     <div class="container">
       <div class="row m-0 d-flex">
@@ -87,27 +88,27 @@ export default {
     }
   },
   methods: {
-    getContent (contentType) {
-      const content = this.$store.getters['contentStore/getHomepage']
-      if (content) {
-        let sitecontent = ''
-        content.footer[0][contentType].forEach(function (option) {
-          sitecontent += option.text
-        })
-        return sitecontent
-      }
-      return {}
-    },
-    topFunction () {
-      const scrollTop = window.scrollTo({ top: 0, behavior: 'smooth' })
-      scrollTop()
-    }
+    // getContent (contentType) {
+    //   const content = this.$store.getters['contentStore/getHomepage']
+    //   if (content) {
+    //     let sitecontent = ''
+    //     content.footer[0][contentType].forEach(function (option) {
+    //       sitecontent += option.text
+    //     })
+    //     return sitecontent
+    //   }
+    //   return {}
+    // },
+    // topFunction () {
+    //   const scrollTop = window.scrollTo({ top: 0, behavior: 'smooth' })
+    //   scrollTop()
+    // }
   },
   computed: {
-    content () {
-      const content = this.$store.getters['contentStore/getHomepage']
-      return content
-    }
+    // content () {
+    //   const content = this.$store.getters['contentStore/getHomepage']
+    //   return content
+    // }
   }
 }
 </script>

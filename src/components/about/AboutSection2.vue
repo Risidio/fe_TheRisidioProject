@@ -2,8 +2,9 @@
   <section class ="our_values" >
     <div class ="values_container">
         <div class="my-auto text-center text-white">
-          <h1><prismic-items :prismicItems="content.title2"></prismic-items></h1>
-          <p><prismic-items :prismicItems="content.text2"></prismic-items></p>
+          <h1>{{content.aboutsection2[0].abouttitle[0].text}}</h1>
+          <p>{{content.aboutsection2[0].abouttext[0].text}}<br><br>
+             {{content.aboutsection2[0].abouttext1[0].text}}</p>
             <div class="m-5 d-flex justify-content-center">
               <a title="join us on discord" href="https://discord.com/invite/sQaKVft"><button variant="light">Read More</button></a>
             </div>
@@ -13,23 +14,15 @@
 </template>
 
 <script>
-import PrismicItems from '@/components/prismic/PrismicItems'
 
 export default {
   name: 'AboutSection2',
   components: {
-    PrismicItems
   },
-  props: ['about'],
+  props: ['content'],
   data () {
     return {
       response: null
-    }
-  },
-  computed: {
-    content () {
-      const content = this.$store.getters['contentStore/getAbout']
-      return content
     }
   }
 }

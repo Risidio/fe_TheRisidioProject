@@ -29,7 +29,7 @@ Vue.use(IconsPlugin)
 Vue.use(Notifications, { closeOnClick: true, duration: 10000 })
 Vue.use(PrismicVue, {
   accessToken: '',
-  endpoint: 'https://radsoc.cdn.prismic.io/api/v2',
+  endpoint: 'https://therisidioproject.prismic.io/api/v2',
   linkResolver,
   htmlSerializer
 })

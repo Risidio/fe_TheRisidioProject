@@ -1,19 +1,15 @@
 <template>
 <div class = "Htitle">
   <div class = "title-container">
-      <h1>What Is Risidio Marketplace ?</h1>
-      <p>Technology is progressing so art is evolving. </p>
+      <h1>{{content.howsection1[0].howtitle[0].text}}</h1>
+      <p>{{content.howsection1[0].howtitle2[0].text}} </p>
   </div>
   <div class = "main-container">
     <div class = "container">
-      <p> (What is Risidio Collectible About)<br>
-      adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aut Lorem ipsum dolor sit amet,
-      consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aut <br>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aut<br>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim</p>
+      <p> {{content.howsection1[0].howtext[0].text}}<br>
+      {{content.howsection1[0].howtext[1].text}} <br>
+      {{content.howsection1[0].howtext[2].text}}<br>
+      {{content.howsection1[0].howtext[3].text}}</p>
       <button class="button"> About Risidio </button>
     </div>
   </div>
@@ -23,6 +19,7 @@
 <script>
 export default {
   name: 'WRuma',
+  props: ['content'],
   components: {
 
   }
