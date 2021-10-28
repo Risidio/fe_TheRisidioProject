@@ -17,7 +17,7 @@
     </audio>
   </div>
   <div v-else-if="contentType === 'document'">
-    <img v-on="$listeners" :src="attributes.coverImage.fileUrl" @error="setAltImg()" :alt="attributes.artworkFile.name" :style="dimensions()">
+    <embed v-on="$listeners" :src="attributes.artworkFile.fileUrl" @error="setAltImg()" :alt="attributes.artworkFile.name" :style="dimensions()">
   </div>
   <div v-else-if="contentType === 'image'">
     <img v-on="$listeners" :src="attributes.coverImage.fileUrl" @error="setAltImg()" :alt="attributes.artworkFile.name" :style="dimensions()">
@@ -100,7 +100,7 @@ export default {
     dimensions: function () {
       if (this.dims) {
         // return 'width: ' + this.dims.width + 'px; height: ' + this.dims.height + 'px;'
-        return 'width: 100%; max-height: 300px; min-height: 50px;'
+        return 'width: 100%; max-height: 350px; min-height: 350px;'
       }
       return 'width: 100%; height: auto'
     },
@@ -187,7 +187,7 @@ export default {
 
       // camera.position.setY(0)
       // camera.position.setX(0)
-      camera.position.set(5, 0, 0)
+      camera.position.setY(100)
 
       window.addEventListener('resize', () => {
         // Update sizes
@@ -214,19 +214,7 @@ export default {
         // camera.position.setX(box.min.x)
         // camera.position.setZ(box.min.z)
       }
-      function fullStart () {
-        render()
-        start()
-        console.log('fullstart has run once ')
-      }
-      setTimeout(() => {
-        camera.position.setY(box.min.y)
-        camera.position.setX(box.min.x)
-        const cameraZ = box.min.y / 2 / Math.tan(75 / 2)
-        camera.position.setZ(cameraZ)
-        console.log('camera adjusted')
-      }, 8000)
-      fullStart()
+      start()
     }
   }
 }

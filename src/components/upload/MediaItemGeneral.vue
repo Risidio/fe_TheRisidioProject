@@ -15,7 +15,7 @@
             </audio>
         </div>
         <div v-else-if="contentType === 'document'" class="singleNFTGalleryItem">
-            <img :class="classes" class="singleNFTGalleryItem" v-on="$listeners" :src="mediaItem.fileUrl" @error="setAltImg()" :alt="mediaItem.name">
+            <embed :class="classes" class="singleNFTGalleryItem" v-on="$listeners" :src="mediaItem.fileUrl" @error="setAltImg()" :alt="mediaItem.name">
         </div>
         <div v-else-if="contentType === 'image'" class="singleNFTGalleryItem">
             <img :class="classes" class="singleNFTGalleryItem" v-on="$listeners" :src="mediaItem.fileUrl" @error="setAltImg()" :alt="mediaItem.name">
