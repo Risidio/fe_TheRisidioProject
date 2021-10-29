@@ -50,61 +50,23 @@
       </b-container>
       <button>See more collectables</button>
     </div>
-    <div class="section2">
-      <div style="font-size:2rem; font-weight:800; text-align:center;">Featured Collections</div>
-      <div style="font-size:4rem; font-weight:400; text-align:center; margin:20px">New Collections Coming Soon!</div>
-      <div style="display:flex; margin:auto; width:50%; text-align:center;">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua</div>
-      <div class="exampleCollection">
-          <div class="singleNftGalleryContainer">
-            <img src="https://res.cloudinary.com/risidio/image/upload/v1634828295/RisidioMarketplace/Screenshot_2021-10-21_at_15.57.57_q7chjf.png" alt="" class="">
-            <div class="fakeDetails">
-              <div>
-              <span style="width:20%; font-size:3rem">????</span>
-              <span style="width:20%; margin-left:50%">10STX</span>
-              </div>
-              <span class="fakeDetails2" style="width:20%; margin-left:80%; margin-top:-10%">~$10</span>
-            </div>
-          </div>
-          <div class="singleNftGalleryContainer">
-            <img src="https://res.cloudinary.com/risidio/image/upload/v1634828295/RisidioMarketplace/Screenshot_2021-10-21_at_15.57.57_q7chjf.png" alt="" class="">
-         <div class="fakeDetails">
-              <div>
-              <span style="width:20%; font-size:3rem">????</span>
-              <span style="width:20%; margin-left:50%">10STX</span>
-              </div>
-              <span class="fakeDetails2" style="width:20%; margin-left:80%; margin-top:-10%">~$10</span>
-            </div>
-          </div>
-          <div class="singleNftGalleryContainer">
-            <img src="https://res.cloudinary.com/risidio/image/upload/v1634828295/RisidioMarketplace/Screenshot_2021-10-21_at_15.57.57_q7chjf.png" alt="" class="">
-          <div class="fakeDetails">
-              <div>
-              <span style="width:20%; font-size:3rem">????</span>
-              <span style="width:20%; margin-left:50%">10STX</span>
-              </div>
-              <span class="fakeDetails2" style="width:20%; margin-left:80%; margin-top:-10%">~$10</span>
-            </div>
-          </div>
-      </div>
-        <!-- <div>Find Out More!</div> -->
-    </div>
-    <div class="section3">
+    <!-- <CollectionsInfo/> -->
+    <!-- <div class="section3">
      <div style="font-size:5rem; font-weight:300; margin:auto; text-align:center">The New Collectables Marketplace</div>
      <div style="font-size:3rem; font-weight:500; margin:20px auto; text-align:center">Technology is progressing so art is evolving.</div>
      <div style="font-size:1.5rem; font-weight:300; margin:40px auto; text-align:center; width:50%; ">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua</div>
      <div>
        <div style="display: flex; margin: auto;background:#50B1B5; width: 150px; color:white; text-align:center; padding:10px; padding-left:20px; border-radius:20px;">How It Works</div>
      </div>
-    </div>
-    <div class="section4">
+    </div> -->
+    <!-- <div class="section4">
           <img style="width:100vw; margin-left:-25.1%;object-fit:contain; z-index:-10;" src="https://res.cloudinary.com/risidio/image/upload/v1633609373/RisidioMarketplace/Group_-304_ofssmk.svg" alt="">
       <div style="margin-top:-45vh;">
-          <div style="color:white; font-size:4rem; font-wight:100; text-align:center; margin: 50px auto auto auto;">Start Trading Collectables</div>
+     <div style="color:white; font-size:4rem; font-wight:100; text-align:center; margin: 50px auto auto auto;">Start Trading Collectables</div>
           <div  style="color:white; font-size:2rem; font-wight:100; text-align:center; margin: 50px auto auto auto;">Create an account and join our marketplace.</div>
           <div  style="color:white; font-size:2rem; font-wight:100; text-align:center; margin: 10px auto;">It’s Quick, Safe and Free.</div>
-
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
 </template>
@@ -112,6 +74,7 @@
 <script>
 import SearchBar from '@/components/marketplace/SearchBar'
 import GalleryNft from '@/components/marketplace/GalleryNft'
+// import CollectionsInfo from '@/components/marketplace/CollectionsInfo.vue'
 const STX_CONTRACT_ADDRESS = process.env.VUE_APP_STACKS_CONTRACT_ADDRESS
 const STX_CONTRACT_NAME = process.env.VUE_APP_STACKS_CONTRACT_NAME
 
@@ -120,6 +83,7 @@ export default {
   components: {
     GalleryNft,
     SearchBar
+    // CollectionsInfo
   },
   data () {
     return {
