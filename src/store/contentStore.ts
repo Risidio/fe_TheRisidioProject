@@ -6,6 +6,7 @@ const contentStore = {
       information: null,
       navigation: null,
       homepage: null,
+      marketplacetemplate: null,
       about: null,
       tooltips: null,
       howitworks: null,
@@ -66,6 +67,9 @@ const contentStore = {
     getApplications: state => {
       return state.content.applications
     },
+    getMarket: state => {
+      return state.content.marketplacetemplate
+    },
     getArtists: state => {
       return state.content.artists
     },
@@ -116,6 +120,9 @@ const contentStore = {
     },
     addTerms (state, o) {
       state.content.terms = o
+    },
+    addMarket (state, o) {
+      state.content.marketplacetemplate = o
     },
     addDevelopers (state, o) {
       state.content.developers = o

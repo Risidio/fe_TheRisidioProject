@@ -92,6 +92,11 @@ export default {
           this.$store.commit('contentStore/addHomeContent', document.data)
         }
       })
+      this.$prismic.client.getSingle('marketplacetemplate').then(document => {
+        if (document) {
+          this.$store.commit('contentStore/addMarket', document.data)
+        }
+      })
       this.$prismic.client.getSingle('about').then(document => {
         if (document) {
           this.$store.commit('contentStore/addAbout', document.data)

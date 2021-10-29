@@ -53,6 +53,7 @@ export const APP_CONSTANTS = {
   KEY_CONTENT_CHARITIES: 'contentStore/getCharities',
   KEY_CONTENT_INFO_PAGE: 'contentStore/getInformationById',
   KEY_CONTENT_HOW: 'contentStore/getHowItWorks',
+  KEY_CONTENT_MARKET: 'contentStore/getMarket',
   KEY_BREAK_LINE: 'contentStore/getBreakLine',
 
   KEY_CATEGORIES: 'rpayCategoryStore/getCategories',

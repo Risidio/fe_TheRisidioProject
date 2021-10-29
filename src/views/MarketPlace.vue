@@ -5,8 +5,8 @@
       <div class="market_introduction_text">
         <!-- <p class="market_intro_Ex">Explore the New Era of Digital Art</p> -->
         <!-- <h1 class="market_intro_h1"> Risidio Marketplace</h1> -->
-        <h1 class="market_intro_h1"> The New Era of Digital Art</h1>
-        <p class="market_intro" style="width:60%">Risidio is a NFT minting platform and marketplace that enables users to register their assets in different formats on the Bitcoin blockchain using Stacks. Regardless of their experience with NFTs, Ruma allows all creatives to secure ownership rights and set royalties for further monetisation of work easily and securely.</p>
+        <h1 class="market_intro_h1"> {{content.heroarea[0].herotitle[0].text}}</h1>
+        <p class="market_intro" style="width:60%">{{content.heroarea[0].herotext[0].text}}</p>
       </div>
     <search-bar class="mainSearchBar" :showPrepend="true" v-on="$listeners"/>
     <!-- <div class="gallery_highlights">
@@ -74,6 +74,7 @@
 <script>
 import SearchBar from '@/components/marketplace/SearchBar'
 import GalleryNft from '@/components/marketplace/GalleryNft'
+import { APP_CONSTANTS } from '@/app-constants'
 // import CollectionsInfo from '@/components/marketplace/CollectionsInfo.vue'
 const STX_CONTRACT_ADDRESS = process.env.VUE_APP_STACKS_CONTRACT_ADDRESS
 const STX_CONTRACT_NAME = process.env.VUE_APP_STACKS_CONTRACT_NAME
@@ -114,6 +115,10 @@ export default {
     }
   },
   computed: {
+    content () {
+      const content = this.$store.getters[APP_CONSTANTS.KEY_CONTENT_MARKET]
+      return content
+    }
   }
 }
 </script>
@@ -129,7 +134,7 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 50rem;
   object-fit: cover;
   z-index: -10;
