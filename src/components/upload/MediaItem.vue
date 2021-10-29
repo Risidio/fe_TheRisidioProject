@@ -1,11 +1,11 @@
 <template>
 <div>
   <!-- <button v-on:click="printFile(), three()"> click me</button> -->
-  <div v-if="contentType === 'threed'" :style="videoOptions.dimensions" id="video-demo-container" v-on='three()'>
-    Your Cover Image
+  <div v-if="contentType === 'threed'" :style="videoOptions.dimensions" id="video-demo-container" v-on="$listeners">
     <img v-on="$listeners" :src="attributes.coverImage.fileUrl" @error="setAltImg()" :alt="attributes.artworkFile.name" :style="dimensions()">
-    Your 3D file
-    <canvas v-on="$listeners" @error="setAltImg()" :alt="attributes.artworkFile.name" :style="dimensions()" />
+    Your Cover Image
+    <button class= "threeToggleButton" v-on:click="toggleThreeCanvas(), three()"> Click to view your rendered 3D asset </button>
+    <div id="threeCanvas"><canvas  @error="setAltImg()" :alt="attributes.artworkFile.name" :style="dimensions()"></canvas></div>
   </div>
   <div v-else-if="contentType === 'video'" :style="videoOptions.dimensions" id="video-demo-container">
     <VideoJsPlayer v-on="$listeners" :style="videoOptions.dimensions" @error="setAltImg()" :options="videoOptions"/>
@@ -17,7 +17,7 @@
     </audio>
   </div>
   <div v-else-if="contentType === 'document'">
-    <img v-on="$listeners" :src="attributes.coverImage.fileUrl" @error="setAltImg()" :alt="attributes.artworkFile.name" :style="dimensions()">
+    <embed v-on="$listeners" :src="attributes.artworkFile.fileUrl" @error="setAltImg()" :alt="attributes.artworkFile.name" :style="dimensions()">
   </div>
   <div v-else-if="contentType === 'image'">
     <img v-on="$listeners" :src="attributes.coverImage.fileUrl" @error="setAltImg()" :alt="attributes.artworkFile.name" :style="dimensions()">
@@ -100,7 +100,7 @@ export default {
     dimensions: function () {
       if (this.dims) {
         // return 'width: ' + this.dims.width + 'px; height: ' + this.dims.height + 'px;'
-        return 'width: 100%; max-height: 300px; min-height: 50px;'
+        return 'width: 100%; max-height: 350px; min-height: 350px;'
       }
       return 'width: 100%; height: auto'
     },
@@ -117,8 +117,9 @@ export default {
     deleteCoverImage: function () {
       this.$emit('deleteMediaItem', this.attributes.coverImage.id)
     },
-    printFile () {
-      console.log(this.attributes.artworkFile)
+    toggleThreeCanvas () {
+      const toggleThree = document.getElementById('threeCanvas')
+      toggleThree.classList.toggle('active')
     },
     threeObjectHandler () {
       // const selectedFile = document.getElementById('input').files[0]
@@ -144,15 +145,15 @@ export default {
     },
     three () {
       const scene = new Three.Scene()
+      const canvas = document.getElementById('threeCanvas')
       const sizes = {
-        width: window.innerWidth * 0.25,
-        height: window.innerHeight * 0.4
+        width: canvas.width,
+        height: window.innerHeight
       }
       const camera = new Three.PerspectiveCamera(75, sizes.width / sizes.height, 0.10, 1000)
       const loader = new GLTFLoader()
       const material = new Three.MeshStandardMaterial({ color: 0xFF6347, wireframe: true })
       const renderer = new Three.WebGLRenderer({ canvas: document.getElementsByTagName('canvas')[0] })
-
       const controls = this.threeControls(camera, renderer)
       const lights = this.threeLights()
       const url = this.threeObjectHandler()
@@ -186,12 +187,12 @@ export default {
 
       // camera.position.setY(0)
       // camera.position.setX(0)
-      camera.position.set(5, 0, 0)
+      camera.position.setY(100)
 
       window.addEventListener('resize', () => {
         // Update sizes
-        sizes.width = window.innerWidth * 0.25
-        sizes.height = window.innerHeight * 0.4
+        sizes.width = canvas.width
+        sizes.height = window.innerHeight
 
         // Update camera
         camera.aspect = sizes.width / sizes.height
@@ -202,37 +203,36 @@ export default {
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
       })
 
-      function animate () {
-        // obj.rotation.y += 0.02
-      }
       function render () {
         renderer.render(scene, camera)
       }
       function start () {
         requestAnimationFrame(start)
-        animate()
         render()
         // console.log('start has run once')
         // camera.position.setY(box.min.y)
         // camera.position.setX(box.min.x)
         // camera.position.setZ(box.min.z)
       }
-      function fullStart () {
-        render()
-        start()
-        console.log('fullstart has run once ')
-      }
-      setTimeout(() => {
-        camera.position.setY(box.min.y)
-        camera.position.setX(box.min.x)
-        camera.position.setZ(box.min.z)
-        console.log('camera adjusted')
-      }, 8000)
-      fullStart()
+      start()
     }
   }
 }
 </script>
 <style scoped>
-
+.threeToggleButton{
+  padding: 15px;
+  border-radius: 100px;
+  border: none;
+  color: blue;
+  background-color: rgba(255, 255, 255, 0.37);
+  font-size: 12px;
+  font-weight:800;
+}
+#threeCanvas{
+  display: none;
+  }
+#threeCanvas.active{
+  display:block;
+}
 </style>

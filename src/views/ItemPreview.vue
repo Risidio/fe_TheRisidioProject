@@ -4,21 +4,23 @@
     {{message}}
   </div>
   <b-container :key="componentKey" class="my-5 pt-5" v-if="item">
+    <div><router-link class="backBtn" to="/my_account"><b-icon icon="chevron-left" shift-h="-3"></b-icon> Back </router-link></div>
     <b-row style="min-height: 40vh" >
       <b-col md="4" sm="12" align-self="start" class="text-center">
-        <MediaItemGeneral :classes="'item-image-preview'" :options="options" :mediaItem="getMediaItem().coverImage"/>
+        <!-- <MediaItemGeneral :classes="'item-image-preview'" :options="options" :mediaItem="getMediaItem().coverImage"/> -->
+        <NftCoverImage :item="item" :displayHeader="false"/>
         <div class="text-left text-small mt-3">
-          <b-link to="/my-nfts"><b-icon icon="chevron-left"/> Back</b-link>
+
         </div>
       </b-col>
       <b-col md="8" sm="12" align-self="start" class="mb-4">
         <div>
           <div class="mb-2 d-flex justify-content-between">
-            <h2 class="d-block border-bottom mb-5">{{item.name}}</h2>
+            <h1 class= "assetName"> {{item.name}}</h1>
             <ItemActionMenu :item="item" />
           </div>
         </div>
-        <h2>{{item.artist}}</h2>
+        <h2 class= "assetArtist">By: <span>{{item.artist}}</span></h2>
         <div class="w-100 " v-html="item.description"></div>
         <!--
         <div class="text-small" v-if="pending">
@@ -42,7 +44,8 @@ import MintInfo from '@/components/toolkit/mint-setup/MintInfo'
 import MintingTools from '@/components/toolkit/MintingTools'
 import { APP_CONSTANTS } from '@/app-constants'
 import ItemActionMenu from '@/components/items/ItemActionMenu'
-import MediaItemGeneral from '@/components/upload/MediaItemGeneral'
+// import MediaItemGeneral from '@/components/upload/MediaItemGeneral'
+import NftCoverImage from '@/components/upload/NftCoverImage'
 
 export default {
   name: 'ItemPreview',
@@ -51,7 +54,8 @@ export default {
     ItemActionMenu,
     PendingTransactionInfo,
     MintInfo,
-    MediaItemGeneral
+    // MediaItemGeneral,
+    NftCoverImage
   },
   data: function () {
     return {
@@ -122,6 +126,10 @@ export default {
       }
       return transactions
     },
+    contractAsset () {
+      const contractAsset = this.$store.getters[APP_CONSTANTS.KEY_ASSET_FROM_CONTRACT_BY_HASH](this.videoOptions.assetHash)
+      return contractAsset
+    },
     options () {
       const videoOptions = {
         emitOnHover: true,
@@ -173,5 +181,18 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.backBtn{
+  color: rgb(0, 0, 138);
+  font-weight: 700;
+}
+.assetArtist{
+  font-weight: 400;
+  font-size: 16px;
+}
+.assetName{
+  font-size: 40px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+}
 </style>
