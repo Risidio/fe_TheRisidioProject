@@ -1,15 +1,13 @@
 <template>
 <div class = "Htitle">
   <div class = "title-container">
-    <h1>Get STX ?</h1>
+    <h1>{{content.howsection2[0].howtitle[0].text}}</h1>
   </div>
   <img src="https://res.cloudinary.com/risidio/image/upload/v1633609788/RisidioMarketplace/006-wallet_uy3myg.svg" alt="wallet" class="wallet">
   <div class = "main-container">
     <div class = "container">
       <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim</p>
+      {{content.howsection2[0].howtext[0].text}}</p>
       <button class="button"> Buy STX </button>
     </div>
   </div>

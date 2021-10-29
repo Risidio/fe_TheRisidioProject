@@ -2,8 +2,8 @@
 <div class = "Htitle">
   <div class = "container">
     <img class="banner" src="https://res.cloudinary.com/risidio/image/upload/v1633609373/RisidioMarketplace/Group_-304_ofssmk.svg" alt="">
-      <h1>How it works</h1>
-      <p>Risidtio Xchange is the NFT marketplace to buy, sell and auction digital collectibles on the Bitcoin blockchain using Stacks </p>
+      <h1>{{content.howsection0[0].howtitle[0].text}}</h1>
+      <p>{{content.howsection0[0].howtext[0].text}} </p>
       <button class="button"> Get Started </button>
   </div>
 </div>

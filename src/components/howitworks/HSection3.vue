@@ -8,41 +8,32 @@
           :title="slide.title">
           <template #content>
             <div v-if="slide.id==1" class = "container">
-              <h1>How to create an account ?</h1>
+              <h1>{{content.howsectionslide1[0].howslidetitle[0].text}}</h1>
               <!-- <h2> Step <br><span>0{{slide.id}} </span> </h2> -->
               <div class = "textContainer">
                     <p>
-                      In this decentralised world, you don't need to create multiple accounts anymore. Instead you simply
-                      connect with your secure Wallet and we don't hold any information about you! <br><br>
-                      You want to join us and don't have a stacks wallet ? Get it now, just download the browser extension,
-                      it's free and easy to use <br><br>
+                      {{content.howsectionslide1[0].howslidetext[0].text}}<br><br>
+                      {{content.howsectionslide1[0].howslidetext1[0].text}}
                     </p>
                     <button class="button"> Download A Wallet </button>
               </div>
             </div>
             <div v-if="slide.id==2" class = "container">
-              <h1>How to buy an NFT ?</h1>
+              <h1>{{content.howsectionslide2[0].howslidetitle[0].text}}</h1>
               <!-- <h2> Step <br><span>0{{slide.id}} </span> </h2> -->
               <div class = "textContainer">
-                    <p>
-                      To buy an NFT, all you need to do is make sure you are connected with your stacks wallet and
-                      have enough stacks on it to afford the item. This process is 100% secure and we don't keep any information
-                      about you!<br><br>
-                      You don't have any STX in your wallet ? <br><br><br><br>
+                    <p>{{content.howsectionslide2[0].howslidetext[0].text}}<br><br>
+                      {{content.howsectionslide2[0].howslidetext1[0].text}} <br><br>
                     </p>
                     <button class="button"> Get STX </button>
               </div>
             </div>
             <div v-if="slide.id==3" class = "container">
-              <h1>How to mint an item?</h1>
+              <h1>{{content.howsectionslide3[0].howslidetitle[0].text}}</h1>
               <!-- <h2> Step <br><span>0{{slide.id}} </span> </h2> -->
               <div class = "textContainer">
-                    <p>
-                      (Little explanation on what it is to mint an item )<br><br>
-                      You can mint your own NFT on Risidio Marketplace. All you need to do is make sure you're connected.
-                      Go to your profile, and click on the &lt;&lt; + &gt;&gt; sign. You will load a file and get all the information.
-                      Once that's done, you're ready to mint. Little bonus, you can set Rotalties on your item and ensure You get
-                      a portion of the sale price everytime your artwork is resold.  <br><br>
+                    <p>{{content.howsectionslide3[0].howslidetext[0].text}}<br><br>
+                      {{content.howsectionslide3[0].howslidetext1[0].text}}  <br><br>
                     </p>
                     <button class="button"> Register </button>
               </div>
