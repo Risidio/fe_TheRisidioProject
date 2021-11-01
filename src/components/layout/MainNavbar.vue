@@ -5,22 +5,27 @@
 </div>
   <div class = "mainNavbar">
         <router-link class="risidioLogo" to="/"><img width="150px;" :src="logo" alt="risidio-logo"/></router-link>
+        <a href= "#" class = "toggle-button" v-on:click="mobileNavebar()">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </a>
         <div v-if=" profile.loggedIn" class="navbar_links">
           <div class="nav-start">
             <router-link class="nav-items" to="/">Gallery</router-link>
             <router-link class="nav-items" to="/">Collections</router-link>
           </div>
           <div class="nav-end">
-            <router-link class="nav-items nav-end text-white" to="/how-it-works">How It Works</router-link>
-            <router-link class="nav-items nav-end text-white" to="/about">About Risidio </router-link>
-            <router-link class="nav-items nav-end navBtn" to="/my_account"> My NFT's </router-link>
+            <router-link class="nav-items text-white" to="/how-it-works">How It Works</router-link>
+            <router-link class="nav-items text-white" to="/about">About Risidio </router-link>
+            <router-link class="nav-items navBtn" to="/my_account"> My NFT's </router-link>
           </div>
         </div>
          <div v-else class="navbar_links_not_logged">
-          <router-link class="nav-items text-white" to="/how-it-works">How It Works</router-link>
-          <router-link class="nav-items text-white" to="/about">About Risidio </router-link>
-          <div @click.prevent="startLogin(); events();" id="login" class ="login nav-items text-white">Login</div>
-          <div @mouseover="isHidden = !isHidden" @blur="isHidden = !isHidden" class=" nav-items navBtn text-white" id="register" v-on:click="startRegister()"> Register <div v-show="isHidden" class="registerTooltip"> Click Register to download the Hiro Wallet extension and get started!</div></div>
+            <router-link class="nav-items text-white" to="/how-it-works">How It Works</router-link>
+            <router-link class="nav-items text-white" to="/about">About Risidio </router-link>
+            <div @click.prevent="startLogin(); events();" id="login" class =" nav-items text-white">Login</div>
+            <div @mouseover="isHidden = !isHidden" @blur="isHidden = !isHidden" class=" nav-items navBtn text-white" id="register" v-on:click="startRegister()"> Register <div v-show="isHidden" class="registerTooltip"> Click Register to download the Hiro Wallet extension and get started!</div></div>
         </div>
   </div>
 </div>
@@ -73,10 +78,22 @@ export default {
       }
     },
     mobileNavebar () {
-      const navbarLinks = document.getElementsByClassName('navbar_links')[0]
-      const mainNavbar = document.getElementsByClassName('mainNavbar')[0]
-      navbarLinks.classList.toggle('active')
-      mainNavbar.classList.toggle('active')
+      const myProfile = this.$store.getters['rpayAuthStore/getMyProfile']
+      if (myProfile.loggedIn) {
+        const navStart = document.getElementsByClassName('nav-start')[0]
+        const navEnd = document.getElementsByClassName('nav-end')[0]
+        const mainNavbar = document.getElementsByClassName('mainNavbar')[0]
+        navStart.classList.toggle('active')
+        navEnd.classList.toggle('active')
+        mainNavbar.classList.toggle('active')
+        console.log('active profile')
+      } else {
+        const mainNavbar = document.getElementsByClassName('mainNavbar')[0]
+        const notLogged = document.getElementsByClassName('navbar_links_not_logged')
+        mainNavbar.classList.toggle('active')
+        notLogged.classList.toggle('active')
+        console.log('active not profile')
+      }
     },
     startRegister () {
       window.open('https://www.hiro.so/wallet', '_blank')
@@ -207,15 +224,30 @@ export default {
   flex-direction: row;
   width: 100%;
 }
-
+.toggle-button{
+  position:absolute;
+  top: 3.7rem;
+  right: 3.5rem;
+  display:none;
+  flex-direction:column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+}
+.toggle-button .bar{
+  height: 2px;
+  width:90%;
+  background-color: #fff;
+  border-radius:10px;
+}
 .nav-items{
-    padding: 20px;
-    width: 12rem;
-    font-size: 1.2rem;
-    text-align: center;
-    margin-top: 0px;
-    color: white;
-    cursor: pointer;
+  padding: 20px;
+  width: 12rem;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 0px;
+  color: white;
+  cursor: pointer;
 }
 .nav-items:hover{
   color: white;
@@ -249,7 +281,80 @@ export default {
   color: black;
   border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    cursor: default;
+  cursor: default;
 }
+@media only screen and (max-width: 1000px){
+  .toggle-button{
+    display:flex;
+  }
+  .mainNavbar{
+    flex-direction:column;
+    z-index: 1000;
+  }
+  .nav-start, .nav-end {
+    display: none;
+  }
+  .navbar_links_not_logged{
+    display: none;
+  }
+  .login{
+    min-width: 200px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 20px;
+  }
+  .navbar_links_not_logged.active{ display: flex;}
+  .nav-start.active, .nav-end.active{
+    display:flex;
+    padding: 15px;
+    width:100%;
+    flex-direction: column;
+    .nav-items{
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
 
+  .mainNavbar.active{
+    position:absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 800px;
+    z-index: 20;
+    transition:all ease-in .1s;
+    padding-top: 50px;
+    background: linear-gradient(#261399,#13086c);
+    align-items: center;
+    padding-bottom: 100px;
+    margin-top: -20px;
+    .toggle-button{
+      top: 6rem;
+    }
+    .toggle-button .bar{
+      display: none;
+    }
+    .toggle-button .bar:first-child{
+      display:flex;
+      transform: rotate(45deg);
+      margin-top: 10px;
+    }
+    .toggle-button .bar:last-child{
+      display:flex;
+      transform: rotate(-45deg);
+      margin-bottom: 10px;
+    }
+    .navbar_links_not_logged{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .registerTooltip{
+      margin-top: 25px;
+      align-self: center;
+
+    }
+  }
+}
 </style>

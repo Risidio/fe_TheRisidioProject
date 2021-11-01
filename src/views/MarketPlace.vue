@@ -6,7 +6,7 @@
         <!-- <p class="market_intro_Ex">Explore the New Era of Digital Art</p> -->
         <!-- <h1 class="market_intro_h1"> Risidio Marketplace</h1> -->
         <h1 class="market_intro_h1"> {{content.heroarea[0].herotitle[0].text}}</h1>
-        <p class="market_intro" style="width:60%">{{content.heroarea[0].herotext[0].text}}</p>
+        <p class="market_intro">{{content.heroarea[0].herotext[0].text}}</p>
       </div>
     <search-bar class="mainSearchBar" :showPrepend="true" v-on="$listeners"/>
     <!-- <div class="gallery_highlights">
@@ -158,7 +158,8 @@ export default {
   }
 
 .galleryNavItem{
-  width: fit-content;
+  // max-width: fit-content;
+  max-width: 500px;
   padding: 10px;
   margin: auto;
   border: solid rgba(255, 255, 255, 0)  2px;
@@ -170,7 +171,7 @@ export default {
 
 .market_introduction_text{
   margin: auto;
-  width: 60vw;
+  max-width: 1600px;
   text-align: center;
   color: white;
   margin: auto;
@@ -186,6 +187,7 @@ export default {
 .market_intro{
   font-size: 1em;
   font-weight: 400;
+  width: 100%;
   max-width: 1000px;
   margin: auto;
 }
@@ -281,44 +283,9 @@ export default {
   height: 100px;
 }
 
-@media only screen and (max-width: 1380px){
-  .banner{
-    min-height: 52rem;
-  }
-}
-@media only screen and (max-width: 1078px){
-  .banner{
-    min-height: 55rem;
-  }
-}
-@media only screen and (max-width: 840px){
-  .banner{
-    min-height: 57rem;
-  }
-}
-@media only screen and (max-width: 730px){
-  .banner{
-    min-height: 58rem;
-  }
-}
-@media only screen and (max-width: 685px){
-  .banner{
-    min-height: 65rem;
-  }
-}
 @media only screen and (max-width: 570px){
-  .banner{
-    min-height: 69rem;
-  }
-}
-@media only screen and (max-width: 514px){
-  .banner{
-    min-height: 73rem;
-  }
-}
-@media only screen and (max-width: 456px){
-  .banner{
-    min-height: 75rem;
+  .galleryNavContainer{
+    flex-direction: column;
   }
 }
 </style>

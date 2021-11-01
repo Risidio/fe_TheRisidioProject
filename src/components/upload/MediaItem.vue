@@ -1,11 +1,18 @@
 <template>
 <div>
   <!-- <button v-on:click="printFile(), three()"> click me</button> -->
+  <div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" v-on:click="close()">&times;</span>
+    <div id="threeCanvas"><canvas  @error="setAltImg()" :alt="attributes.artworkFile.name" :style="dimensions()"/></div>
+  </div>
+</div>
   <div v-if="contentType === 'threed'" :style="videoOptions.dimensions" id="video-demo-container" v-on="$listeners">
     <img v-on="$listeners" :src="attributes.coverImage.fileUrl" @error="setAltImg()" :alt="attributes.artworkFile.name" :style="dimensions()">
     Your Cover Image
-    <button class= "threeToggleButton" v-on:click="toggleThreeCanvas(), three()"> Click to view your rendered 3D asset </button>
-    <div id="threeCanvas"><canvas  @error="setAltImg()" :alt="attributes.artworkFile.name" :style="dimensions()"></canvas></div>
+    <button class= "threeToggleButton" v-on:click="openModal(), three()"> Click to view your rendered 3D asset </button>
   </div>
   <div v-else-if="contentType === 'video'" :style="videoOptions.dimensions" id="video-demo-container">
     <VideoJsPlayer v-on="$listeners" :style="videoOptions.dimensions" @error="setAltImg()" :options="videoOptions"/>
@@ -91,6 +98,14 @@ export default {
     }
   },
   methods: {
+    close () {
+      const modal = document.getElementById('myModal')
+      modal.style.display = 'none'
+    },
+    openModal () {
+      const modal = document.getElementById('myModal')
+      modal.style.display = 'block'
+    },
     setAltImg: function (event) {
       event.target.src = this.waitingImage
     },
@@ -100,7 +115,7 @@ export default {
     dimensions: function () {
       if (this.dims) {
         // return 'width: ' + this.dims.width + 'px; height: ' + this.dims.height + 'px;'
-        return 'width: 100%; max-height: 350px; min-height: 350px;'
+        return 'width: 100%; max-height: 600px; min-height: 350px;'
       }
       return 'width: 100%; height: auto'
     },
@@ -117,10 +132,10 @@ export default {
     deleteCoverImage: function () {
       this.$emit('deleteMediaItem', this.attributes.coverImage.id)
     },
-    toggleThreeCanvas () {
-      const toggleThree = document.getElementById('threeCanvas')
-      toggleThree.classList.toggle('active')
-    },
+    // toggleThreeCanvas () {
+    //   const toggleThree = document.getElementById('threeCanvas')
+    //   toggleThree.classList.toggle('active')
+    // },
     threeObjectHandler () {
       // const selectedFile = document.getElementById('input').files[0]
       // console.log(selectedFile)
@@ -145,15 +160,16 @@ export default {
     },
     three () {
       const scene = new Three.Scene()
-      const canvas = document.getElementById('threeCanvas')
+      const canvasSize = document.getElementById('threeCanvas')
       const sizes = {
-        width: canvas.width,
-        height: window.innerHeight
+        width: window.innerWidth * 0.60,
+        height: window.innerHeight * 0.8
       }
       const camera = new Three.PerspectiveCamera(75, sizes.width / sizes.height, 0.10, 1000)
       const loader = new GLTFLoader()
       const material = new Three.MeshStandardMaterial({ color: 0xFF6347, wireframe: true })
       const renderer = new Three.WebGLRenderer({ canvas: document.getElementsByTagName('canvas')[0] })
+
       const controls = this.threeControls(camera, renderer)
       const lights = this.threeLights()
       const url = this.threeObjectHandler()
@@ -163,14 +179,12 @@ export default {
 
       // camera.position.setX(100)
       let box = new Three.Box3()
-
       scene.add(lights.ambientLight)
       let obj = ''
       loader.load(url.url,
         function (gltf) {
           obj = gltf.scene
           obj.material = material
-          obj.scale.set(0.35, 0.35, 0.35)
           scene.add(obj)
           console.log('model loaded')
           console.log(obj)
@@ -187,12 +201,12 @@ export default {
 
       // camera.position.setY(0)
       // camera.position.setX(0)
-      camera.position.setY(100)
+      camera.position.set(5, 0, 0)
 
       window.addEventListener('resize', () => {
         // Update sizes
-        sizes.width = canvas.width
-        sizes.height = window.innerHeight
+        sizes.width = window.innerWidth * 0.6
+        sizes.height = window.innerHeight * 0.8
 
         // Update camera
         camera.aspect = sizes.width / sizes.height
@@ -203,18 +217,35 @@ export default {
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
       })
 
+      function animate () {
+        obj.rotation.y += 0.02
+      }
       function render () {
         renderer.render(scene, camera)
       }
       function start () {
         requestAnimationFrame(start)
+        animate()
         render()
         // console.log('start has run once')
         // camera.position.setY(box.min.y)
         // camera.position.setX(box.min.x)
         // camera.position.setZ(box.min.z)
       }
-      start()
+      function fullStart () {
+        render()
+        start()
+        console.log(canvasSize)
+        console.log('fullstart has run once ')
+      }
+      // controls.addEventListener('change', render)
+      setTimeout(() => {
+        camera.position.setY(box.min.y)
+        camera.position.setX(box.min.x)
+        camera.position.setZ(box.min.z + (box.max.y * 2))
+        console.log('camera adjusted')
+      }, 8000)
+      fullStart()
     }
   }
 }
@@ -229,10 +260,31 @@ export default {
   font-size: 12px;
   font-weight:800;
 }
+
 #threeCanvas{
-  display: none;
-  }
-#threeCanvas.active{
   display:block;
 }
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 70%;
+}
+
 </style>
