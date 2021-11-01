@@ -22,10 +22,10 @@
           </div>
         </div>
          <div v-else class="navbar_links_not_logged">
-          <router-link class="nav-items text-white" to="/how-it-works">How It Works</router-link>
-          <router-link class="nav-items text-white" to="/about">About Risidio </router-link>
-          <div @click.prevent="startLogin(); events();" id="login" class ="login nav-items text-white">Login</div>
-          <div @mouseover="isHidden = !isHidden" @blur="isHidden = !isHidden" class=" nav-items navBtn text-white" id="register" v-on:click="startRegister()"> Register <div v-show="isHidden" class="registerTooltip"> Click Register to download the Hiro Wallet extension and get started!</div></div>
+            <router-link class="nav-items text-white" to="/how-it-works">How It Works</router-link>
+            <router-link class="nav-items text-white" to="/about">About Risidio </router-link>
+            <div @click.prevent="startLogin(); events();" id="login" class =" nav-items text-white">Login</div>
+            <div @mouseover="isHidden = !isHidden" @blur="isHidden = !isHidden" class=" nav-items navBtn text-white" id="register" v-on:click="startRegister()"> Register <div v-show="isHidden" class="registerTooltip"> Click Register to download the Hiro Wallet extension and get started!</div></div>
         </div>
   </div>
 </div>
@@ -78,12 +78,22 @@ export default {
       }
     },
     mobileNavebar () {
-      const navStart = document.getElementsByClassName('nav-start')[0]
-      const navEnd = document.getElementsByClassName('nav-end')[0]
-      const mainNavbar = document.getElementsByClassName('mainNavbar')[0]
-      navStart.classList.toggle('active')
-      navEnd.classList.toggle('active')
-      mainNavbar.classList.toggle('active')
+      const myProfile = this.$store.getters['rpayAuthStore/getMyProfile']
+      if (myProfile.loggedIn) {
+        const navStart = document.getElementsByClassName('nav-start')[0]
+        const navEnd = document.getElementsByClassName('nav-end')[0]
+        const mainNavbar = document.getElementsByClassName('mainNavbar')[0]
+        navStart.classList.toggle('active')
+        navEnd.classList.toggle('active')
+        mainNavbar.classList.toggle('active')
+        console.log('active profile')
+      } else {
+        const mainNavbar = document.getElementsByClassName('mainNavbar')[0]
+        const notLogged = document.getElementsByClassName('navbar_links_not_logged')
+        mainNavbar.classList.toggle('active')
+        notLogged.classList.toggle('active')
+        console.log('active not profile')
+      }
     },
     startRegister () {
       window.open('https://www.hiro.so/wallet', '_blank')
@@ -271,7 +281,7 @@ export default {
   color: black;
   border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    cursor: default;
+  cursor: default;
 }
 @media only screen and (max-width: 1000px){
   .toggle-button{
@@ -284,31 +294,27 @@ export default {
   .nav-start, .nav-end {
     display: none;
   }
+  .navbar_links_not_logged{
+    display: none;
+  }
   .login{
     min-width: 200px;
     margin-left:auto;
     margin-right:auto;
     margin-top: 20px;
   }
-  #register small{
-    top: 460px;
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    width: 300px;
-    text-align: center;
-    padding-left: 5%;
-    padding-right: 5%;
-    margin-top: 15px;
-  }
-  .nav-start.active, .nav-end.active {
-    padding: 15px;
+  .navbar_links_not_logged.active{ display: flex;}
+  .nav-start.active, .nav-end.active{
     display:flex;
+    padding: 15px;
     width:100%;
     flex-direction: column;
+    .nav-items{
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
+
   .mainNavbar.active{
     position:absolute;
     left: 0;
@@ -338,6 +344,16 @@ export default {
       display:flex;
       transform: rotate(-45deg);
       margin-bottom: 10px;
+    }
+    .navbar_links_not_logged{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .registerTooltip{
+      margin-top: 25px;
+      align-self: center;
+
     }
   }
 }

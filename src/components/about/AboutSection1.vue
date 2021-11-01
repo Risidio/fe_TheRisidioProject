@@ -37,5 +37,7 @@ export default {
 .Acontainer{
   margin:auto;
 }
-
+.aboutSection1Container p{
+  max-width: 800px;
+}
 </style>
