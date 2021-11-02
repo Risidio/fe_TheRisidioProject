@@ -2,8 +2,9 @@
   <div class="viewContainer">
     <div class="profileContainer">
         <div class="profile">
+          <div class="profileItems">
           <img class="profileImg" src="https://res.cloudinary.com/risidio/image/upload/v1634907084/RisidioMarketplace/depositphotos_247076982-stock-photo-face-laughing-young-casual-man_xzzoay.jpg" alt="">
-          <span title='edit your profile' class="pencil">&#9998;</span>
+          <span title='edit your profile' class="pencil">&#9998;</span></div>
         </div>
         <div class="walletDetails">
           <h1>Your Wallet Information:</h1>
@@ -30,6 +31,26 @@
               </b-row>
             </b-tab>
             <b-tab :title="'Uploads'">
+              <p class="mt-4">Files you uploaded to your Gaia storage bucket.</p>
+              <p>If you minted them (to create NFTs) you may also have
+                sold or transferred the NFT to another wallet. </p>
+              <b-row>
+                <b-col v-for="(gaiaAsset, index) in gaiaAssets" :key="index" lg="3" md="6" sm="6" xs="12">
+                  <MySingleNft class="mb-2" :item="gaiaAsset"/>
+                </b-col>
+              </b-row>
+            </b-tab>
+            <b-tab :title="'Your NFTs in auction'">
+              <p class="mt-4">Files you uploaded to your Gaia storage bucket.</p>
+              <p>If you minted them (to create NFTs) you may also have
+                sold or transferred the NFT to another wallet. </p>
+              <b-row>
+                <b-col v-for="(gaiaAsset, index) in gaiaAssets" :key="index" lg="3" md="6" sm="6" xs="12">
+                  <MySingleNft class="mb-2" :item="gaiaAsset"/>
+                </b-col>
+              </b-row>
+            </b-tab>
+            <b-tab :title="'NTFs On Sale'">
               <p class="mt-4">Files you uploaded to your Gaia storage bucket.</p>
               <p>If you minted them (to create NFTs) you may also have
                 sold or transferred the NFT to another wallet. </p>
@@ -196,13 +217,13 @@ export default {
   align-items: center;
   border-bottom: solid rgba(128, 128, 128, 0.112) 1px;
 }
-  .galleryNavContainer{
-    margin: auto;
-    margin-bottom: -1px;
-    // width: 50%;
-    display: flex;
-    flex-direction: row;
-  }
+.galleryNavContainer{
+  margin: auto;
+  margin-bottom: -1px;
+  // width: 50%;
+  display: flex;
+  flex-direction: row;
+}
 
 .galleryNavItem{
   width: fit-content;
@@ -220,16 +241,16 @@ export default {
   display: flex;
   justify-content: space-between;
   margin-top: 2rem;
+  flex-wrap: wrap;
 }
-
-.profile{
-  display: flex;
+.profileContainer > *{
+    flex: 1  1 500px;
 }
-
 .profileImg{
   width: 20rem;
   height: 20rem;
-  margin-left: 10rem;
+  display: block;
+  margin-right: auto;
   border-radius: 50%;
   object-fit: cover;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
@@ -237,14 +258,14 @@ export default {
 
 .pencil{
   background: rgb(240, 240, 240);
+  position: relative;
   width: 3rem;
   height: 3rem;
+  top: -200px;
+  left: 160px;
   border-radius: 50%;
   text-align: center;
-  margin-top: 3px;
-  margin-left: -5rem;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-  transform: rotateZ(90deg);
   font-size: 2rem;
   cursor: pointer;
 }
@@ -252,11 +273,12 @@ export default {
 .walletDetails{
   text-align: center;
   padding: 20px;
-  width: 60rem;
+  max-width: 60rem;
   height: 30rem;
   background: #c5c5c518;
   border-radius: 20px;
-box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  margin: auto;
   & > h1 {
     margin: 20px auto;
   }
@@ -287,5 +309,14 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
       cursor: default;
   }
 
+}
+@media only screen and (max-width: 1250px){
+  .profileItems, .profileImg{
+    margin: auto;
+  }
+  .pencil{
+    top: -200px;
+    left: 50vw;
+  }
 }
 </style>
