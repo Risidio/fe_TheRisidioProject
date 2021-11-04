@@ -1,7 +1,7 @@
 <template>
-<div class="mt-1 mx-4 text-center text-info">
-  <div v-if="item && item.attributes">
-    <MediaItemGeneral :classes="'item-image'" class= "itemFit" :options="options" :mediaItem="getMediaItem().coverImage"/>
+<div class="mySingleNFT">
+  <div class ="ItemImage" v-if="item && item.attributes">
+    <embed :src="item.attributes.coverImage.fileUrl" class= "itemFit" :options="options" :mediaItem="getMediaItem().coverImage"/>
   </div>
   <div class="mt-1 d-flex justify-content-end">
     <div class="text-small text-right">
@@ -9,24 +9,28 @@
     </div>
   </div>
 
-  <div class="mt-4 text-left">
+  <div class="mySingleNFTName text-left">
     <b-link router-tag="a" :to="assetUrl">{{item.name}}</b-link>
   </div>
-  <div class="text-small text-left">
-    <div><b-link router-tag="a" :to="assetUrl">{{salesButtonLabel}}</b-link><p class="text-small text-left">{{item.attributes.artworkFile.type}}</p></div>
+  <div class="mySingleNFTArtist text-left">
+    <b-link router-tag="a" :to="assetUrl">By: {{item.artist}}</b-link>
+  </div>
+  <hr class="hr"/>
+  <div class="mySingleNFTDetail text-center">
+    <div><b-link router-tag="a" :to="assetUrl">{{salesButtonLabel}}</b-link><p class="mySingleNFTDetail text-center">{{item.attributes.artworkFile.type}}</p></div>
   </div>
 </div>
 </template>
 
 <script>
 import { APP_CONSTANTS } from '@/app-constants'
-import MediaItemGeneral from '@/components/upload/MediaItemGeneral'
+// import MediaItemGeneral from '@/components/upload/MediaItemGeneral'
 import ItemActionMenu from '@/components/items/ItemActionMenu'
 
 export default {
   name: 'MySingleNft',
   components: {
-    MediaItemGeneral,
+    // MediaItemGeneral,
     ItemActionMenu
   },
   props: ['item', 'token'],
@@ -82,4 +86,24 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.mySingleNFT{
+  padding: 20px;
+  background: rgba(80, 177, 181, .12);
+  border-radius: 26px;
+}
+.itemFit{
+  width: 100%;
+  height: 230px;
+  border-radius: 5px;
+}
+.ItemImage{
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.18);
+}
+.mySingleNFTName{
+  font-size: 25px;
+}
+.mySingleNFTDetail{
+  font-size: 10px;
+}
+
 </style>

@@ -1,6 +1,6 @@
 <template>
 <div class="d-flex justify-content-center" v-if="!loading">
-  <div class="mx-auto">
+  <div class="card1">
     <royalty-screen :errorMessage="errorMessage" :item="item" @mintToken="mintToken" @editBeneficiary="editBeneficiary" @removeBeneficiary="removeBeneficiary" @updateBeneficiary="updateBeneficiary" @addNewBeneficiary="addNewBeneficiary" :beneficiaries="beneficiaries" v-if="displayCard !== 102"/>
     <add-beneficiary-screen :errorMessage="errorMessage" :eBen="eBen" @addBeneficiary="addBeneficiary" :beneficiaries="beneficiaries" :item="item" v-if="displayCard === 102"/>
   </div>
@@ -168,4 +168,5 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+
 </style>
