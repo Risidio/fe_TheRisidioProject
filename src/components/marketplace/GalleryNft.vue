@@ -1,7 +1,7 @@
 <template>
 <div v-if="item && item.attributes" >
   <div class="singleNftGalleryContainer">
-  <b-link :to="assetUrl">
+  <b-link :to="assetUrl" class="mediaItem">
     <MediaItemGeneral :classes="'item-image text-center'" :style="'box-shadow: 10px 10px 30px #0000002F; width: 25rem; height: auto; margin:auto; display:block; border-radius: 5px;'" v-on="$listeners" :options="videoOptions" :mediaItem="item.attributes.coverImage"/>
   </b-link>
   <div class="" style="max-width: 100%">
@@ -99,11 +99,10 @@ export default {
 <style lang="scss" scoped>
 .galleryNFTContainer{
   display: flex;
-  margin: auto;
+  margin: 0;
 }
 .singleNftGalleryContainer{
   display: flex;
-  margin: auto;
   flex-direction: column;
   background: #7b7b7b1d;
   padding: 3rem;
