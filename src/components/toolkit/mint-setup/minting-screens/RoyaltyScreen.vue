@@ -1,19 +1,17 @@
 <template>
-<b-card-group deck v-if="item">
-  <b-card class="text-center" header-tag="header" footer-tag="footer">
+<div deck v-if="item" class="card">
+  <div class="text-center" header-tag="header" footer-tag="footer">
     <!-- <header-screen :allowEdit="false" :item="item"/> -->
     <ItemDisplay class="my-5" :item="item"/>
-    <div class="d-flex justify-content-center"><p class="w-50 bg-warning py-3 px-5 mb-5"><a class="text-white" href="#" @click="showBeneficiaries = true">Set Your Royalties</a></p></div>
+    <div class="d-flex justify-content-center"><p class="w-50 py-3 px-5 mb-5 royaltyButton"><a class="text-white" style="display: block; margin: 5px auto" href="#" @click="showBeneficiaries = true">Set Your Royalties</a></p></div>
     <beneficiaries class="mb-5 text-left" v-if="showBeneficiaries" :beneficiaries="beneficiaries" v-on="$listeners" :item="item"/>
     <div class="my-4 text-danger" v-html="errorMessage"></div>
-    <template v-slot:footer>
-      <div class="d-flex justify-content-between">
-        <b-button @click="saveData()" class="w-50 mr-4" variant="outline-light">save mint later</b-button>
-        <b-button @click="sendMintEvent()" v-if="allowMint()"  class="w-50 ml-4" variant="outline-dark">mint now</b-button>
+      <div class="royaltyButtons">
+        <button @click="saveData()" class="rButton">save mint later</button>
+        <button @click="sendMintEvent()" v-if="allowMint()"  class="rButton">mint now</button>
       </div>
-    </template>
-  </b-card>
-</b-card-group>
+  </div>
+</div>
 </template>
 
 <script>
@@ -74,4 +72,27 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.royaltyButton{
+  background-color: rgba(80, 177, 181, 1);
+  height: 50px;
+  border-radius: 50px;
+}
+.royaltyButtons{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+.rButton{
+  color: black;
+  width: 200px;
+  height: 45px;
+  border-radius: 15px;
+  border: none;
+  font-size: 12px;
+  font-weight:700;
+}
+.card{
+  min-width: 450px;
+  padding: 20px;
+}
 </style>

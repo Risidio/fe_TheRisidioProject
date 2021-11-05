@@ -1,23 +1,23 @@
 <template>
 <div v-if="item && item.attributes" >
   <div class="singleNftGalleryContainer">
-  <b-link :to="assetUrl">
-    <MediaItemGeneral :classes="'item-image text-center'" :style="'width: 23rem; height: 23rem; margin:auto; display:block;'" v-on="$listeners" :options="videoOptions" :mediaItem="item.attributes.coverImage"/>
+  <b-link :to="assetUrl" class="mediaItem">
+    <MediaItemGeneral :classes="'item-image text-center'" :style="'box-shadow: 10px 10px 30px #0000002F; width: 25rem; height: auto; margin:auto; display:block; border-radius: 5px;'" v-on="$listeners" :options="videoOptions" :mediaItem="item.attributes.coverImage"/>
   </b-link>
-  <div class="ml-5" style="max-width: 200px">
+  <div class="" style="max-width: 100%">
     <div class="mt-4 mb-2">
       <div v-if="item.contractAsset" v-bind="price" style="font-size: 1.5rem; font-weight:500; color:black">
-        <b-link :to="assetUrl">
-          {{item.name}}
+        <b-link :to="assetUrl" class="itemName">
+          <span style="color:black; font-weight: 500; text-transform: capitalize">{{item.name}}</span> <span style="float: right; font-weight: 300; color: black; font-size: 15px; margin: 5px 0">{{this.item.contractAsset.saleData.buyNowOrStartingPrice}} STX</span>
         </b-link>
+      <div class="mt-1" style="font-weight:300; font-size: 1.2rem; color:black">
+        By <span style="font-weight:600; font-size: 1.2rem; color:black">{{item.artist}} <span style="float: right; font-weight: 300; color: black; font-size: 15px;">{{this.item.contractAsset.saleData.buyNowOrStartingPrice * 1.9}} $</span> </span>
+      </div>
         <div class="mt-1" style="font-weight:300; font-size: 1.2rem; color:black">
-        Price: {{this.item.contractAsset.saleData.buyNowOrStartingPrice}} stx
+        <!-- Price: {{this.item.contractAsset.saleData.buyNowOrStartingPrice}} stx -->
         </div>
       </div>
       <!-- <div class="mt-1" style="font-weight:200; font-size: 1.5rem; color:black; display:flex;">Price:{{item.attributes.editionCost}} stx</div> -->
-      <div class="mt-1" style="font-weight:300; font-size: 1.2rem; color:black">
-        By <span style="font-weight:600; font-size: 1.2rem; color:black">{{item.artist}}</span>
-      </div>
     </div>
   </div>
   </div>
@@ -99,19 +99,21 @@ export default {
 <style lang="scss" scoped>
 .galleryNFTContainer{
   display: flex;
-  margin: auto;
+  margin: 0;
 }
 .singleNftGalleryContainer{
   display: flex;
-  margin: auto;
   flex-direction: column;
   background: #7b7b7b1d;
-  padding-top: 3rem;
+  padding: 3rem;
   z-index: 1;
   border-radius: 30px;
-  height: 35rem;
-  width: 28rem;
+  height: 420px;
+  width: 325px;
   margin-bottom: 50px;
   // box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.itemName{
+  font-size: 20px;
 }
 </style>
