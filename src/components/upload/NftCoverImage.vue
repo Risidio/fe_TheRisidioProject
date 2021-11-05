@@ -4,7 +4,7 @@
     <h1>NFT File Saved</h1>
     <p class="text-small"><a class="text-secondary pointer" style="font-size: 1.2rem;" @click="useNftFileAsCover">click here to use the NFT file as the cover image!</a> ...or</p>
   </div>
-  <div class="bg-white" style="width:100%;">
+  <div class="coverImgContainer">
     <MediaItem v-if="hasFile()" :videoOptions="videoOptions" :dims="dims" :attributes="item.attributes" :targetItem="'coverImage'" @deleteMediaItem="deleteMediaItem"/>
     <MediaUpload v-else class="text-center" :myUploadId="'coverImage'" :dims="dims" :contentModel="contentModel" :mediaFiles="mediaFilesImage()" :limit="1" :sizeLimit="2" :mediaTypes="'image'" @updateMedia="updateMedia($event)"/>
   </div>
@@ -129,4 +129,7 @@ export default {
 </script>
 
 <style scoped>
+.coverImgContainer{
+  /* background-color: grey; */
+}
 </style>

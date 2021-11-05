@@ -16,11 +16,22 @@
         </div>
     </div>
     <div>
-        <b-container class="mt-5" v-if="loaded">
+      <div>
+      <b-nav class="galleryNav" >
+        <div class="galleryNavContainer" >
+        <b-nav-item class="galleryNavItem">NFTs
+        </b-nav-item>
+        <b-nav-item class="galleryNavItem">Popular</b-nav-item>
+        <b-nav-item class="galleryNavItem">Collections</b-nav-item>
+        <b-nav-item class="galleryNavItem">Your NFT's</b-nav-item>
+        </div>
+      </b-nav>
+    </div>
+        <b-container class="filesContainer galleryNav" v-if="loaded">
           <!-- <h1>My Library</h1> -->
-          <b-tabs justified content-class="mb-5">
+          <b-tabs justified content-class="filesSubContainer">
             <b-tab :title="'NFTs (' + hasNfts + ')'" active>
-              <p class="mt-4">NFTs you currently own - these may be files you
+              <p class="filesSubSubContainer">NFTs you currently own - these may be files you
                 uploaded and minted and still own or NFTs you bought from other
                 users or that were transferred to you. They also include editions
                 of NFT files you minted.</p>
@@ -60,7 +71,7 @@
                 </b-col>
               </b-row>
             </b-tab>
-          </b-tabs>
+          <router-link to="/" class="wantMore"><span>Want More? See The Gallery</span></router-link></b-tabs>
         </b-container>
         <div class="container" style="min-height: 85vh;" v-else>
           <b-container class="mt-5">
@@ -68,6 +79,7 @@
             <p>Upload a file and mint it to create your first NFT</p>
           </b-container>
         </div>
+
     </div>
   </div>
 </template>
@@ -202,7 +214,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.wantMore{
+  display: block;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.filesSubSubContainer{
 
+}
+.filesContainer{
+  min-width: 100%;
+  margin: 50px auto;
+}
 .viewContainer{
   margin: auto;
   width: 80vw;

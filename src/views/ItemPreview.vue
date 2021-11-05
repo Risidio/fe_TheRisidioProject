@@ -1,19 +1,27 @@
 <template>
-<section class="" id="section-minting">
+<section class="itemPreviewSection" id="section-minting">
+  <div class="nFTInfo">
+    <p> <span>Last Update</span> <br/>
+    <span class="spanDate">{{moment(1)}}</span><br>
+     <span class="spanDate1">{{moment(2)}}</span><br>
+      <span class="spanDate">{{moment(3)}}</span></p>
+  </div>
   <div class="mt-3" v-if="!item">
     {{message}}
   </div>
-  <b-container :key="componentKey" class="my-5 pt-5" v-if="item">
+  <div :key="componentKey" class="itemPreviewBody container" v-if="item">
     <div><router-link class="backBtn" to="/my_account"><b-icon icon="chevron-left" shift-h="-3"></b-icon> Back </router-link></div>
-    <b-row style="min-height: 40vh" >
-      <b-col md="4" sm="12" align-self="start" class="text-center">
-        <!-- <MediaItemGeneral :classes="'item-image-preview'" :options="options" :mediaItem="getMediaItem().coverImage"/> -->
-        <NftCoverImage :item="item" :displayHeader="false"/>
-        <div class="text-left text-small mt-3">
-
+    <div class= "itemPreviewContainer" >
+      <div class = "itemPreviewSubContainer">
+        <div class="itemPreviewNFT">
+          <NftCoverImage :item="item" :displayHeader="false"/>
         </div>
-      </b-col>
-      <b-col md="8" sm="12" align-self="start" class="mb-4">
+        <!-- <MediaItemGeneral :classes="'item-image-preview'" :options="options" :mediaItem="getMediaItem().coverImage"/> -->
+        <div class="mintButton">
+        <MintingTools class="w-100" :item="item" v-if="iAmOwner || edition === 0" />
+        </div>
+      </div>
+      <div class= "itemPreviewContainerDetails">
         <div>
           <div class="mb-2 d-flex justify-content-between">
             <h1 class= "assetName"> {{item.name}}</h1>
@@ -30,16 +38,17 @@
         <MintInfo :item="item"/>
         <PendingTransactionInfo v-if="txPending.length > 0" :contractAsset="item.contractAsset" :assetHash="item.assetHash"/>
         <div v-else>
-          <MintingTools class="w-100" :item="item" v-if="iAmOwner || edition === 0" />
+          <!-- <MintingTools class="w-100" :item="item" v-if="iAmOwner || edition === 0" /> -->
         </div>
-      </b-col>
-    </b-row>
-  </b-container>
+      </div>
+    </div>
+  </div>
 </section>
 </template>
 
 <script>
 import PendingTransactionInfo from '@/components/toolkit/PendingTransactionInfo'
+import moment from 'moment'
 import MintInfo from '@/components/toolkit/mint-setup/MintInfo'
 import MintingTools from '@/components/toolkit/MintingTools'
 import { APP_CONSTANTS } from '@/app-constants'
@@ -100,6 +109,20 @@ export default {
     }
   },
   methods: {
+    moment: function (val) {
+      const month = moment(this.item.updated).format('MMMM')
+      const day = moment(this.item.updated).format('Do')
+      const year = moment(this.item.updated).format('YYYY')
+      if (val === 1) {
+        return (month)
+      } else if (val === 2) {
+        return (day)
+      } else if (val === 3) {
+        return (year)
+      } else {
+        return (null)
+      }
+    },
     getMediaItem () {
       const attributes = this.$store.getters[APP_CONSTANTS.KEY_WAITING_IMAGE](this.item)
       return attributes
@@ -181,7 +204,39 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang=scss scoped>
+.itemPreviewSection{
+  background-color: white;
+  height: 70vh;
+}
+.nFTInfo{
+  position: absolute;
+  background-color: #5154A1;
+  color: white;
+  padding: 10px 0 10px 30px;
+  min-width: 175px;
+  min-height: 100px;
+  right: 0;
+  top: 200px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  span{
+    color: white !important;
+    font-size: bolder;
+  }
+  .spanDate{
+    font-weight: 100;
+    font-size: 13px;
+  }
+  .spanDate1{
+    font-weight: 500;
+    font-size: 20px;
+  }
+}
+
+.itemPreviewSubContainer{
+  max-width: 500px;
+}
 .backBtn{
   color: rgb(0, 0, 138);
   font-weight: 700;
@@ -195,4 +250,33 @@ export default {
   font-weight: 400;
   letter-spacing: 1.5px;
 }
+.itemPreviewBody{
+  margin-top: 150px;
+}
+.itemPreviewContainer{
+  display: flex;
+  flex-wrap: wrap;
+  /* gap: 60px; */
+}
+.itemPreviewContainer >*{
+  margin: 0 auto;
+  flex: 1 1 400px;
+}
+.itemPreviewContainerDetails{
+  max-width: 900px;
+}
+.itemPreviewNFT{
+  margin: auto;
+  max-width: 400px;
+  min-height: 500px;
+  padding: 30px;
+  background-color: #8181813f;
+  border-radius: 30px;
+}
+.mintButton{
+  display: block;
+  width: 140px;
+  margin: auto;
+}
+
 </style>
