@@ -23,10 +23,10 @@
     <div>
       <b-nav class="galleryNav" >
         <div class="galleryNavContainer" >
-        <b-nav-item class="galleryNavItem">Discover</b-nav-item>
-        <b-nav-item class="galleryNavItem">Popular</b-nav-item>
-        <b-nav-item class="galleryNavItem">Collections</b-nav-item>
-        <b-nav-item class="galleryNavItem">Your NFT's</b-nav-item>
+          <b-nav-item class="galleryNavItem">Discover</b-nav-item>
+          <b-nav-item class="galleryNavItem">Popular</b-nav-item>
+          <b-nav-item class="galleryNavItem">Collections</b-nav-item>
+          <b-nav-item class="galleryNavItem">Your NFT's</b-nav-item>
         </div>
       </b-nav>
     </div>
@@ -34,22 +34,21 @@
         <div class="gallery__collections--view-all d-lg-block d-none">
         </div>
       </div>
-      <div class="" v-if="resultSet && resultSet.length > 0">
-        <div class="row">
-          <div v-for="(item, index) in resultSet" :key="index" class="col-sl-6" style="display:flex; margin:auto" >
-            <div v-if="item.attributes.artworkFile.fileUrl !== null" class="gallery__items" style="display:flex; margin:10px">
+      <div class="row" v-if="resultSet && resultSet.length > 0">
+          <div v-for="(item, index) in resultSet" :key="index" class="" style="display:flex; margin:auto" >
+            <!-- v-if="item.attributes.artworkFile.fileUrl !== null" -->
+            <div class="gallery__items" style="display:flex; margin:10px">
               <GalleryNft class="mb-10" :item="item"/>
-                  </div>
-                </div>
             </div>
           </div>
-        <div class="container" style="min-height: 85vh;" v-else>
-      <b-container class="text-white mt-5">
-        <h1>No Gallery NFTs</h1>
-        <p>Our Gallery is coming online soon - please come back soon...</p>
-      </b-container>
-      <button>See more collectables</button>
-    </div>
+      </div>
+      <div class="container" style="min-height: 85vh;" v-else>
+        <b-container class="text-white mt-5">
+          <h1>No Gallery NFTs</h1>
+          <p>Our Gallery is coming online soon - please come back soon...</p>
+        </b-container>
+        <button>See more collectables</button>
+      </div>
     <!-- <CollectionsInfo/> -->
     <!-- <div class="section3">
      <div style="font-size:5rem; font-weight:300; margin:auto; text-align:center">The New Collectables Marketplace</div>
@@ -99,18 +98,7 @@ export default {
     findAssets () {
       // const pid = STX_CONTRACT_NAME.split('-')[0]
       this.$store.dispatch('rpaySearchStore/findByProjectId', STX_CONTRACT_ADDRESS + '.' + STX_CONTRACT_NAME).then((results) => {
-        // console.log(results)
-        do {
-          this.resultSet = results
-        } while (!results.attributes.coverImage.size === null)
-        // for (let i = 0; i < results.length; i++) {
-        //   console.log(results[i])
-        //   if (results[i].attributes.coverImage.size !== null) {
-        //     this.resultSet = results
-        //   } else {
-        //     return
-        //   }
-        // }
+        this.resultSet = results
       })
     }
   },
@@ -237,16 +225,16 @@ export default {
 
 .singleNftGalleryContainer{
   display: flex;
-    margin: auto;
-    flex-direction: column;
-    background: #ffffff4d;
-    padding-top: 3rem;
-    z-index: 1;
-    border-radius: 30px;
-    height: 40rem;
-    width: 28rem;
-    margin-bottom: 50px;
-     color: white;
+  margin: auto;
+  flex-direction: column;
+  background: #ffffff4d;
+  padding-top: 3rem;
+  z-index: 1;
+  border-radius: 30px;
+  height: 40rem;
+  width: 28rem;
+  margin-bottom: 50px;
+  color: white;
 }
 
 .singleNftGalleryContainer:nth-of-type(1n){
