@@ -16,7 +16,7 @@
         </div>
     </div>
     <div>
-      <div>
+      <!-- <div>
       <b-nav class="galleryNav" >
         <div class="galleryNavContainer" >
         <b-nav-item class="galleryNavItem">NFTs
@@ -26,7 +26,7 @@
         <b-nav-item class="galleryNavItem">Your NFT's</b-nav-item>
         </div>
       </b-nav>
-    </div>
+    </div> -->
         <b-container class="filesContainer galleryNav" v-if="loaded">
           <!-- <h1>My Library</h1> -->
           <b-tabs justified content-class="filesSubContainer">

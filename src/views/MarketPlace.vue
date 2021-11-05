@@ -37,7 +37,7 @@
       <div class="" v-if="resultSet && resultSet.length > 0">
         <div class="row">
           <div v-for="(item, index) in resultSet" :key="index" class="col-sl-6" style="display:flex; margin:auto" >
-            <div class="gallery__items" style="display:flex; margin:10px">
+            <div v-if="item.attributes.artworkFile.fileUrl !== null" class="gallery__items" style="display:flex; margin:10px">
               <GalleryNft class="mb-10" :item="item"/>
                   </div>
                 </div>
