@@ -57,7 +57,9 @@
                 sold or transferred the NFT to another wallet. </p>
               <b-row>
                 <b-col v-for="(gaiaAsset, index) in gaiaAssets" :key="index" lg="3" md="6" sm="6" xs="12">
+                  <div v-if="gaiaAsset.saleData.biddingEndTime !== 0">
                   <MySingleNft class="mb-2" :item="gaiaAsset"/>
+                  </div>
                 </b-col>
               </b-row>
             </b-tab>
@@ -67,7 +69,9 @@
                 sold or transferred the NFT to another wallet. </p>
               <b-row>
                 <b-col v-for="(gaiaAsset, index) in gaiaAssets" :key="index" lg="3" md="6" sm="6" xs="12">
-                  <MySingleNft class="mb-2" :item="gaiaAsset"/>
+                  <div v-if="gaiaAsset.saleData.saleType == 1">
+                    <MySingleNft class="mb-2" :item="gaiaAsset"/>
+                  </div>
                 </b-col>
               </b-row>
             </b-tab>

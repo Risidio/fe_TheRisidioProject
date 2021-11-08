@@ -1,5 +1,5 @@
 <template>
-<div class="mx-5 px-5">
+<div class="mx-6 px-5">
   <div style="font-size: 1.6rem;" class="d-flex justify-content-between" v-if="beneficiary">
     <div><a class="text-info" href="#" @click.prevent="showBeneficiary = !showBeneficiary">{{displayAddress()}}</a></div>
     <div class=" d-flex justify-content-between">
@@ -10,7 +10,7 @@
       </div>
     </div>
   </div>
-  <div class="" style="font-size: 1.3rem;" v-if="showBeneficiary">
+  <div class="beneficiary" style="font-size: 1.3rem;" v-if="showBeneficiary">
     <div class="row">
       <div class="col-3">Address</div>
       <div class="col-9">{{beneficiary.chainAddress}}</div>
@@ -69,4 +69,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.beneficiary{
+  margin-top: 10px;
+}
 </style>
