@@ -1,9 +1,21 @@
 <template>
 <div deck v-if="item" class="card">
-  <div class="text-center" header-tag="header" footer-tag="footer">
+  <div v-if="royalties == false">
+    <div class="text-center" header-tag="header" footer-tag="footer">
     <!-- <header-screen :allowEdit="false" :item="item"/> -->
     <ItemDisplay class="my-5" :item="item"/>
-    <div class="d-flex justify-content-center"><p class="w-50 py-3 px-5 mb-5 royaltyButton"><a class="text-white" style="display: block; margin: 5px auto" href="#" @click="showBeneficiaries = true">Set Your Royalties</a></p></div>
+    <div class="d-flex justify-content-center"><p class="w-50 py-3 px-5 mb-5 royaltyButton"><a class="text-white" style="display: block; margin: 5px auto" href="#" @click="royalties = !royalties">Set Your Royalties</a></p></div>
+    <!-- <beneficiaries class="mb-5 text-left" v-if="showBeneficiaries" :beneficiaries="beneficiaries" v-on="$listeners" :item="item"/> -->
+    <div class="my-4 text-danger" v-html="errorMessage"></div>
+      <div class="royaltyButtons">
+        <button @click="saveData()" class="rButton">save mint later</button>
+        <button @click="sendMintEvent()" v-if="allowMint()"  class="rButton">mint now</button>
+      </div>
+      </div>
+  </div>
+  <div v-else>
+    <!-- <div class="d-flex justify-content-center"><p class="w-50 py-3 px-5 mb-5 royaltyButton"><a class="text-white" style="display: block; margin: 5px auto" href="#" @click="royalties = !royalties">Set Your Royalties</a></p></div> -->
+    <h1 class="h1-modal" style="text-align: center; margin-bottom: 80px;">Set Your Royalties</h1>
     <beneficiaries class="mb-5 text-left" v-if="showBeneficiaries" :beneficiaries="beneficiaries" v-on="$listeners" :item="item"/>
     <div class="my-4 text-danger" v-html="errorMessage"></div>
       <div class="royaltyButtons">
@@ -29,7 +41,8 @@ export default {
   data () {
     return {
       mintedMessage: null,
-      showBeneficiaries: false
+      showBeneficiaries: true,
+      royalties: false
     }
   },
   methods: {

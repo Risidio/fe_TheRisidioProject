@@ -87,9 +87,15 @@ export default {
 </script>
 <style lang="scss" scoped>
 .mySingleNFT{
-  padding: 20px;
-  background: rgba(80, 177, 181, .12);
+  padding: 28px;
+  background:rgba(129, 129, 129, .12);
+  // background: rgba(80, 177, 181, .12);
   border-radius: 26px;
+  margin: 20px 10px;
+}
+.mySingleNFT:hover{
+  background:rgba(129, 129, 129, .12);
+  transition: all 5s ease-out smooth ;
 }
 .itemFit{
   width: 100%;
